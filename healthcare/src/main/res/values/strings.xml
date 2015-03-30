@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">سامانه سلامت</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="welcome">به سامانه سلامت خوش آمدید!</string>
+    <string name="register">ثبت نام</string>
+    <string name="login">ورود</string>
+    <string name="registered_before">قبلا ثبت نام کرده ام</string>
+    <string name="back">بازگشت</string>
+
+    <string name="username">نام کاربری</string>
+    <string name="password">کلمه عبور</string>
+    <string name="email">ایمیل</string>
+    <string name="passwordRepeat">تکرار کلمه عبور</string>
+    <string name="name">نام</string>
+    <string name="family">نام خانوادگی</string>
+    <string name="nationalID">کد ملی</string>
+
+
+    <string name="error">خطا</string>
+    <string name="invalid_form"> لطفا اطلاعات فرم را به دقت پر کنید</string>
+    <string name="not_matched_password"> کلمه عبور و تکرار آن مطابقت ندارد</string>
+    <string name="invalid_username">این نام کاربری قبلا استفاده شده است</string>
+    <string name="user_not_found">نام کاربری مورد نظر یافت نشد.</string>
+    <string name="password_wrong">کلمه عبور صحیح نیست.</string>
+
+    <string-array name="roles_array">
+        <item>بیمار</item>
+        <item>پزشک عمومی</item>
+        <item>پزشک متخصص</item>
+        <item>داروخانه</item>
+    </string-array>
+
+
+</resources>
