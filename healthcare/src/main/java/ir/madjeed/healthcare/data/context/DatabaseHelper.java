@@ -25,23 +25,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-        DatabaseInitializer initializer = new DatabaseInitializer(context);
-        try {
-            initializer.createDatabase();
-            initializer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
+    // it will be called as first query received
+    // it wont be called when app reinstalled if db exist
+    // don't use other helpers!
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
+
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
-
             TableUtils.createTable(connectionSource, User.class);
 
         } catch (SQLException e) {
@@ -51,6 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
 
+    // it will be called when app upgraded to newer version
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
@@ -75,13 +70,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return null;
     }
 
-
-    public Dao<User, String> getUserDao() throws SQLException {
-        if (userDao == null) {
-            userDao = DaoManager.createDao(getConnectionSource(), User.class);
-        }
-        return userDao;
-    }
+//
+//    public Dao<User, String> getUserDao() throws SQLException {
+//        if (userDao == null) {
+//            userDao = DaoManager.createDao(getConnectionSource(), User.class);
+//        }
+//        return userDao;
+//    }
 
 
 

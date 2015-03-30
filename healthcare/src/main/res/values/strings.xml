@@ -10,6 +10,7 @@
     <string name="login">ورود</string>
     <string name="registered_before">قبلا ثبت نام کرده ام</string>
     <string name="back">بازگشت</string>
+    <string name="menu">منوی کاربری</string>
 
     <string name="username">نام کاربری</string>
     <string name="password">کلمه عبور</string>

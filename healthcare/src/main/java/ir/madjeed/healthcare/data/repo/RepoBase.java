@@ -1,5 +1,6 @@
 package ir.madjeed.healthcare.data.repo;
 
+import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -11,6 +12,7 @@ import java.util.List;
 public class RepoBase<C, D> {
 
     private Class<C> typeC;
+    private final String LOG_TAG = getClass().getSimpleName();
 
     Dao<C, D> instanceDao;
 
@@ -35,7 +37,7 @@ public class RepoBase<C, D> {
             return instanceDao.create(instance);
         } catch (SQLException e) {
             // TODO: Exception Handling
-            e.printStackTrace();
+            Log.e(LOG_TAG, Log.getStackTraceString(e));
         }
         return 0;
     }
@@ -45,7 +47,7 @@ public class RepoBase<C, D> {
             return instanceDao.update(instance);
         } catch (SQLException e) {
             // TODO: Exception Handling
-            e.printStackTrace();
+            Log.e(LOG_TAG, Log.getStackTraceString(e));
         }
         return 0;
     }
@@ -55,7 +57,7 @@ public class RepoBase<C, D> {
             return instanceDao.delete(instance);
         } catch (SQLException e) {
             // TODO: Exception Handling
-            e.printStackTrace();
+            Log.e(LOG_TAG, Log.getStackTraceString(e));
         }
         return 0;
     }
@@ -71,7 +73,7 @@ public class RepoBase<C, D> {
             return instanceDao.queryForFirst(pq);
         } catch (SQLException e) {
             // TODO: Exception Handling
-            e.printStackTrace();
+            Log.e(LOG_TAG, Log.getStackTraceString(e));
         }
         return null;
     }
@@ -82,7 +84,7 @@ public class RepoBase<C, D> {
             return instanceDao.queryForAll();
         } catch (SQLException e) {
             // TODO: Exception Handling
-            e.printStackTrace();
+            Log.e(LOG_TAG, Log.getStackTraceString(e));
         }
         return null;
     }
