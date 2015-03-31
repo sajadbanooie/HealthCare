@@ -1,9 +1,12 @@
 package ir.madjeed.healthcare.gui;
 
+import android.widget.Spinner;
+import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.InjectViews;
-import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
+import ir.madjeed.healthcare.data.User;
 import android.content.Intent;
+import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
@@ -16,6 +19,9 @@ public class RegisterActivity extends BaseActivity {
 
     @InjectViews({ R.id.username, R.id.password, R.id.passwordRepeat, R.id.name, R.id.family, R.id.nationalID})
     List<BootstrapEditText> editTexts;
+
+    @InjectView(R.id.role)
+    Spinner role;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,10 @@ public class RegisterActivity extends BaseActivity {
             if (repo.getRepoUsers().getByID(editTexts.get(0).getText().toString()) != null){
                 showMessage("error", getString(R.string.invalid_username));
             }else{
-                UserPersistent user = new UserPersistent("Shadow", editTexts.get(0).getText().toString(), "MySecretPassword", "email@gmail.com");
+                User user = new UserPersistent(editTexts.get(0).getText().toString(), editTexts.get(1).getText().toString(),
+                        editTexts.get(3).getText().toString(), editTexts.get(4).getText().toString(),
+                        editTexts.get(5).getText().toString(), role.getSelectedItem().toString());
+
                 user.save(repo);
                 startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
             }

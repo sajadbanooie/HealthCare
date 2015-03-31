@@ -59,23 +59,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
 
-
     public <C, D> Dao<C, D> getInstanceDao(Class typeC) throws SQLException {
         if (typeC.equals(UserPersistent.class)) {
-            userDao = DaoManager.createDao(getConnectionSource(), typeC );
+            if (userDao == null) userDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) userDao;
         }
         return null;
     }
-
-//
-//    public Dao<User, String> getUserDao() throws SQLException {
-//        if (userDao == null) {
-//            userDao = DaoManager.createDao(getConnectionSource(), User.class);
-//        }
-//        return userDao;
-//    }
-
 
 
     @Override

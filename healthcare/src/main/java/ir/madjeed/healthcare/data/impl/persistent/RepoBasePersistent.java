@@ -75,7 +75,7 @@ public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
             QueryBuilder<C, D> qb = instanceDao.queryBuilder();
 
             // should change it to sth like id_column n\
-            qb.where().eq("username", id);
+            qb.where().eq("pk_column", id);
             PreparedQuery<C> pq = qb.prepare();
             return instanceDao.queryForFirst(pq);
         } catch (SQLException e) {

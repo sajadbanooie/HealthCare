@@ -5,27 +5,45 @@ import com.j256.ormlite.field.DatabaseField;
 import ir.madjeed.healthcare.data.User;
 
 
-// id column name should be same among entities because of my implementation
+// id column name should be same among entities because of my implementation (pk_column)
 public class UserPersistent implements User {
 
-    @DatabaseField(id = true)
+    @DatabaseField(id = true, columnName = "pk_column")
     String username;
+
     @DatabaseField
     String password;
+
     @DatabaseField
-    String email;
+    String name;
+
     @DatabaseField
-    String alias;
+    String family;
+
+    @DatabaseField
+    String nationalID;
+
+    @DatabaseField
+    String role;
+
 
     public UserPersistent() {
         // needed by ormlite
     }
 
-    public UserPersistent(String alias, String username, String password, String email) {
-        this.alias = alias;
+    public UserPersistent(String username, String password, String name, String family, String nationalID, String role) {
         this.username = username;
         this.password = password;
-        this.email = email;
+        this.name = name;
+        this.family = family;
+        this.nationalID = nationalID;
+        this.role = role;
+    }
+
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 
     @Override
@@ -34,8 +52,8 @@ public class UserPersistent implements User {
     }
 
     @Override
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -44,28 +62,43 @@ public class UserPersistent implements User {
     }
 
     @Override
-    public String getPassword() {
-        return password;
+    public String getName() {
+        return name;
     }
 
     @Override
-    public void setEmail(String email) {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public String getEmail() {
-        return email;
+    public String getFamily() {
+        return family;
     }
 
     @Override
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setFamily(String family) {
+        this.family = family;
     }
 
     @Override
-    public String getAlias() {
-        return alias;
+    public String getNationalID() {
+        return nationalID;
+    }
+
+    @Override
+    public void setNationalID(String nationalID) {
+        this.nationalID = nationalID;
+    }
+
+    @Override
+    public String getRole() {
+        return role;
+    }
+
+    @Override
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -90,7 +123,7 @@ public class UserPersistent implements User {
     @Override
     public String toString()
     {
-        return alias;
+        return username;
     }
 
 }
