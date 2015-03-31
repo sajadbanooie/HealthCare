@@ -3,9 +3,11 @@ package ir.madjeed.healthcare.data.impl.persistent.entity;
 import ir.madjeed.healthcare.data.Repo;
 import com.j256.ormlite.field.DatabaseField;
 import ir.madjeed.healthcare.data.User;
+import org.parceler.Parcel;
 
 
 // id column name should be same among entities because of my implementation (pk_column)
+@Parcel
 public class UserPersistent implements User {
 
     @DatabaseField(id = true, columnName = "pk_column")

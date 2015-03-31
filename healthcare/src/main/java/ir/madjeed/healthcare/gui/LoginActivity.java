@@ -1,6 +1,6 @@
 package ir.madjeed.healthcare.gui;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -47,7 +47,13 @@ public class LoginActivity extends BaseActivity {
             }else if (!u.getPassword().equals(passwordBtn.getText().toString())){
                 showMessage("error", getString(R.string.password_wrong));
             }else{
-                startActivity(new Intent(this, MenuActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("username", u.getUsername());
+                editor.putString("role", u.getRole());
+                // Save the changes in SharedPreferences
+                editor.commit(); // commit changes
+                customStartActivity(MenuActivity.class);
             }
         }
     }

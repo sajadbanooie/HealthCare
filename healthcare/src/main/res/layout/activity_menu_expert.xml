@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="@dimen/activity_padding">
+
+
+    <TextView
+            android:text="@string/expert_menu"
+            android:id="@+id/expert_menu"
+            style="@style/title_style"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="EditInfoActivity"
+            style="@style/btn_style"
+            android:text="@string/edit_info"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="MessagesActivity"
+            style="@style/btn_style"
+            android:text="@string/messages"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="ExitActivity"
+            style="@style/btn_style"
+            android:text="@string/exit"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="ConsultantActivity"
+            style="@style/btn_style"
+            android:text="@string/consultant"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="RequestsActivity"
+            style="@style/btn_style"
+            android:text="@string/requests"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:tag="MyPatientsActivity"
+            style="@style/btn_style"
+            android:text="@string/my_patients"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            android:onClick="onMenuBtnPress"
+            />
+
+
+</LinearLayout>

@@ -28,12 +28,33 @@
     <string name="user_not_found">نام کاربری مورد نظر یافت نشد.</string>
     <string name="password_wrong">کلمه عبور صحیح نیست.</string>
 
+
+    <string name="expert">پزشک متخصص</string>
+    <string name="doctor">پزشک عمومی</string>
+    <string name="patient">بیمار</string>
+    <string name="drugstore">داروخانه</string>
+
     <string-array name="roles_array">
-        <item>بیمار</item>
-        <item>پزشک عمومی</item>
-        <item>پزشک متخصص</item>
-        <item>داروخانه</item>
+        <item>@string/patient</item>
+        <item>@string/doctor</item>
+        <item>@string/expert</item>
+        <item>@string/drugstore</item>
     </string-array>
 
+    <string name="expert_menu">منوی پزشک متخصص</string>
+    <string name="doctor_menu">منوی پزشک عمومی</string>
+    <string name="patient_menu">منوی بیمار</string>
+    <string name="drugstore_menu">منوی داروخانه</string>
+
+    <string name="edit_info">متغییر مشخصات</string>
+    <string name="messages">پیام ها</string>
+    <string name="exit">خروج</string>
+    <string name="consultant">مشاوره</string>
+    <string name="requests">درخواست ها</string>
+    <string name="my_patients">بیماران من</string>
+    <string name="my_doctor">پزشک من</string>
+    <string name="my_history">سوابق من</string>
+    <string name="add_physical_activity">ثبت فعالیت بدنی</string>
+    <string name="managing_drugs">مدیریت داروها</string>
 
 </resources>

@@ -5,7 +5,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.InjectViews;
 import ir.madjeed.healthcare.data.User;
-import android.content.Intent;
 import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
@@ -58,7 +57,7 @@ public class RegisterActivity extends BaseActivity {
                         editTexts.get(5).getText().toString(), role.getSelectedItem().toString());
 
                 user.save(repo);
-                startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                customStartActivity(LoginActivity.class);
             }
         }
     }

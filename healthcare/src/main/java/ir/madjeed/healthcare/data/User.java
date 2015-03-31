@@ -1,6 +1,5 @@
 package ir.madjeed.healthcare.data;
 
-
 public interface User {
     public void setUsername(String username);
     public String getUsername();
