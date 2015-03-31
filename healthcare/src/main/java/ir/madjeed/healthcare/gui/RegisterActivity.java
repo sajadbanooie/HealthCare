@@ -2,7 +2,7 @@ package ir.madjeed.healthcare.gui;
 
 import butterknife.OnClick;
 import butterknife.InjectViews;
-import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
 import android.content.Intent;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
@@ -44,10 +44,10 @@ public class RegisterActivity extends BaseActivity {
             editTexts.get(2).setState(BootstrapEditText.TextState.DANGER);
             showMessage("error", getString(R.string.not_matched_password));
         }else{
-            if (repo.Users.getByID(editTexts.get(0).getText().toString()) != null){
+            if (repo.getRepoUsers().getByID(editTexts.get(0).getText().toString()) != null){
                 showMessage("error", getString(R.string.invalid_username));
             }else{
-                User user = new User("Shadow", editTexts.get(0).getText().toString(), "MySecretPassword", "email@gmail.com");
+                UserPersistent user = new UserPersistent("Shadow", editTexts.get(0).getText().toString(), "MySecretPassword", "email@gmail.com");
                 user.save(repo);
                 startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
             }

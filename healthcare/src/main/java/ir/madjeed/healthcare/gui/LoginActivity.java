@@ -6,7 +6,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
-import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.data.User;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 
 
@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
         if (error)
             showMessage("error", getString(R.string.invalid_form));
         else{
-            User u = repo.Users.getByID(userBtn.getText().toString());
+            User u = repo.getRepoUsers().getByID(userBtn.getText().toString());
             if (u == null){
                 showMessage("error", getString(R.string.user_not_found));
             }else if (!u.getPassword().equals(passwordBtn.getText().toString())){

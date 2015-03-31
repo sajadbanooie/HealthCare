@@ -1,8 +1,7 @@
-package ir.madjeed.healthcare.data.context;
+package ir.madjeed.healthcare.data.impl.persistent.context;
 
-import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import android.content.Context;
@@ -20,7 +19,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "db.sqlite";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<User, String> userDao = null;
+    private Dao<UserPersistent, String> userDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -33,10 +32,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // don't use other helpers!
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
-
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
-            TableUtils.createTable(connectionSource, User.class);
+            TableUtils.createTable(connectionSource, UserPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -51,7 +49,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade");
 
-            TableUtils.dropTable(connectionSource, User.class, true);
+            TableUtils.dropTable(connectionSource, UserPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -63,7 +61,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
     public <C, D> Dao<C, D> getInstanceDao(Class typeC) throws SQLException {
-        if (typeC.equals(User.class)) {
+        if (typeC.equals(UserPersistent.class)) {
             userDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) userDao;
         }

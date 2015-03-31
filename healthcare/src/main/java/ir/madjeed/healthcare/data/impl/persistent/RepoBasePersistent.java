@@ -1,22 +1,23 @@
-package ir.madjeed.healthcare.data.repo;
+package ir.madjeed.healthcare.data.impl.persistent;
 
 import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import ir.madjeed.healthcare.data.context.DatabaseHelper;
+import ir.madjeed.healthcare.data.RepoBase;
+import ir.madjeed.healthcare.data.impl.persistent.context.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class RepoBase<C, D> {
+public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
 
     private Class<C> typeC;
     private final String LOG_TAG = getClass().getSimpleName();
 
     Dao<C, D> instanceDao;
 
-    public RepoBase(DatabaseHelper db, Class<C> typeC)
+    public RepoBasePersistent(DatabaseHelper db, Class<C> typeC)
     {
         try {
             instanceDao = db.getInstanceDao(typeC);
@@ -31,6 +32,7 @@ public class RepoBase<C, D> {
         return this.typeC;
     }
 
+    @Override
     public int create(C instance)
     {
         try {
@@ -41,6 +43,8 @@ public class RepoBase<C, D> {
         }
         return 0;
     }
+
+    @Override
     public int update(C instance)
     {
         try {
@@ -51,6 +55,8 @@ public class RepoBase<C, D> {
         }
         return 0;
     }
+
+    @Override
     public int delete(C instance)
     {
         try {
@@ -62,6 +68,7 @@ public class RepoBase<C, D> {
         return 0;
     }
 
+    @Override
     public C getByID(D id)
     {
         try {
@@ -78,6 +85,7 @@ public class RepoBase<C, D> {
         return null;
     }
 
+    @Override
     public List<C> getAll()
     {
         try {
