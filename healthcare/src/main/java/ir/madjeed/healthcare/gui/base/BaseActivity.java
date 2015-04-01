@@ -12,14 +12,16 @@ import butterknife.ButterKnife;
 import ir.madjeed.healthcare.R;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import ir.madjeed.healthcare.data.Repo;
+import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
 
 
 public abstract class BaseActivity extends ActionBarActivity {
 
-    public Repo repo;
-    private final String LOG_TAG = "khar";
-    public String username, role;
+    private final String LOG_TAG = "maz_maz";
+    protected Repo repo;
+    protected String username, role;
+    protected User user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public abstract class BaseActivity extends ActionBarActivity {
 
         //data base setting
         repo = new RepoPersistent(this);
+        if (username != null)
+            user = repo.getRepoUsers().getByID(username);
     }
 
     @Override

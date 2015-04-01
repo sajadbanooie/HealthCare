@@ -46,7 +46,7 @@
     <string name="patient_menu">منوی بیمار</string>
     <string name="drugstore_menu">منوی داروخانه</string>
 
-    <string name="edit_info">متغییر مشخصات</string>
+    <string name="edit_info">تغییر مشخصات</string>
     <string name="messages">پیام ها</string>
     <string name="exit">خروج</string>
     <string name="consultant">مشاوره</string>

@@ -19,6 +19,7 @@
         <activity android:name="ir.madjeed.healthcare.gui.RegisterActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.LoginActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.MenuActivity"/>
+        <activity android:name="ir.madjeed.healthcare.gui.EditInfoActivity"/>
     </application>
 
 </manifest>

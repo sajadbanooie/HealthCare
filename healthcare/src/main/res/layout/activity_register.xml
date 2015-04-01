@@ -28,6 +28,7 @@
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
             style="@style/edit_text_style"
+            android:password="true"
             />
 
 
@@ -37,6 +38,7 @@
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
             style="@style/edit_text_style"
+            android:password="true"
             />
 
 
