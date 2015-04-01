@@ -4,8 +4,7 @@ import android.widget.Spinner;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.InjectViews;
-import ir.madjeed.healthcare.data.User;
-import ir.madjeed.healthcare.data.impl.persistent.entity.UserPersistent;
+import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
@@ -52,7 +51,7 @@ public class RegisterActivity extends BaseActivity {
             if (repo.getRepoUsers().getByID(editTexts.get(0).getText().toString()) != null){
                 showMessage("error", getString(R.string.invalid_username));
             }else{
-                User user = new UserPersistent(editTexts.get(0).getText().toString(), editTexts.get(1).getText().toString(),
+                User user = new User(editTexts.get(0).getText().toString(), editTexts.get(1).getText().toString(),
                         editTexts.get(3).getText().toString(), editTexts.get(4).getText().toString(),
                         editTexts.get(5).getText().toString(), role.getSelectedItem().toString());
 

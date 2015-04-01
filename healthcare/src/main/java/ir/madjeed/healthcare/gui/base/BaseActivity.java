@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import ir.madjeed.healthcare.R;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import ir.madjeed.healthcare.data.Repo;
-import ir.madjeed.healthcare.data.impl.persistent.RepoPersistent;
+import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
 
 
 public abstract class BaseActivity extends ActionBarActivity {

@@ -1,39 +1,34 @@
-package ir.madjeed.healthcare.data.impl.persistent;
+package ir.madjeed.healthcare.data.repo.impl.persistent;
 
 import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import ir.madjeed.healthcare.data.RepoBase;
-import ir.madjeed.healthcare.data.impl.persistent.context.DatabaseHelper;
+import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.data.repo.RepoUser;
+import ir.madjeed.healthcare.data.repo.impl.persistent.context.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
+public class RepoUserPersistent implements RepoUser {
 
-    private Class<C> typeC;
     private final String LOG_TAG = getClass().getSimpleName();
 
-    Dao<C, D> instanceDao;
+    Dao<User, String> instanceDao;
 
-    public RepoBasePersistent(DatabaseHelper db, Class<C> typeC)
+    public RepoUserPersistent(DatabaseHelper db)
     {
         try {
-            instanceDao = db.getInstanceDao(typeC);
-            this.typeC = typeC;
+            instanceDao = db.getInstanceDao(User.class);
         } catch (SQLException e) {
             // TODO: Exception Handling
             e.printStackTrace();
         }
     }
 
-    public Class<C> getRepoEntityType(){
-        return this.typeC;
-    }
-
     @Override
-    public int create(C instance)
+    public int create(User instance)
     {
         try {
             return instanceDao.create(instance);
@@ -45,7 +40,7 @@ public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
     }
 
     @Override
-    public int update(C instance)
+    public int update(User instance)
     {
         try {
             return instanceDao.update(instance);
@@ -57,7 +52,7 @@ public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
     }
 
     @Override
-    public int delete(C instance)
+    public int delete(User instance)
     {
         try {
             return instanceDao.delete(instance);
@@ -69,14 +64,14 @@ public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
     }
 
     @Override
-    public C getByID(D id)
+    public User getByID(String id)
     {
         try {
-            QueryBuilder<C, D> qb = instanceDao.queryBuilder();
+            QueryBuilder<User, String> qb = instanceDao.queryBuilder();
 
             // should change it to sth like id_column n\
             qb.where().eq("pk_column", id);
-            PreparedQuery<C> pq = qb.prepare();
+            PreparedQuery<User> pq = qb.prepare();
             return instanceDao.queryForFirst(pq);
         } catch (SQLException e) {
             // TODO: Exception Handling
@@ -86,7 +81,7 @@ public class RepoBasePersistent<C, D> implements RepoBase<C, D> {
     }
 
     @Override
-    public List<C> getAll()
+    public List<User> getAll()
     {
         try {
             return instanceDao.queryForAll();
