@@ -40,6 +40,7 @@
         <item>@string/expert</item>
         <item>@string/drugstore</item>
     </string-array>
+    <string name="admin">مدیر سامانه</string>
 
     <string name="expert_menu">منوی پزشک متخصص</string>
     <string name="doctor_menu">منوی پزشک عمومی</string>
@@ -66,5 +67,11 @@
     <string name="subject">موضوع</string>
     <string name="audience">مخاطب</string>
     <string name="approve">تایید</string>
+
+    <string name="my_patients_list">لیست بیماران تحت نظر</string>
+    <string name="patients_list">لیست بیماران</string>
+    <string name="my_doctors_list">لیست پزشکان ناظر</string>
+    <string name="doctors_list">لیست پزشکان</string>
+    <string name="drugstores_list">لیست داروخانه ها</string>
 
 </resources>
