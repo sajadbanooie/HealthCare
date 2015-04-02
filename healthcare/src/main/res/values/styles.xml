@@ -24,7 +24,7 @@
     <style name="edit_text_style" >
         <item name="android:layout_marginTop">11sp</item>
         <item name="android:padding">@dimen/eb_padding</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">right|top</item>
         <item name="android:textSize">22sp</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -34,7 +34,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textSize">22sp</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">60sp</item>
     </style>
 
 
@@ -51,6 +51,14 @@
     <style name="list_item_text_style" >
         <item name="android:padding">@dimen/widget_padding</item>
         <item name="android:gravity">center</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="list_item_text_right_style" >
+        <item name="android:padding">@dimen/widget_padding</item>
+        <item name="android:gravity">right</item>
         <item name="android:textSize">22sp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

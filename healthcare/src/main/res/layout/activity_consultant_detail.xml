@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/title"
+            style="@style/title_style"
+            android:gravity="right"
+            />
+
+    <ListView
+            android:id="@+id/mainListView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:smoothScrollbar="true"
+            android:scrollbars="none"
+            android:layout_weight = "1">
+    </ListView>
+
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="@dimen/widget_padding">
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="3"
+                      android:layout_marginLeft="@dimen/widget_padding"
+                      android:padding="@dimen/widget_padding">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/send_message"
+                    style="@style/btn_style"
+                    android:text="@string/send_message"
+                    bootstrap:bb_type="success"
+                    bootstrap:bb_roundedCorners="true"
+                    android:layout_weight="1"
+                    />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/finish_consultant"
+                style="@style/btn_style"
+                android:text="@string/finish"
+                bootstrap:bb_type="warning"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/your_message"
+                android:hint="@string/your_message"
+                bootstrap:be_roundedCorners="true"
+                bootstrap:be_state="primary"
+                style="@style/edit_text_style"
+                android:layout_weight="1"
+                android:layout_height="200sp"
+                android:layout_marginRight="@dimen/widget_padding"
+                />
+
+    </LinearLayout>
+
+</LinearLayout>

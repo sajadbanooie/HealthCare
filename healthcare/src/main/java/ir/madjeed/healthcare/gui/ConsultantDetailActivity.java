@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.CustomRowObject;
@@ -19,69 +20,61 @@ import java.util.ArrayList;
 
 public class ConsultantDetailActivity extends BaseActivity {
 
-    protected CustomAdapter mAdapter;
-
+    private CustomAdapter mAdapter;
+    @InjectView(R.id.title) TextView title;
+    @InjectView(R.id.mainListView) ListView mListView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LayoutInflater mInflater = LayoutInflater.from(this);
-        ListView mListView = (ListView) findViewById(R.id.mainListView);
-
         ArrayList<CustomRowObject> items = new ArrayList<CustomRowObject>();
-        items.add(new CustomRowObject("باز", "آی دلم ...", "2 روز پیش"));
-        items.add(new CustomRowObject("بسته", "شب ادراری", "1 ماه پیش"));
 
+        String id = getIntent().getExtras().getString("ID");
+        title.setText(id);
+
+        items.add(new CustomRowObject( "بیمار 1", "درد دل دارم چه کار کنم"));
+        items.add(new CustomRowObject( "دکتر 21", "برو دکتر ..."));
+        items.add(new CustomRowObject( "بیمار 1", "عجب نصیحتی ...\nباشه حتما\n"));
         mAdapter = new CustomAdapter(this, items);
         mListView.setAdapter(mAdapter);
-
     }
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.activity_consultant_list;
+        return R.layout.activity_consultant_detail;
     }
-
 
     private class CustomAdapter extends ArrayAdapter<CustomRowObject> {
 
-        protected Context mContext;
-        protected ArrayList<CustomRowObject> mItems;
+        private Context mContext;
+        private ArrayList<CustomRowObject> mItems;
 
         public CustomAdapter(Context context, ArrayList<CustomRowObject> items) {
-            super(context, R.layout.consultant_item, items); // Use a custom layout file
+            super(context, R.layout.consultant_item, items);
             mContext = context;
             mItems = items;
         }
 
         public View getView(int position, View view, ViewGroup parent) {
-            ViewHolder holder;
+            final ViewHolder holder;
             if (view != null) {
                 holder = (ViewHolder) view.getTag();
             } else {
-                view = LayoutInflater.from(this.mContext).inflate(R.layout.consultant_item, null);
+                view = LayoutInflater.from(this.mContext).inflate(R.layout.consultant_detail_item, null);
                 holder = new ViewHolder(view);
                 view.setTag(holder);
             }
-            holder.state.setText(mItems.get(position).getColumn(0));
-            holder.subject.setText(mItems.get(position).getColumn(1));
-            holder.time.setText(mItems.get(position).getColumn(2));
+            holder.sender.setText(mItems.get(position).getColumn(0));
+            holder.message.setText(mItems.get(position).getColumn(1));
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    customStartActivity(ConsultantDetailActivity.class);
-                }
-            });
             return view;
         }
     }
 
     class ViewHolder {
-        @InjectView(R.id.state) TextView state;
-        @InjectView(R.id.time) TextView time;
-        @InjectView(R.id.subject) TextView subject;
+        @InjectView(R.id.sender) TextView sender;
+        @InjectView(R.id.message) TextView message;
         public ViewHolder(View view) {
             ButterKnife.inject(this, view);
         }

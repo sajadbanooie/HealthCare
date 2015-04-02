@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="?android:attr/listPreferredItemHeight">
+
+    <LinearLayout style="@style/list_item_style">
+
+        <TextView android:id="@+id/message"
+                  style="@style/list_item_text_right_style"
+                  android:layout_weight="1"/>
+
+        <TextView android:id="@+id/sender"
+                  style="@style/list_item_text_right_style"
+                  android:layout_weight="3"/>
+
+    </LinearLayout>
+</LinearLayout>

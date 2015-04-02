@@ -23,6 +23,7 @@
                 />
 
         <TextView
+                android:id="@+id/title"
                 style="@style/title_style"
                 android:text="@string/consultantWithDoctor"
                 android:gravity="right"

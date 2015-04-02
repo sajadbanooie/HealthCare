@@ -60,5 +60,8 @@
     <string name="addConsultant">ایجاد مشاوره جدید</string>
     <string name="consultantWithDoctor">مشاوره با پزشک</string>
     <string name="consultantWithPatient">مشاوره با بیمار</string>
+    <string name="your_message">پیام شما</string>
+    <string name="finish">پایان دادن</string>
+    <string name="send_message">ارسال پیام</string>
 
 </resources>

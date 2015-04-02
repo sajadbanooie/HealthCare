@@ -80,7 +80,12 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     public void customStartActivity(Class c){
         Intent i = new Intent(this, c).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(i);
+    }
 
+    public void customStartActivity(Class c, String id){
+        Intent i = new Intent(this, c).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        i.putExtra("ID", id);
         startActivity(i);
     }
 

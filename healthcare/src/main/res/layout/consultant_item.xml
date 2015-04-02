@@ -8,19 +8,21 @@
     <LinearLayout style="@style/list_item_style">
 
 
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/time"
+        <TextView android:id="@+id/time"
                   style="@style/list_item_text_style"
                   android:layout_weight="1"/>
 
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/subject"
+        <TextView android:id="@+id/subject"
                   style="@style/list_item_text_style"
                   android:layout_weight="1"/>
 
 
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/state"
+        <TextView android:id="@+id/audience"
+                  style="@style/list_item_text_style"
+                  android:layout_weight="1"/>
+
+
+        <TextView android:id="@+id/state"
                   style="@style/list_item_text_style"
                   android:layout_weight="1"/>
 
