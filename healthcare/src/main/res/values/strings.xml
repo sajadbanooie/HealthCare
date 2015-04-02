@@ -58,5 +58,7 @@
     <string name="managing_drugs">مدیریت داروها</string>
 
     <string name="addConsultant">ایجاد مشاوره جدید</string>
+    <string name="consultantWithDoctor">مشاوره با پزشک</string>
+    <string name="consultantWithPatient">مشاوره با بیمار</string>
 
 </resources>

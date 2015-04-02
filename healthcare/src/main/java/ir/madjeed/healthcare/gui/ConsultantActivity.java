@@ -70,7 +70,7 @@ public class ConsultantActivity extends BaseActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    customStartActivity(ConsultantDetailActivity.class);
+                    customStartActivity(RegisterActivity.class);
                 }
             });
             return view;

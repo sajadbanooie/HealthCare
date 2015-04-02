@@ -24,7 +24,7 @@
 
         <TextView
                 style="@style/title_style"
-                android:text="@string/consultant"
+                android:text="@string/consultantWithDoctor"
                 android:gravity="right"
                 android:layout_weight="1"
                 />
