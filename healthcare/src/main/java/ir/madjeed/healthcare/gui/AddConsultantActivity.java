@@ -25,13 +25,13 @@ public class AddConsultantActivity extends BaseActivity {
 
         //TODO loading from db
         ArrayList<String> spinnerArray = new ArrayList<String>();
-        spinnerArray.add("one");
-        spinnerArray.add("two");
-        spinnerArray.add("three");
-        spinnerArray.add("four");
-        spinnerArray.add("five");
-
-
+        if (role.equals("بیمار")){
+            spinnerArray.add("پزشک 1");
+            spinnerArray.add("پزشک 325");
+        }else{
+            spinnerArray.add("بیمار 232");
+            spinnerArray.add("بیمار 82");
+        }
         ArrayAdapter<String> spinnerArrayAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
         audience_spinner.setAdapter(spinnerArrayAdapter);
