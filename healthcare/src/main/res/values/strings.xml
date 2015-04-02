@@ -63,5 +63,8 @@
     <string name="your_message">پیام شما</string>
     <string name="finish">پایان دادن</string>
     <string name="send_message">ارسال پیام</string>
+    <string name="subject">موضوع</string>
+    <string name="audience">مخاطب</string>
+    <string name="approve">تایید</string>
 
 </resources>

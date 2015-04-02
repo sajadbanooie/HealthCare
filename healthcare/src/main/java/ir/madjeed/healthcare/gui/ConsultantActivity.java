@@ -1,6 +1,7 @@
 package ir.madjeed.healthcare.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,24 +22,22 @@ import java.util.ArrayList;
 public class ConsultantActivity extends BaseActivity {
 
     private CustomAdapter mAdapter;
+    private ArrayList<CustomRowObject> items;
+
     @InjectView(R.id.title) TextView title;
     @InjectView(R.id.mainListView) ListView mListView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayList<CustomRowObject> items = new ArrayList<CustomRowObject>();
-        title.setText("مشاوره درد دل");
-
-        if (role.equals("بیمار")){
-            items.add(new CustomRowObject("باز", "دکتر 1", "موضوع 1", "2 روز پیش"));
-            items.add(new CustomRowObject("بسته", "دکتر 1", "موضوع 2", "1 ماه پیش"));
+        items = new ArrayList<CustomRowObject>();
+        if (role.equals("بیمار")) {
+            title.setText(R.string.consultantWithDoctor);
         }else{
-            items.add(new CustomRowObject("باز", "بیمار 1", "موضوع 1", "2 روز پیش"));
-            items.add(new CustomRowObject("بسته", "بیمار 33", "موضوع 2", "1 ماه پیش"));
+            title.setText(R.string.consultantWithPatient);
         }
-
         mAdapter = new CustomAdapter(this, items);
         mListView.setAdapter(mAdapter);
     }
@@ -53,10 +52,28 @@ public class ConsultantActivity extends BaseActivity {
         customStartActivity(AddConsultantActivity.class);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //TODO get data from db
+//        items.clear();
+
+        if (role.equals("بیمار")){
+            items.add(new CustomRowObject("باز", "دکتر 1", "موضوع 1", "2 روز پیش"));
+            items.add(new CustomRowObject("بسته", "دکتر 1", "موضوع 2", "1 ماه پیش"));
+        }else{
+            items.add(new CustomRowObject("باز", "بیمار 1", "موضوع 1", "2 روز پیش"));
+            items.add(new CustomRowObject("بسته", "بیمار 33", "موضوع 2", "1 ماه پیش"));
+        }
+
+        mAdapter.notifyDataSetChanged();
+    }
+
     private class CustomAdapter extends ArrayAdapter<CustomRowObject> {
 
         private Context mContext;
-        private ArrayList<CustomRowObject> mItems;
+        protected ArrayList<CustomRowObject> mItems;
 
         public CustomAdapter(Context context, ArrayList<CustomRowObject> items) {
             super(context, R.layout.consultant_item, items);
