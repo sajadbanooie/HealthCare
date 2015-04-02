@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="?android:attr/listPreferredItemHeight">
+
+    <LinearLayout style="@style/list_item_style">
+
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/time"
+                  style="@style/list_item_text_style"
+                  android:layout_weight="1"/>
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/subject"
+                  style="@style/list_item_text_style"
+                  android:layout_weight="1"/>
+
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/state"
+                  style="@style/list_item_text_style"
+                  android:layout_weight="1"/>
+
+    </LinearLayout>
+</LinearLayout>

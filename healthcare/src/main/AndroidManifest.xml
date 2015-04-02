@@ -20,6 +20,10 @@
         <activity android:name="ir.madjeed.healthcare.gui.LoginActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.MenuActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.EditInfoActivity"/>
+        <activity android:name="ir.madjeed.healthcare.gui.ConsultantActivity"/>
+        <activity android:name="ir.madjeed.healthcare.gui.ConsultantDetailActivity"/>
+
+
     </application>
 
 </manifest>

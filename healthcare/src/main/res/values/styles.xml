@@ -47,4 +47,24 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
+    <style name="list_item_text_style" >
+        <item name="android:padding">@dimen/widget_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
+    <style name="list_item_style" >
+        <item name="android:layout_gravity">right</item>
+        <item name="android:gravity">right</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">10sp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
 </resources>
