@@ -42,6 +42,8 @@
     </string-array>
     <string name="admin">مدیر سامانه</string>
 
+    <string name="select">انتخاب</string>
+
     <string name="expert_menu">منوی پزشک متخصص</string>
     <string name="doctor_menu">منوی پزشک عمومی</string>
     <string name="patient_menu">منوی بیمار</string>
@@ -73,5 +75,11 @@
     <string name="my_doctors_list">لیست پزشکان ناظر</string>
     <string name="doctors_list">لیست پزشکان</string>
     <string name="drugstores_list">لیست داروخانه ها</string>
+
+
+    <string name="medical_records">سوابق پزشکی</string>
+    <string name="finish_supervision">پایان نظارت</string>
+    <string name="reference">ارجاع به پزشک دیگر</string>
+    <string name="patient_doctors">پزشکان ناظر بر بیمار</string>
 
 </resources>

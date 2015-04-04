@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="100sp">
+
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/select"
+            style="@style/btn_style"
+            android:text="@string/select"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="7sp"
+            android:layout_marginBottom="7sp"
+            android:layout_weight="4"
+            android:layout_marginLeft="22sp"/>
+
+    <TextView android:id="@+id/name"
+              style="@style/list_item_text_right_style"
+              android:layout_weight="1"/>
+
+</LinearLayout>

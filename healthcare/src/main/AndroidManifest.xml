@@ -23,7 +23,7 @@
         <activity android:name="ir.madjeed.healthcare.gui.ConsultantActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.ConsultantDetailActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.AddConsultantActivity"/>
-        <activity android:name="ir.madjeed.healthcare.gui.MyPatientsActivity"/>
+        <activity android:name="ir.madjeed.healthcare.gui.MyListActivity"/>
         <activity android:name="ir.madjeed.healthcare.gui.ProfileActivity"/>
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,8 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import ir.madjeed.healthcare.data.Repo;
 import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
+import ir.madjeed.healthcare.gui.MyListActivity;
+import org.parceler.Parcels;
 
 
 public abstract class BaseActivity extends ActionBarActivity {
@@ -86,6 +89,15 @@ public abstract class BaseActivity extends ActionBarActivity {
     public void customStartActivity(Class c, String id){
         Intent i = new Intent(this, c).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         i.putExtra("ID", id);
+        startActivity(i);
+    }
+
+    public void customStartActivity(ListOptions listOptions){
+        Intent i = new Intent(this, MyListActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Bundle mBundle = new Bundle();
+        Parcelable wrapped = Parcels.wrap(listOptions);
+        mBundle.putParcelable("listOptions", wrapped);
+        i.putExtras(mBundle);
         startActivity(i);
     }
 

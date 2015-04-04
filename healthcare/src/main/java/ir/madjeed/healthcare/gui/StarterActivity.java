@@ -4,6 +4,7 @@ import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
 import butterknife.OnClick;
+import ir.madjeed.healthcare.gui.base.ListOptions;
 
 
 public class StarterActivity extends BaseActivity {
@@ -21,7 +22,8 @@ public class StarterActivity extends BaseActivity {
 
     @OnClick(R.id.register)
     public void register() {
-        customStartActivity(RegisterActivity.class);
+//        customStartActivity(RegisterActivity.class);
+        customStartActivity(new ListOptions(ProfileActivity.class, "doctor", "select", "all"));
     }
 
     @OnClick(R.id.registered_before)
