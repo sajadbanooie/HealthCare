@@ -24,7 +24,6 @@ public class StarterActivity extends BaseActivity {
     @OnClick(R.id.register)
     public void register() {
         customStartActivity(RegisterActivity.class);
-//        customStartActivity(new ListOptions(ProfileActivity.class, "doctor", "select", "all"));
     }
 
     @OnClick(R.id.registered_before)
@@ -33,9 +32,4 @@ public class StarterActivity extends BaseActivity {
     }
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        String id = data.getStringExtra("ID");
-//        showMessage("error", id);
-//    }
 }

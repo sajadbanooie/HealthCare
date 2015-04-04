@@ -22,6 +22,8 @@
         <activity android:name=".gui.patient.ConsultantActivity"/>
         <activity android:name=".gui.patient.ConsultantDetailActivity"/>
         <activity android:name=".gui.patient.AddConsultantActivity"/>
+        <activity android:name=".gui.patient.AddPhysicalActivity"/>
+        <activity android:name=".gui.patient.SelectDoctorActivity"/>
 
 
         <activity android:name=".gui.MenuActivity"/>

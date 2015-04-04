@@ -9,14 +9,26 @@
 
 
     <TextView
-            android:text="@string/add_physical_activity"
+            android:text="@string/select_doctor"
             style="@style/title_style"
             />
 
-    <Spinner
-            android:id="@+id/sensor"
-            style="@style/spinner_style"
+
+    <TextView
+            android:id="@+id/current_doctor"
+            android:text="@string/current_doctor"
+            style="@style/title_style"
             />
+
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/select"
+            android:layout_marginRight="11sp"
+            android:text="@string/select_doctor"
+            style="@style/btn_style"
+            bootstrap:bb_roundedCorners="true"
+            />
+
 
     <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
@@ -24,9 +36,9 @@
                   android:layout_marginTop="22sp">
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/start"
+                android:id="@+id/approve"
                 android:layout_marginRight="11sp"
-                android:text="@string/start"
+                android:text="@string/approve"
                 style="@style/btn_style"
                 bootstrap:bb_icon_right="fa-check"
                 bootstrap:bb_type="success"
@@ -34,8 +46,8 @@
                 android:layout_weight="1"
                 />
         <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/finish"
-                android:text="@string/finish1"
+                android:id="@+id/back"
+                android:text="@string/back"
                 android:layout_marginLeft="11sp"
                 style="@style/btn_style"
                 bootstrap:bb_icon_right="fa-arrow-left"
