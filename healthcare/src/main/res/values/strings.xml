@@ -77,6 +77,8 @@
     <string name="doctors_list">لیست پزشکان</string>
     <string name="drugstores_list">لیست داروخانه ها</string>
 
+    <string name="start">شروع</string>
+    <string name="finish1">پایان</string>
 
     <string name="medical_records">سوابق پزشکی</string>
     <string name="finish_supervision">پایان نظارت</string>
