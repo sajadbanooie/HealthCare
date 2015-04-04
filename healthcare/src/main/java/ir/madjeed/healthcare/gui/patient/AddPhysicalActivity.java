@@ -1,18 +1,18 @@
-package ir.madjeed.healthcare.gui;
+package ir.madjeed.healthcare.gui.patient;
 
+import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import butterknife.InjectView;
-import com.beardedhen.androidbootstrap.BootstrapEditText;
-import ir.madjeed.healthcare.gui.base.BaseActivity;
-import android.os.Bundle;
-import ir.madjeed.healthcare.R;
 import butterknife.OnClick;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
+import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.gui.base.BaseActivity;
 
 import java.util.ArrayList;
 
 
-public class AddConsultantActivity extends BaseActivity {
+public class AddPhysicalActivity extends BaseActivity {
 
     @InjectView(R.id.audience) Spinner audience_spinner;
     @InjectView(R.id.subject) BootstrapEditText subject;
@@ -40,7 +40,7 @@ public class AddConsultantActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.activity_consultant_add;
+        return R.layout.activity_add_physical;
     }
 
     @OnClick(R.id.approve)

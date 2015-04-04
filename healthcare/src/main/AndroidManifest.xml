@@ -18,15 +18,18 @@
         </activity>
 
         <activity android:name=".gui.EditInfoActivity"/>
-        <activity android:name=".gui.ConsultantActivity"/>
-        <activity android:name=".gui.ConsultantDetailActivity"/>
-        <activity android:name=".gui.AddConsultantActivity"/>
+
+        <activity android:name=".gui.patient.ConsultantActivity"/>
+        <activity android:name=".gui.patient.ConsultantDetailActivity"/>
+        <activity android:name=".gui.patient.AddConsultantActivity"/>
+
+
         <activity android:name=".gui.MenuActivity"/>
+
         <activity android:name=".gui.menu.PatientMenuActivity"/>
 
         <activity android:name=".gui.ItemDetailActivity"/>
         <activity android:name=".gui.BasicListActivity"/>
-
 
         <activity android:name=".gui.authentication.RegisterActivity"/>
         <activity android:name=".gui.authentication.LoginActivity"/>
