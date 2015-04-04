@@ -1,10 +1,11 @@
-package ir.madjeed.healthcare.gui;
+package ir.madjeed.healthcare.gui.menu;
 
+import ir.madjeed.healthcare.gui.authentication.LoginActivity;
+import ir.madjeed.healthcare.gui.authentication.RegisterActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
 import butterknife.OnClick;
-import ir.madjeed.healthcare.gui.base.ListOptions;
 
 
 public class StarterActivity extends BaseActivity {

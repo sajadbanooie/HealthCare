@@ -1,5 +1,6 @@
 package ir.madjeed.healthcare.gui.base;
 
+import ir.madjeed.healthcare.gui.ItemDetailActivity;
 import org.parceler.Parcel;
 
 
@@ -19,6 +20,13 @@ public final class ListOptions {
 
     public ListOptions(Class listItemTargetClass, String type, String purpose, String category) {
         this.listItemTargetClass = listItemTargetClass;
+        this.type = type;
+        this.purpose = purpose;
+        this.category = category;
+    }
+
+    public ListOptions(String type, String purpose, String category) {
+        this.listItemTargetClass = ItemDetailActivity.class;
         this.type = type;
         this.purpose = purpose;
         this.category = category;

@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.gui;
+package ir.madjeed.healthcare.gui.authentication;
 
 import android.widget.Spinner;
 import butterknife.InjectView;

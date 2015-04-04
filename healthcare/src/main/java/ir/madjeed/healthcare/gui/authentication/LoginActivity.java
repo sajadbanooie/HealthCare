@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.gui;
+package ir.madjeed.healthcare.gui.authentication;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.menu.PatientMenuActivity;
 
 
 public class LoginActivity extends BaseActivity {
@@ -53,7 +54,7 @@ public class LoginActivity extends BaseActivity {
                 editor.putString("role", u.getRole());
                 // Save the changes in SharedPreferences
                 editor.commit(); // commit changes
-                customStartActivity(MenuActivity.class);
+                customStartActivity(PatientMenuActivity.class);
             }
         }
     }
