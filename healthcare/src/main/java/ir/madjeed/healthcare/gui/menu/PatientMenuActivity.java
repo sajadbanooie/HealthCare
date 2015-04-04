@@ -9,6 +9,7 @@ import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.patient.MedicalHistoryActivity;
 import ir.madjeed.healthcare.gui.patient.SelectDoctorActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 
@@ -63,7 +64,7 @@ public class PatientMenuActivity extends BaseActivity {
 
     @OnClick(R.id.medical_records_btn)
     public void medical_records_btn() {
-        showMessage("error", "not implemented yet");
+        customStartActivity(MedicalHistoryActivity.class);
     }
 
 }

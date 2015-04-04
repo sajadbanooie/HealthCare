@@ -31,7 +31,6 @@ public class SelectDoctorActivity extends BaseActivity {
 
     @OnClick(R.id.approve)
     public void approve() {
-        // TODO go to medical records
     }
 
     @OnClick(R.id.back)

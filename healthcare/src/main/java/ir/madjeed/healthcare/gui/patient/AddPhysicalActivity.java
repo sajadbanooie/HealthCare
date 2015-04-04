@@ -5,7 +5,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 
@@ -15,9 +14,6 @@ import java.util.ArrayList;
 public class AddPhysicalActivity extends BaseActivity {
 
     @InjectView(R.id.sensor) Spinner sensor;
-    @InjectView(R.id.start) BootstrapButton start;
-    @InjectView(R.id.start) BootstrapButton finish;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,8 +38,8 @@ public class AddPhysicalActivity extends BaseActivity {
         // nothing
     }
 
-    @OnClick(R.id.finish)
-    public void finish() {
+    @OnClick(R.id.stop)
+    public void stop() {
         // TODO ....
         // go to medical record
     }

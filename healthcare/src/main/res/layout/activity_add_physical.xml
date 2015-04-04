@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 />
         <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/finish"
+                android:id="@+id/stop"
                 android:text="@string/finish1"
                 android:layout_marginLeft="11sp"
                 style="@style/btn_style"
