@@ -48,7 +48,7 @@
     <string name="select_drug">انتخاب دارو</string>
 
     <string name="expert_menu">منوی پزشک متخصص</string>
-    <string name="doctor_menu">منوی پزشک عمومی</string>
+    <string name="doctor_menu">منوی پزشک </string>
     <string name="patient_menu">منوی بیمار</string>
     <string name="drugstore_menu">منوی داروخانه</string>
 

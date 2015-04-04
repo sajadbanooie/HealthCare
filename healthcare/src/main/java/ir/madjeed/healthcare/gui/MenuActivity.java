@@ -18,7 +18,7 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected int getLayoutResourceId() {
         if (role.equals("پزشک متخصص") || role.equals("پزشک عمومی")){
-            return R.layout.activity_menu_expert;
+            return R.layout.activity_menu_doctor;
         }else if (role.equals("بیمار")){
             return R.layout.activity_menu_patient;
         }else if (role.equals("داروخانه")){
