@@ -15,7 +15,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import ir.madjeed.healthcare.data.Repo;
 import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
-import ir.madjeed.healthcare.gui.MyListActivity;
+import ir.madjeed.healthcare.gui.BasicListActivity;
 import org.parceler.Parcels;
 
 
@@ -93,7 +93,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     }
 
     public void customStartActivity(ListOptions listOptions){
-        Intent i = new Intent(this, MyListActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Intent i = new Intent(this, BasicListActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         Bundle mBundle = new Bundle();
         Parcelable wrapped = Parcels.wrap(listOptions);
         mBundle.putParcelable("listOptions", wrapped);

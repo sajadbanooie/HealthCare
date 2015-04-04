@@ -49,14 +49,23 @@
             android:layout_marginTop="22sp"
             />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/my_doctors_btn"
-            style="@style/btn_style"
-            android:text="@string/my_doctor"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/my_doctors_btn"
+                style="@style/btn_style"
+                android:text="@string/my_doctor"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/select_doctor_btn"
+                style="@style/btn_style"
+                android:text="@string/select_doctor"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/medical_records_btn"

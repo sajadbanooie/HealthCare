@@ -9,6 +9,7 @@ import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.ProfileActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 
 
 public class PatientMenuActivity extends BaseActivity {
@@ -46,7 +47,12 @@ public class PatientMenuActivity extends BaseActivity {
 
     @OnClick(R.id.my_doctors_btn)
     public void my_doctors_btn() {
-        customStartActivity(new ListOptions(ProfileActivity.class, "doctor", "view", "mine"));
+        customStartActivity(new ListOptions(DoctorProfileActivity.class, "doctor", "view", "mine"));
+    }
+
+    @OnClick(R.id.select_doctor_btn)
+    public void select_doctor_btn() {
+        showMessage("error", "not implemented yet");
     }
 
     @OnClick(R.id.medical_records_btn)

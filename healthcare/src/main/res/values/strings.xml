@@ -43,6 +43,7 @@
     <string name="admin">مدیر سامانه</string>
 
     <string name="select">انتخاب</string>
+    <string name="select_doctor">انتخاب/تغییر پزشک</string>
 
     <string name="expert_menu">منوی پزشک متخصص</string>
     <string name="doctor_menu">منوی پزشک عمومی</string>

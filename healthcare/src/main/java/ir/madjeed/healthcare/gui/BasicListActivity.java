@@ -23,7 +23,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 
-public class MyListActivity extends BaseActivity {
+public class BasicListActivity extends BaseActivity {
 
     private CustomAdapter mAdapter;
     private ArrayList<CustomRowObject> items;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="@dimen/activity_padding">
+
+
+    <TextView
+            android:id="@+id/title"
+            style="@style/title_style"
+            />
+
+
+    <TextView
+            android:id="@+id/detail"
+            style="@style/title_style"
+            android:text="جزییات ..."
+            android:gravity="right"
+            />
+
+
+</LinearLayout>
