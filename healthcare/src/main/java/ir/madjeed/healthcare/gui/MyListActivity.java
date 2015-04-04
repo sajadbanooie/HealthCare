@@ -88,7 +88,7 @@ public class MyListActivity extends BaseActivity {
                         Intent i = new Intent().addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         overridePendingTransition(0, 0);
                         i.putExtra("ID", holder.name.getText().toString());
-                        setResult(Activity.RESULT_OK, new Intent());
+                        setResult(Activity.RESULT_OK, i);
                         finish();
                     }
                 });

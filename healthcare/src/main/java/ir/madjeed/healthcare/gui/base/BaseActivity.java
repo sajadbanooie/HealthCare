@@ -98,7 +98,11 @@ public abstract class BaseActivity extends ActionBarActivity {
         Parcelable wrapped = Parcels.wrap(listOptions);
         mBundle.putParcelable("listOptions", wrapped);
         i.putExtras(mBundle);
-        startActivity(i);
+        if (listOptions.getPurpose().contains("select")){
+            startActivityForResult(i, 1);
+        }else{
+            startActivity(i);
+        }
     }
 
 }
