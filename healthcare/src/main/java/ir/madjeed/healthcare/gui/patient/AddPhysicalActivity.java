@@ -7,6 +7,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.base.ListOptions;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class AddPhysicalActivity extends BaseActivity {
     @OnClick(R.id.stop)
     public void stop() {
         // TODO ....
-        customStartActivity(SicknessHistoryActivity.class);
+        customStartActivity(new ListOptions("medical record", "view", "mine"));
     }
 
 }

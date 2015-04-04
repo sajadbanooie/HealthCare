@@ -25,6 +25,9 @@
         <activity android:name=".gui.patient.AddPhysicalActivity"/>
         <activity android:name=".gui.patient.SelectDoctorActivity"/>
         <activity android:name=".gui.patient.SicknessHistoryActivity"/>
+        <activity android:name=".gui.patient.AddSicknessActivity"/>
+        <activity android:name=".gui.patient.SicknessDetailActivity"/>
+        <activity android:name=".gui.patient.AddPrescriptionActivity"/>
 
 
         <activity android:name=".gui.MenuActivity"/>

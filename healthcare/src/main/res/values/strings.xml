@@ -45,6 +45,7 @@
     <string name="select">انتخاب</string>
     <string name="current_doctor">پزشک فعلی</string>
     <string name="select_doctor">انتخاب/تغییر پزشک</string>
+    <string name="select_drug">انتخاب دارو</string>
 
     <string name="expert_menu">منوی پزشک متخصص</string>
     <string name="doctor_menu">منوی پزشک عمومی</string>
@@ -59,10 +60,12 @@
     <string name="my_patients">بیماران من</string>
     <string name="my_doctor">پزشک من</string>
     <string name="my_history">سوابق من</string>
+    <string name="medical_history">سوابق پزشکی</string>
     <string name="sickness_history">سوابق بیماری</string>
     <string name="add_physical_activity">ثبت فعالیت بدنی</string>
     <string name="managing_drugs">مدیریت داروها</string>
 
+    <string name="add_sickness_record">ایجاد سابقه بیماری جدید</string>
     <string name="addConsultant">ایجاد مشاوره جدید</string>
     <string name="consultantWithDoctor">مشاوره با پزشک</string>
     <string name="consultantWithPatient">مشاوره با بیمار</string>
@@ -70,6 +73,7 @@
     <string name="finish">پایان دادن</string>
     <string name="send_message">ارسال پیام</string>
     <string name="subject">موضوع</string>
+    <string name="detail">شرح</string>
     <string name="audience">مخاطب</string>
     <string name="approve">تایید</string>
 
@@ -86,5 +90,7 @@
     <string name="finish_supervision">پایان نظارت</string>
     <string name="reference">ارجاع به پزشک دیگر</string>
     <string name="patient_doctors">پزشکان ناظر بر بیمار</string>
+
+    <string name="add_prescription">افزودن نسخه</string>
 
 </resources>
