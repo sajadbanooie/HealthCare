@@ -11,7 +11,7 @@ import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 
 
-public class MedicalHistoryActivity extends BaseActivity {
+public class SicknessHistoryActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

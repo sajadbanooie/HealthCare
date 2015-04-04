@@ -9,7 +9,7 @@ import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
-import ir.madjeed.healthcare.gui.patient.MedicalHistoryActivity;
+import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
 import ir.madjeed.healthcare.gui.patient.SelectDoctorActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 
@@ -64,7 +64,12 @@ public class PatientMenuActivity extends BaseActivity {
 
     @OnClick(R.id.medical_records_btn)
     public void medical_records_btn() {
-        customStartActivity(MedicalHistoryActivity.class);
+        customStartActivity(new ListOptions("medical record", "view", "mine"));
+    }
+
+    @OnClick(R.id.sickness_records_btn)
+    public void sickness_records_btn() {
+        customStartActivity(SicknessHistoryActivity.class);
     }
 
 }

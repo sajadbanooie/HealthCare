@@ -59,6 +59,7 @@
     <string name="my_patients">بیماران من</string>
     <string name="my_doctor">پزشک من</string>
     <string name="my_history">سوابق من</string>
+    <string name="sickness_history">سوابق بیماری</string>
     <string name="add_physical_activity">ثبت فعالیت بدنی</string>
     <string name="managing_drugs">مدیریت داروها</string>
 

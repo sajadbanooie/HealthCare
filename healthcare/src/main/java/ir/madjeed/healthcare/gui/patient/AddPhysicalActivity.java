@@ -41,7 +41,7 @@ public class AddPhysicalActivity extends BaseActivity {
     @OnClick(R.id.stop)
     public void stop() {
         // TODO ....
-        // go to medical record
+        customStartActivity(SicknessHistoryActivity.class);
     }
 
 }

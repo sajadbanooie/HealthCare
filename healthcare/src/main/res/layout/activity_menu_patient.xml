@@ -67,15 +67,23 @@
                 android:layout_marginTop="22sp"
                 />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/medical_records_btn"
-            style="@style/btn_style"
-            android:text="@string/my_history"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/medical_records_btn"
+                style="@style/btn_style"
+                android:text="@string/my_history"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/sickness_records_btn"
+                style="@style/btn_style"
+                android:text="@string/sickness_history"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/add_physical_activity_btn"
