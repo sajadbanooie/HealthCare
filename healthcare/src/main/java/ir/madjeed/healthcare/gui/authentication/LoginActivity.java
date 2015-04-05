@@ -56,11 +56,10 @@ public class LoginActivity extends BaseActivity {
                 // Save the changes in SharedPreferences
                 editor.commit(); // commit changes
 
-                //
                 if (u.getRole().contains("پزشک")){
-                    customStartActivity(PatientMenuActivity.class);
-                }else if (u.getRole().contains("بیمار")){
                     customStartActivity(DoctorMenuActivity.class);
+                }else if (u.getRole().contains("بیمار")){
+                    customStartActivity(PatientMenuActivity.class);
                 }
             }
         }

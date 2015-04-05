@@ -31,6 +31,12 @@
                 />
     </LinearLayout>
 
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+            bootstrap:be_roundedCorners="true"
+            bootstrap:be_state="primary"
+            style="@style/edit_text_style"
+            />
+
     <ListView
             android:id="@+id/mainListView"
             android:layout_height="wrap_content"

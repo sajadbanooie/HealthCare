@@ -30,6 +30,8 @@
         <activity android:name=".gui.patient.AddPrescriptionActivity"/>
 
 
+        <activity android:name=".gui.doctor.ReferencePatientActivity"/>
+
         <activity android:name=".gui.MenuActivity"/>
 
         <activity android:name=".gui.menu.PatientMenuActivity"/>
@@ -43,6 +45,7 @@
 
         <activity android:name=".gui.ProfileActivity"/> <!-- to be remove soon -->
         <activity android:name=".gui.profile.DoctorProfileActivity"/>
+        <activity android:name=".gui.profile.PatientProfileActivity"/>
 
     </application>
 

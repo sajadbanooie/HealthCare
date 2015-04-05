@@ -34,11 +34,12 @@ public class SicknessHistoryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         items = new ArrayList<CustomRowObject>();
-        if ((role.equals("پزشک عمومی") || role.equals("پزشک متخصص"))) { // or he is not my patient
+        if (!(role.equals("پزشک عمومی") || role.equals("پزشک متخصص"))) { // or he is not my patient
             add_sickness_btn.setVisibility(View.GONE);
         }
         mAdapter = new CustomAdapter(this, items);
         mListView.setAdapter(mAdapter);
+
     }
 
     @Override
