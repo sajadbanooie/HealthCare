@@ -43,7 +43,9 @@ public class AddPrescriptionActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String id = data.getStringExtra("ID");
-        drugs.setText(drugs.getText().toString()+ " " + id);
+        if (data!=null && data.hasExtra("ID")){
+            String id = data.getStringExtra("ID");
+            drugs.setText(drugs.getText().toString()+ " " + id);
+        }
     }
 }
