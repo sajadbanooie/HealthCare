@@ -10,6 +10,7 @@
     <string name="login">ورود</string>
     <string name="registered_before">قبلا ثبت نام کرده ام</string>
     <string name="back">بازگشت</string>
+    <string name="send">ارسال</string>
     <string name="menu">منوی کاربری</string>
 
     <string name="username">نام کاربری</string>
@@ -76,6 +77,7 @@
     <string name="detail">شرح</string>
     <string name="audience">مخاطب</string>
     <string name="approve">تایید</string>
+    <string name="disapprove">ررد</string>
 
     <string name="my_patients_list">لیست بیماران تحت نظر</string>
     <string name="patients_list">لیست بیماران</string>
@@ -92,5 +94,6 @@
     <string name="patient_doctors">پزشکان ناظر بر بیمار</string>
 
     <string name="add_prescription">افزودن نسخه</string>
+    <string name="answer">پاسخ</string>
 
 </resources>

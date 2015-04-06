@@ -8,6 +8,7 @@ import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.doctor.ReferencePatientActivity;
+import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
 
 
 public class PatientProfileActivity extends BaseActivity {
@@ -34,6 +35,11 @@ public class PatientProfileActivity extends BaseActivity {
     @OnClick(R.id.medical_records)
     public void medical_records(){
         customStartActivity(new ListOptions("medical record", "view", "mine")); // it needs id of it
+    }
+
+    @OnClick(R.id.sickness_history)
+    public void sickness_history(){
+        customStartActivity(SicknessHistoryActivity.class, title.getText().toString()); // it needs id of it
     }
 
     @OnClick(R.id.finish_supervision)

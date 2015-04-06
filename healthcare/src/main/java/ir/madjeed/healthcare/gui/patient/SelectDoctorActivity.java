@@ -34,7 +34,7 @@ public class SelectDoctorActivity extends BaseActivity {
     }
 
     @OnClick(R.id.back)
-    public void back() {
+    public void back_btn() {
         super.onBackPressed();
     }
 
@@ -45,7 +45,9 @@ public class SelectDoctorActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String id = data.getStringExtra("ID");
-        current_doctor.setText(id);
+        if (data!=null && data.hasExtra("ID")){
+            String id = data.getStringExtra("ID");
+            current_doctor.setText(id);
+        }
     }
 }

@@ -43,7 +43,9 @@ public class ReferencePatientActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String id = data.getStringExtra("ID");
-        detail.setText(id);
+        if (data!=null && data.hasExtra("ID")) {
+            String id = data.getStringExtra("ID");
+            detail.setText(id);
+        }
     }
 }

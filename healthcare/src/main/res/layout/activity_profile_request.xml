@@ -4,38 +4,29 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:padding="@dimen/activity_padding"
-              android:id="@+id/container">
+              android:padding="@dimen/activity_padding">
 
 
     <TextView
-            android:text="@string/select_doctor"
+            android:id="@+id/title"
             style="@style/title_style"
             />
 
 
     <TextView
-            android:id="@+id/current_doctor"
-            android:text="@string/current_doctor"
+            android:id="@+id/detail"
             style="@style/title_style"
+            android:text="جزییات ..."
+            android:gravity="right"
             />
-
-
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/select"
-            android:layout_marginRight="11sp"
-            android:text="@string/select_doctor"
-            style="@style/btn_style"
-            bootstrap:bb_roundedCorners="true"
-            />
-
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/detail"
-            android:hint="@string/detail"
+            android:id="@+id/answer"
+            android:hint="@string/answer"
+            style="@style/edit_text_style"
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
-            style="@style/edit_text_style"
+            android:password="true"
             />
 
     <LinearLayout android:layout_width="fill_parent"
@@ -45,25 +36,24 @@
 
         <com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/approve"
-                android:layout_marginRight="11sp"
                 android:text="@string/approve"
                 style="@style/btn_style"
+                android:layout_marginRight="11sp"
                 bootstrap:bb_icon_right="fa-check"
                 bootstrap:bb_type="success"
                 bootstrap:bb_roundedCorners="true"
                 android:layout_weight="1"
                 />
         <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/back"
-                android:text="@string/back"
-                android:layout_marginLeft="11sp"
+                android:id="@+id/disapprove"
+                android:text="@string/disapprove"
                 style="@style/btn_style"
-                bootstrap:bb_icon_right="fa-arrow-left"
+                android:layout_marginLeft="11sp"
+                bootstrap:bb_icon_right="fa-close"
                 bootstrap:bb_type="danger"
                 bootstrap:bb_roundedCorners="true"
                 android:layout_weight="1"
                 />
     </LinearLayout>
-
 
 </LinearLayout>

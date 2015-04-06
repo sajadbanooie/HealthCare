@@ -13,6 +13,7 @@ import ir.madjeed.healthcare.gui.patient.SelectDoctorActivity;
 import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
+import ir.madjeed.healthcare.gui.profile.RequestProfileActivity;
 
 
 public class DoctorMenuActivity extends BaseActivity {
@@ -51,7 +52,7 @@ public class DoctorMenuActivity extends BaseActivity {
 
     @OnClick(R.id.requests_btn)
     public void requests_btn() {
-        showMessage("error", "not implemented yet");
+        customStartActivity(new ListOptions(RequestProfileActivity.class, "request", "view", "mine"));
     }
 
     @OnClick(R.id.my_patients_btn)
