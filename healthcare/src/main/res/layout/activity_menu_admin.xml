@@ -7,71 +7,65 @@
               android:padding="@dimen/activity_padding">
 
 
-    <TextView
-            android:text="@string/expert_menu"
-            android:id="@+id/expert_menu"
-            style="@style/title_style"
-            />
+        <TextView
+                android:text="@string/doctor_menu"
+                style="@style/title_style"
+                />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="EditInfoActivity"
-            style="@style/btn_style"
-            android:text="@string/edit_info"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/edit_info_btn"
+                style="@style/btn_style"
+                android:text="@string/edit_info"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="MessagesActivity"
-            style="@style/btn_style"
-            android:text="@string/messages"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/messages_btn"
+                style="@style/btn_style"
+                android:text="@string/messages"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="ExitActivity"
-            style="@style/btn_style"
-            android:text="@string/exit"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="ConsultantActivity"
-            style="@style/btn_style"
-            android:text="@string/consultant"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/exit_btn"
+                style="@style/btn_style"
+                android:text="@string/exit"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="RequestsActivity"
-            style="@style/btn_style"
-            android:text="@string/requests"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/consultant_btn"
+                style="@style/btn_style"
+                android:text="@string/consultant"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="MyPatientsActivity"
-            style="@style/btn_style"
-            android:text="@string/my_patients"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
-            />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/requests_btn"
+                style="@style/btn_style"
+                android:text="@string/requests"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/my_patients_btn"
+                style="@style/btn_style"
+                android:text="@string/my_patients"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
 
 
 </LinearLayout>
