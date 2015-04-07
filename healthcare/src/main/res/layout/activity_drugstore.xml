@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="@dimen/activity_padding"
+              android:id="@+id/container">
+
+
+    <TextView
+            android:text="@string/deliver_drugs"
+            style="@style/title_style"
+            />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/patient"
+            android:hint="@string/patient"
+            bootstrap:be_roundedCorners="true"
+            bootstrap:be_state="primary"
+            style="@style/edit_text_style"
+            />
+
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="22sp">
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/find_prescription_by_name"
+                android:layout_marginRight="11sp"
+                android:text="@string/find_prescription"
+                style="@style/btn_style"
+                bootstrap:bb_icon_right="fa-check"
+                bootstrap:bb_type="success"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_weight="1"
+                />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/back"
+                android:text="@string/back"
+                android:layout_marginLeft="11sp"
+                style="@style/btn_style"
+                bootstrap:bb_icon_right="fa-arrow-left"
+                bootstrap:bb_type="danger"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_weight="1"
+                />
+    </LinearLayout>
+
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/prescription"
+            android:hint="@string/prescription"
+            bootstrap:be_roundedCorners="true"
+            bootstrap:be_state="primary"
+            style="@style/edit_text_style"
+            android:layout_marginTop="33sp"
+            />
+
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="22sp">
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/find_prescription_by_id"
+                android:layout_marginRight="11sp"
+                android:text="@string/find_prescription"
+                style="@style/btn_style"
+                bootstrap:bb_icon_right="fa-check"
+                bootstrap:bb_type="success"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_weight="1"
+                />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/back2"
+                android:text="@string/back"
+                android:layout_marginLeft="11sp"
+                style="@style/btn_style"
+                bootstrap:bb_icon_right="fa-arrow-left"
+                bootstrap:bb_type="danger"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_weight="1"
+                />
+    </LinearLayout>
+
+</LinearLayout>

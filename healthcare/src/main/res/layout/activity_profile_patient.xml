@@ -16,7 +16,6 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/medical_records"
             android:text="@string/medical_records"
-            android:tag="MedicalRecordsActivity"
             style="@style/btn_style"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
@@ -44,7 +43,6 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/reference"
             android:text="@string/reference"
-            android:tag="ReferenceActivity"
             style="@style/btn_style"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
@@ -55,7 +53,6 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/patient_doctors"
             android:text="@string/patient_doctors"
-            android:tag="PatientDoctorsActivity"
             style="@style/btn_style"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
@@ -63,5 +60,13 @@
             />
 
 
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/prescription_list"
+            android:text="@string/prescription_list"
+            style="@style/btn_style"
+            bootstrap:bb_type="primary"
+            bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
+            />
 
 </LinearLayout>

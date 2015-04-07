@@ -1,19 +1,28 @@
 package ir.madjeed.healthcare.gui.profile;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import butterknife.InjectView;
+import butterknife.InjectViews;
 import butterknife.OnClick;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.doctor.ReferencePatientActivity;
 import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
+import java.util.List;
 
 
 public class PatientProfileActivity extends BaseActivity {
 
     @InjectView(R.id.title) TextView title;
+
+    @InjectViews({R.id.medical_records, R.id.sickness_history, R.id.finish_supervision, R.id.reference, R.id.patient_doctors})
+    List<BootstrapButton> btns;
+
+    @InjectView(R.id.prescription_list) BootstrapButton prescription_list_btn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +31,13 @@ public class PatientProfileActivity extends BaseActivity {
         String id = getIntent().getExtras().getString("ID");
         title.setText(id);
 
-        // will add some buttons soon
+        if (role.equals("داروخانه")){
+            for (BootstrapButton btn : btns) {
+                btn.setVisibility(View.GONE);
+            }
+        }else{
+            prescription_list_btn.setVisibility(View.GONE);
+        }
     }
 
 
@@ -56,4 +71,10 @@ public class PatientProfileActivity extends BaseActivity {
     public void patient_doctors(){
         customStartActivity(new ListOptions(DoctorProfileActivity.class, "doctor", "view", "mine")); // need it (his)
     }
+
+    @OnClick(R.id.prescription_list)
+    public void prescription_list(){
+        customStartActivity(new ListOptions(PrescriptionDeliveryProfileActivity.class, "prescription", "view", "mine"));
+    }
+
 }

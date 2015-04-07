@@ -21,6 +21,7 @@
     <string name="family">نام خانوادگی</string>
     <string name="nationalID">کد ملی</string>
 
+    <string name="deliver_add">ثبت تحویل دارو</string>
 
     <string name="error">خطا</string>
     <string name="invalid_form"> لطفا اطلاعات فرم را به دقت پر کنید</string>
@@ -29,6 +30,8 @@
     <string name="user_not_found">نام کاربری مورد نظر یافت نشد.</string>
     <string name="password_wrong">کلمه عبور صحیح نیست.</string>
 
+    <string name="find_prescription">پیدا کردن نسخه</string>
+    <string name="prescription">نسخه</string>
 
     <string name="expert">پزشک متخصص</string>
     <string name="doctor">پزشک عمومی</string>
@@ -64,7 +67,8 @@
     <string name="medical_history">سوابق پزشکی</string>
     <string name="sickness_history">سوابق بیماری</string>
     <string name="add_physical_activity">ثبت فعالیت بدنی</string>
-    <string name="managing_drugs">مدیریت داروها</string>
+    <string name="managing_drugs_delivery">مدیریت تحویل دارو</string>
+    <string name="deliver_drugs">تحویل دارو</string>
 
     <string name="add_sickness_record">ایجاد سابقه بیماری جدید</string>
     <string name="addConsultant">ایجاد مشاوره جدید</string>
@@ -94,6 +98,7 @@
     <string name="patient_doctors">پزشکان ناظر بر بیمار</string>
 
     <string name="add_prescription">افزودن نسخه</string>
+    <string name="prescription_list">لیست نسخه ها</string>
     <string name="answer">پاسخ</string>
 
 </resources>

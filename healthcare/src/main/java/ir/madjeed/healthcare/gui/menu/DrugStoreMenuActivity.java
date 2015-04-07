@@ -7,6 +7,7 @@ import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.drugstore.DrugDeliveryActivity;
 import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 
 
@@ -37,9 +38,14 @@ public class DrugStoreMenuActivity extends BaseActivity {
         startActivity(new Intent(this, StarterActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
-    @OnClick(R.id.managing_drugs_btn)
-    public void managing_drugs_btn() {
-        customStartActivity(ConsultantActivity.class);
+    @OnClick(R.id.managing_drugs_delivery_btn)
+    public void managing_drugs_delivery_btn() {
+        customStartActivity(new ListOptions("drug delivery", "view", "mine"));
+    }
+
+    @OnClick(R.id.deliver_drugs_btn)
+    public void deliver_drugs_btn() {
+        customStartActivity(DrugDeliveryActivity.class);
     }
 
 
