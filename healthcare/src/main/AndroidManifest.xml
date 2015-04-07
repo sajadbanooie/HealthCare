@@ -36,6 +36,7 @@
 
         <activity android:name=".gui.menu.PatientMenuActivity"/>
         <activity android:name=".gui.menu.DoctorMenuActivity"/>
+        <activity android:name=".gui.menu.DrugStoreMenuActivity"/>
 
         <activity android:name=".gui.ItemDetailActivity"/>
         <activity android:name=".gui.BasicListActivity"/>

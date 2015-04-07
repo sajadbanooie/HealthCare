@@ -14,43 +14,39 @@
             />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="EditInfoActivity"
+            android:id="@+id/edit_info_btn"
             style="@style/btn_style"
             android:text="@string/edit_info"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
             android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
             />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="MessagesActivity"
+            android:id="@+id/messages_btn"
             style="@style/btn_style"
             android:text="@string/messages"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
             android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
             />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="ExitActivity"
+            android:id="@+id/exit_btn"
             style="@style/btn_style"
             android:text="@string/exit"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
             android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
             />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
-            android:tag="ManageDrugsActivity"
+            android:id="@+id/managing_drugs_btn"
             style="@style/btn_style"
             android:text="@string/managing_drugs"
             bootstrap:bb_type="primary"
             bootstrap:bb_roundedCorners="true"
             android:layout_marginTop="22sp"
-            android:onClick="onMenuBtnPress"
             />
 
 

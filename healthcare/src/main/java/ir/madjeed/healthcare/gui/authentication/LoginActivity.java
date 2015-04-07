@@ -9,6 +9,7 @@ import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.menu.DoctorMenuActivity;
+import ir.madjeed.healthcare.gui.menu.DrugStoreMenuActivity;
 import ir.madjeed.healthcare.gui.menu.PatientMenuActivity;
 
 
@@ -60,6 +61,8 @@ public class LoginActivity extends BaseActivity {
                     customStartActivity(DoctorMenuActivity.class);
                 }else if (u.getRole().contains("بیمار")){
                     customStartActivity(PatientMenuActivity.class);
+                }else if (u.getRole().contains("داروخانه")){
+                    customStartActivity(DrugStoreMenuActivity.class);
                 }
             }
         }
