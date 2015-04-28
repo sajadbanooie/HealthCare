@@ -13,6 +13,7 @@
     <string name="send">ارسال</string>
     <string name="menu">منوی کاربری</string>
 
+
     <string name="username">نام کاربری</string>
     <string name="password">کلمه عبور</string>
     <string name="email">ایمیل</string>
@@ -69,6 +70,13 @@
     <string name="add_physical_activity">ثبت فعالیت بدنی</string>
     <string name="managing_drugs_delivery">مدیریت تحویل دارو</string>
     <string name="deliver_drugs">تحویل دارو</string>
+
+
+
+    <string name="physical_state_history">سوابق وضعیت جسمانی</string>
+    <string name="physical_state">وضعیت جسمانی</string>
+    <string name="add_physical_state_btn">ثبت وضعیت جسمانی</string>
+    <string name="physical_state_report">گزارش پزشکی</string>
 
     <string name="add_sickness_record">ایجاد سابقه بیماری جدید</string>
     <string name="addConsultant">ایجاد مشاوره جدید</string>

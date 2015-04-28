@@ -56,5 +56,5 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:support-v4:22.0.0'
     compile 'com.beardedhen:androidbootstrap:+'
-
+    compile 'com.github.lecho:hellocharts-library:1.5.4@aar'
 }

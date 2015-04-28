@@ -13,10 +13,21 @@ public class RepoPersistent implements Repo{
 
     private RepoUserPersistent Users;
 
+//    private static RepoPersistent x;
+//
+//    public static RepoPersistent getRepoInstance(Context context)
+//    {
+//        if (x == null){
+//            x = new RepoPersistent(context);
+//        }
+//        return x;
+//    }
+
     public RepoPersistent(Context context)
     {
         DatabaseManager<DatabaseHelper> manager = new DatabaseManager<DatabaseHelper>();
         db = manager.getHelper(context);
+
         Users = new RepoUserPersistent(db);
 
     }

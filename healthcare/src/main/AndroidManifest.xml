@@ -54,6 +54,13 @@
 
         <activity android:name=".gui.drugstore.DrugDeliveryActivity"/>
 
+
+
+        <activity android:name=".gui.patient.PhysicalStateActivity"/>
+        <activity android:name=".gui.doctor.AddPhysicalStateActivity"/>
+        <activity android:name=".gui.doctor.PhysicalStateReportActivity"/>
+
+
     </application>
 
 </manifest>
