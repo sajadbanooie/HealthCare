@@ -1,5 +1,6 @@
 package ir.madjeed.healthcare.gui.authentication;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import butterknife.InjectView;
@@ -7,6 +8,7 @@ import butterknife.OnClick;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.facade.AuthenticationFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.menu.DoctorMenuActivity;
 import ir.madjeed.healthcare.gui.menu.DrugStoreMenuActivity;
@@ -21,9 +23,12 @@ public class LoginActivity extends BaseActivity {
     @InjectView(R.id.password)
     BootstrapEditText passwordBtn;
 
+    AuthenticationFacade facade;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        facade = new AuthenticationFacade(this);
     }
 
     @Override
@@ -31,37 +36,41 @@ public class LoginActivity extends BaseActivity {
         return R.layout.activity_login;
     }
 
+
     @OnClick(R.id.login)
     public void on_login() {
         boolean error = false;
-        if (userBtn.getText().toString().equals("")) {
+        String username = userBtn.getText().toString();
+        String password = passwordBtn.getText().toString();
+        if (username.equals("")) {
             userBtn.setState(BootstrapEditText.TextState.DANGER);
             error = true;
-        }if (passwordBtn.getText().toString().equals("")) {
+        }if (password.equals("")) {
             passwordBtn.setState(BootstrapEditText.TextState.DANGER);
             error = true;
         }
         if (error)
             showMessage("error", getString(R.string.invalid_form));
         else{
-            User u = repo.getRepoUsers().getByID(userBtn.getText().toString());
-            if (u == null){
+            int result = facade.login(username, password);
+            if (result == -1){
                 showMessage("error", getString(R.string.user_not_found));
-            }else if (!u.getPassword().equals(passwordBtn.getText().toString())){
+            }else if (result == -2){
                 showMessage("error", getString(R.string.password_wrong));
             }else{
+                String role = facade.getUserRole(username, password);
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putString("username", u.getUsername());
-                editor.putString("role", u.getRole());
+                editor.putString("username", username);
+                editor.putString("role", role);
                 // Save the changes in SharedPreferences
                 editor.commit(); // commit changes
 
-                if (u.getRole().contains("پزشک")){
+                if (role.contains("پزشک")){
                     customStartActivity(DoctorMenuActivity.class);
-                }else if (u.getRole().contains("بیمار")){
+                }else if (role.contains("بیمار")){
                     customStartActivity(PatientMenuActivity.class);
-                }else if (u.getRole().contains("داروخانه")){
+                }else if (role.contains("داروخانه")){
                     customStartActivity(DrugStoreMenuActivity.class);
                 }
             }

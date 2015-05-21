@@ -1,5 +1,6 @@
 package ir.madjeed.healthcare.gui.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -15,6 +16,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import ir.madjeed.healthcare.data.Repo;
 import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
+import ir.madjeed.healthcare.facade.Facade;
 import ir.madjeed.healthcare.gui.BasicListActivity;
 import org.parceler.Parcels;
 
@@ -45,6 +47,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 
         ButterKnife.inject(this);
 
+
         //data base setting
         repo = new RepoPersistent(this);
         if (username != null)
@@ -66,7 +69,6 @@ public abstract class BaseActivity extends ActionBarActivity {
         super.onBackPressed();
         overridePendingTransition(0, 0);
     }
-
 
     protected abstract int getLayoutResourceId();
 
