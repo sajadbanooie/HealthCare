@@ -18,8 +18,16 @@ public class AuthenticationFacade {
         return authenticationRepo.authenticate(user, pass);
     }
 
-    public String getUserRole(String username, String password){
-        return authenticationRepo.getUserRole(username, password);
+    public String getUserRole(String username){
+        return authenticationRepo.getUserRole(username);
+    }
+
+    public boolean userExists(String username){
+        return authenticationRepo.userExist(username);
+    }
+
+    public void registerUser(String ... userInfo){
+        authenticationRepo.registerUser(userInfo);
     }
 }
 

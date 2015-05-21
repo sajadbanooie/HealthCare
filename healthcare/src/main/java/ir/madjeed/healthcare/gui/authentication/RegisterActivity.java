@@ -5,6 +5,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.InjectViews;
 import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.facade.AuthenticationFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
@@ -21,9 +22,12 @@ public class RegisterActivity extends BaseActivity {
     @InjectView(R.id.role)
     Spinner role;
 
+    AuthenticationFacade facade;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        facade = new AuthenticationFacade(this);
     }
 
     @Override
@@ -48,14 +52,12 @@ public class RegisterActivity extends BaseActivity {
             editTexts.get(2).setState(BootstrapEditText.TextState.DANGER);
             showMessage("error", getString(R.string.not_matched_password));
         }else{
-            if (repo.getRepoUsers().getByID(editTexts.get(0).getText().toString()) != null){
+            if (facade.userExists(editTexts.get(0).getText().toString())){
                 showMessage("error", getString(R.string.invalid_username));
             }else{
-                User user = new User(editTexts.get(0).getText().toString(), editTexts.get(1).getText().toString(),
+                facade.registerUser(editTexts.get(0).getText().toString(), editTexts.get(1).getText().toString(),
                         editTexts.get(3).getText().toString(), editTexts.get(4).getText().toString(),
                         editTexts.get(5).getText().toString(), role.getSelectedItem().toString());
-
-                user.save(repo);
                 customStartActivity(LoginActivity.class);
             }
         }

@@ -58,7 +58,7 @@ public class LoginActivity extends BaseActivity {
             }else if (result == -2){
                 showMessage("error", getString(R.string.password_wrong));
             }else{
-                String role = facade.getUserRole(username, password);
+                String role = facade.getUserRole(username);
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("username", username);

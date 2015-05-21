@@ -24,7 +24,7 @@ import org.parceler.Parcels;
 public abstract class BaseActivity extends ActionBarActivity {
 
     private final String LOG_TAG = "maz_maz";
-    protected Repo repo;
+//    protected Repo repo;
     protected String username, role;
     protected User user;
 
@@ -49,9 +49,9 @@ public abstract class BaseActivity extends ActionBarActivity {
 
 
         //data base setting
-        repo = new RepoPersistent(this);
-        if (username != null)
-            user = repo.getRepoUsers().getByID(username);
+//        repo = new RepoPersistent(this);
+//        if (username != null)
+//            user = repo.getRepoUsers().getByID(username);
     }
 
     @Override

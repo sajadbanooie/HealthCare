@@ -32,12 +32,27 @@ public class AuthenticationRepoPersistent extends BaseRepoPersistent implements 
     }
 
     @Override
-    public String getUserRole(String username, String password){
-        if (authenticate(username, password)!=1)
+    public String getUserRole(String username){
+        if (!userExist(username))
             return null;
         else{
             User u = Users.getByID(username);
             return u.getRole();
         }
     }
+
+    @Override
+    public boolean userExist(String username) {
+        User u = Users.getByID(username);
+        if (u==null)
+            return false;
+        return true;
+    }
+
+    @Override
+    public void registerUser(String ... userInfo) {
+        User user = new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5]);
+        Users.create(user);
+    }
+
 }

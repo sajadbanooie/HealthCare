@@ -90,22 +90,22 @@ public class User {
         this.role = role;
     }
 
-    public int save(Repo repo)
-    {
-        if(repo.getRepoUsers().getByID(username) == null)
-        {
-            return repo.getRepoUsers().create(this);
-        }
-        else
-        {
-            return repo.getRepoUsers().update(this);
-        }
-    }
-
-    public int delete(Repo repo)
-    {
-        return repo.getRepoUsers().delete(this);
-    }
+//    public int save(Repo repo)
+//    {
+//        if(repo.getRepoUsers().getByID(username) == null)
+//        {
+//            return repo.getRepoUsers().create(this);
+//        }
+//        else
+//        {
+//            return repo.getRepoUsers().update(this);
+//        }
+//    }
+//
+//    public int delete(Repo repo)
+//    {
+//        return repo.getRepoUsers().delete(this);
+//    }
 
     @Override
     public String toString()
