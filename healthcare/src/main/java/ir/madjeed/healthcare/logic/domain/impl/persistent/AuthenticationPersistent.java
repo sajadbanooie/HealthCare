@@ -5,6 +5,7 @@ import android.content.Context;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.Authentication;
 import ir.madjeed.healthcare.logic.entity.User;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 
 public class AuthenticationPersistent extends BasePersistent implements Authentication {
@@ -51,7 +52,7 @@ public class AuthenticationPersistent extends BasePersistent implements Authenti
 
     @Override
     public void registerUser(String ... userInfo) {
-        User user = new User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5]);
+        User user = new UserPersistent(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5]);
         Users.create(user);
     }
 

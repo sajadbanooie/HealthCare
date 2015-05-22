@@ -1,6 +1,7 @@
 package ir.madjeed.healthcare.dao;
 import ir.madjeed.healthcare.logic.entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface UserDAO {
@@ -9,7 +10,7 @@ public interface UserDAO {
     public int update(User instance);
     public int delete(User instance);
     public User getByID(String id);
-    public List<User> getAll();
+    public ArrayList<User> getAll();
 
 }
 
