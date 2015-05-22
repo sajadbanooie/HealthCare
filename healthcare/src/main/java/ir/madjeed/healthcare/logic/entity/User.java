@@ -1,11 +1,9 @@
-package ir.madjeed.healthcare.data.entity;
+package ir.madjeed.healthcare.logic.entity;
 
-import ir.madjeed.healthcare.data.Repo;
 import com.j256.ormlite.field.DatabaseField;
 import org.parceler.Parcel;
 
 
-// id column name should be same among entities because of my implementation (pk_column)
 @Parcel
 public class User {
 
@@ -89,23 +87,6 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-
-//    public int save(Repo repo)
-//    {
-//        if(repo.getRepoUsers().getByID(username) == null)
-//        {
-//            return repo.getRepoUsers().create(this);
-//        }
-//        else
-//        {
-//            return repo.getRepoUsers().update(this);
-//        }
-//    }
-//
-//    public int delete(Repo repo)
-//    {
-//        return repo.getRepoUsers().delete(this);
-//    }
 
     @Override
     public String toString()

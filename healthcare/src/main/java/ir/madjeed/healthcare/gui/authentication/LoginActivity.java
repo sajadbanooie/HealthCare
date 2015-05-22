@@ -1,13 +1,11 @@
 package ir.madjeed.healthcare.gui.authentication;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
-import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.facade.AuthenticationFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.menu.DoctorMenuActivity;

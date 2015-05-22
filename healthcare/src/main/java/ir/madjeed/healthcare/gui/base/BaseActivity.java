@@ -1,6 +1,5 @@
 package ir.madjeed.healthcare.gui.base;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -13,10 +12,7 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import ir.madjeed.healthcare.R;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
-import ir.madjeed.healthcare.data.Repo;
-import ir.madjeed.healthcare.data.entity.User;
-import ir.madjeed.healthcare.data.repo.impl.persistent.RepoPersistent;
-import ir.madjeed.healthcare.facade.Facade;
+import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.gui.BasicListActivity;
 import org.parceler.Parcels;
 
@@ -24,7 +20,6 @@ import org.parceler.Parcels;
 public abstract class BaseActivity extends ActionBarActivity {
 
     private final String LOG_TAG = "maz_maz";
-//    protected Repo repo;
     protected String username, role;
     protected User user;
 
@@ -32,7 +27,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // restoring user info
+        // restoring user info if available
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         username = pref.getString("username", null);
         role = pref.getString("role", null);
@@ -40,19 +35,16 @@ public abstract class BaseActivity extends ActionBarActivity {
         // display setting
         setContentView(getLayoutResourceId());
 
+        // action bar settings
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         ButterKnife.inject(this);
-
-
-        //data base setting
-//        repo = new RepoPersistent(this);
-//        if (username != null)
-//            user = repo.getRepoUsers().getByID(username);
     }
+
+    protected abstract int getLayoutResourceId();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -69,8 +61,6 @@ public abstract class BaseActivity extends ActionBarActivity {
         super.onBackPressed();
         overridePendingTransition(0, 0);
     }
-
-    protected abstract int getLayoutResourceId();
 
 
     public void showMessage(String type, String message){

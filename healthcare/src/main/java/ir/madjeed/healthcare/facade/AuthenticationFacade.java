@@ -1,33 +1,33 @@
 package ir.madjeed.healthcare.facade;
 
 import android.content.Context;
-import ir.madjeed.healthcare.data.AuthenticationRepo;
-import ir.madjeed.healthcare.data.repo.impl.persistent.AuthenticationRepoPersistent;
+import ir.madjeed.healthcare.logic.domain.Authentication;
+import ir.madjeed.healthcare.logic.domain.impl.persistent.AuthenticationPersistent;
 
 /**
  * Created by admin on 5/21/2015.
  */
 public class AuthenticationFacade {
-    private AuthenticationRepo authenticationRepo;
+    private Authentication authentication;
 
     public AuthenticationFacade(Context context) {
-        this.authenticationRepo = new AuthenticationRepoPersistent(context);
+        this.authentication = new AuthenticationPersistent(context);
     }
 
     public int login(String user, String pass){
-        return authenticationRepo.authenticate(user, pass);
+        return authentication.authenticate(user, pass);
     }
 
     public String getUserRole(String username){
-        return authenticationRepo.getUserRole(username);
+        return authentication.getUserRole(username);
     }
 
     public boolean userExists(String username){
-        return authenticationRepo.userExist(username);
+        return authentication.userExist(username);
     }
 
     public void registerUser(String ... userInfo){
-        authenticationRepo.registerUser(userInfo);
+        authentication.registerUser(userInfo);
     }
 }
 

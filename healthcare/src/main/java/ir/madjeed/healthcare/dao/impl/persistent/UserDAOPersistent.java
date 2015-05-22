@@ -1,23 +1,23 @@
-package ir.madjeed.healthcare.data.repo.impl.persistent;
+package ir.madjeed.healthcare.dao.impl.persistent;
 
 import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import ir.madjeed.healthcare.data.entity.User;
-import ir.madjeed.healthcare.data.repo.RepoUser;
-import ir.madjeed.healthcare.data.repo.impl.persistent.context.DatabaseHelper;
+import ir.madjeed.healthcare.logic.entity.User;
+import ir.madjeed.healthcare.dao.UserDAO;
+import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class RepoUserPersistent implements RepoUser {
+public class UserDAOPersistent implements UserDAO {
 
     private final String LOG_TAG = getClass().getSimpleName();
 
     Dao<User, String> instanceDao;
 
-    public RepoUserPersistent(DatabaseHelper db)
+    public UserDAOPersistent(DatabaseHelper db)
     {
         try {
             instanceDao = db.getInstanceDao(User.class);

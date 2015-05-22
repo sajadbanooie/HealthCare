@@ -1,9 +1,9 @@
-package ir.madjeed.healthcare.data.repo;
-import ir.madjeed.healthcare.data.entity.User;
+package ir.madjeed.healthcare.dao;
+import ir.madjeed.healthcare.logic.entity.User;
 
 import java.util.List;
 
-public interface RepoUser{
+public interface UserDAO {
 
     public int create(User instance);
     public int update(User instance);

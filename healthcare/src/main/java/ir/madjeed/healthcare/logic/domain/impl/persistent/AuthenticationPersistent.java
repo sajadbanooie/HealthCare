@@ -1,23 +1,23 @@
-package ir.madjeed.healthcare.data.repo.impl.persistent;
+package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
-import ir.madjeed.healthcare.R;
-import ir.madjeed.healthcare.data.AuthenticationRepo;
-import ir.madjeed.healthcare.data.entity.User;
+import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
+import ir.madjeed.healthcare.logic.domain.Authentication;
+import ir.madjeed.healthcare.logic.entity.User;
 
 
-public class AuthenticationRepoPersistent extends BaseRepoPersistent implements AuthenticationRepo{
+public class AuthenticationPersistent extends BasePersistent implements Authentication {
 
-    private RepoUserPersistent Users;
+    private UserDAOPersistent Users;
 
-    public AuthenticationRepoPersistent(Context context) {
+    public AuthenticationPersistent(Context context) {
         super(context);
     }
 
     @Override
-    protected void makeNecessaryRepos() {
-        Users = new RepoUserPersistent(getDatabaseHelper());
+    protected void makeNecessaryDAO() {
+        Users = new UserDAOPersistent(getDatabaseHelper());
     }
 
     @Override

@@ -1,7 +1,7 @@
-package ir.madjeed.healthcare.data;
+package ir.madjeed.healthcare.logic.domain;
 
 
-public interface AuthenticationRepo {
+public interface Authentication {
     public int authenticate(String username, String password);
     public String getUserRole(String username);
     public boolean userExist(String username);

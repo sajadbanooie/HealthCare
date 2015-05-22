@@ -4,7 +4,6 @@ import android.widget.Spinner;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.InjectViews;
-import ir.madjeed.healthcare.data.entity.User;
 import ir.madjeed.healthcare.facade.AuthenticationFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
