@@ -15,7 +15,7 @@ public class AuthenticationFacade {
     }
 
     public int login(String user, String pass){
-            return authentication.authenticate(user, pass);
+        return authentication.authenticate(user, pass);
     }
 
     public String getUserRole(String username){
