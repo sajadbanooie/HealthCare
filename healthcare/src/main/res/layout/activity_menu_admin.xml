@@ -8,27 +8,27 @@
 
 
         <TextView
-                android:text="@string/doctor_menu"
+                android:text="@string/admin_menu"
                 style="@style/title_style"
                 />
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/edit_info_btn"
-                style="@style/btn_style"
-                android:text="@string/edit_info"
-                bootstrap:bb_type="primary"
-                bootstrap:bb_roundedCorners="true"
-                android:layout_marginTop="22sp"
-                />
+        <!--<com.beardedhen.androidbootstrap.BootstrapButton-->
+        <!--android:id="@+id/edit_info_btn"-->
+        <!--style="@style/btn_style"-->
+        <!--android:text="@string/edit_info"-->
+        <!--bootstrap:bb_type="primary"-->
+        <!--bootstrap:bb_roundedCorners="true"-->
+        <!--android:layout_marginTop="22sp"-->
+        <!--/>-->
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/messages_btn"
-                style="@style/btn_style"
-                android:text="@string/messages"
-                bootstrap:bb_type="primary"
-                bootstrap:bb_roundedCorners="true"
-                android:layout_marginTop="22sp"
-                />
+        <!--<com.beardedhen.androidbootstrap.BootstrapButton-->
+        <!--android:id="@+id/messages_btn"-->
+        <!--style="@style/btn_style"-->
+        <!--android:text="@string/messages"-->
+        <!--bootstrap:bb_type="primary"-->
+        <!--bootstrap:bb_roundedCorners="true"-->
+        <!--android:layout_marginTop="22sp"-->
+        <!--/>-->
 
 
         <com.beardedhen.androidbootstrap.BootstrapButton
@@ -41,27 +41,9 @@
                 />
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/consultant_btn"
+                android:id="@+id/users_btn"
                 style="@style/btn_style"
-                android:text="@string/consultant"
-                bootstrap:bb_type="primary"
-                bootstrap:bb_roundedCorners="true"
-                android:layout_marginTop="22sp"
-                />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/requests_btn"
-                style="@style/btn_style"
-                android:text="@string/requests"
-                bootstrap:bb_type="primary"
-                bootstrap:bb_roundedCorners="true"
-                android:layout_marginTop="22sp"
-                />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/my_patients_btn"
-                style="@style/btn_style"
-                android:text="@string/my_patients"
+                android:text="@string/users"
                 bootstrap:bb_type="primary"
                 bootstrap:bb_roundedCorners="true"
                 android:layout_marginTop="22sp"

@@ -97,4 +97,19 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
     }
 
+
+    // this should be used for lists
+    public void customStartActivity(Class listClass, BaseListOptions listOptions){
+        Intent i = new Intent(this, listClass).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Bundle mBundle = new Bundle();
+        Parcelable wrapped = Parcels.wrap(listOptions);
+        mBundle.putParcelable("listOptions", wrapped);
+        i.putExtras(mBundle);
+        if (listOptions.getPurpose().contains("select")){
+            startActivityForResult(i, 1);
+        }else{
+            startActivity(i);
+        }
+    }
+
 }

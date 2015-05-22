@@ -39,14 +39,15 @@
     <string name="doctor">پزشک عمومی</string>
     <string name="patient">بیمار</string>
     <string name="drugstore">داروخانه</string>
+    <string name="admin">مدیر سامانه</string>
 
     <string-array name="roles_array">
         <item>@string/patient</item>
         <item>@string/doctor</item>
         <item>@string/expert</item>
         <item>@string/drugstore</item>
+        <item>@string/admin</item>
     </string-array>
-    <string name="admin">مدیر سامانه</string>
 
     <string name="select">انتخاب</string>
     <string name="current_doctor">پزشک فعلی</string>
@@ -57,6 +58,7 @@
     <string name="doctor_menu">منوی پزشک </string>
     <string name="patient_menu">منوی بیمار</string>
     <string name="drugstore_menu">منوی داروخانه</string>
+    <string name="admin_menu">منوی مدیر سامانه</string>
 
     <string name="edit_info">تغییر مشخصات</string>
     <string name="messages">پیام ها</string>
@@ -73,6 +75,7 @@
     <string name="deliver_drugs">تحویل دارو</string>
 
 
+    <string name="users">کاربران سامانه</string>
 
     <string name="physical_state_history">سوابق وضعیت جسمانی</string>
     <string name="physical_state">وضعیت جسمانی</string>

@@ -38,7 +38,10 @@ public class UserPersistent implements User {
         this.family = family;
         this.nationalID = nationalID;
         this.role = role;
-        this.registrationStatus = false;
+        if (role.contains("مدیر سامانه"))
+            this.registrationStatus = true;
+        else
+            this.registrationStatus = false;
     }
 
     public String getUsername() {

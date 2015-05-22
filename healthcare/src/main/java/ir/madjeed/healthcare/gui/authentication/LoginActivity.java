@@ -9,6 +9,7 @@ import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.facade.AuthenticationFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.menu.AdminMenuActivity;
 import ir.madjeed.healthcare.gui.menu.DoctorMenuActivity;
 import ir.madjeed.healthcare.gui.menu.DrugStoreMenuActivity;
 import ir.madjeed.healthcare.gui.menu.PatientMenuActivity;
@@ -59,20 +60,23 @@ public class LoginActivity extends BaseActivity {
             }else if (result == -3){
                 showMessage("error", getString(R.string.not_actived_yet));
             }else{
+                // Save user info in SharedPreferences
                 String role = facade.getUserRole(username);
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("username", username);
                 editor.putString("role", role);
-                // Save the changes in SharedPreferences
-                editor.commit(); // commit changes
+                editor.commit();
 
+                // launch proper menu for user
                 if (role.contains("پزشک")){
                     customStartActivity(DoctorMenuActivity.class);
                 }else if (role.contains("بیمار")){
                     customStartActivity(PatientMenuActivity.class);
                 }else if (role.contains("داروخانه")){
                     customStartActivity(DrugStoreMenuActivity.class);
+                }else if (role.contains("مدیر سامانه")){
+                    customStartActivity(AdminMenuActivity.class);
                 }
             }
         }
