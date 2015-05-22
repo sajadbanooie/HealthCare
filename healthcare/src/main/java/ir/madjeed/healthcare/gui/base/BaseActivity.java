@@ -21,7 +21,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     private final String LOG_TAG = "maz_maz";
     protected String username, role;
-    protected User user;
+//    protected User user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

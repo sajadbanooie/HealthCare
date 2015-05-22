@@ -22,11 +22,13 @@ public class UserDAOPersistent implements UserDAO {
     public UserDAOPersistent(DatabaseHelper db)
     {
         try {
-            instanceDao = db.getInstanceDao(User.class);
-        } catch (SQLException e) {
+            instanceDao = db.getInstanceDao(UserPersistent.class);
+        } catch (Exception e) {
             // TODO: Exception Handling
             e.printStackTrace();
         }
+        System.out.print(db);
+        System.out.print(instanceDao.toString());
     }
 
     @Override
@@ -70,8 +72,6 @@ public class UserDAOPersistent implements UserDAO {
     {
         try {
             QueryBuilder<UserPersistent, String> qb = instanceDao.queryBuilder();
-
-            // should change it to sth like id_column n\
             qb.where().eq("pk_column", id);
             PreparedQuery<UserPersistent> pq = qb.prepare();
             return instanceDao.queryForFirst(pq);

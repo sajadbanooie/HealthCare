@@ -1,5 +1,6 @@
 package ir.madjeed.healthcare.gui.authentication;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import butterknife.InjectView;

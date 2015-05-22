@@ -18,11 +18,11 @@ public class EditInfoActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        editTexts.get(0).setText(user.getUsername());
-        editTexts.get(1).setText(user.getPassword());
-        editTexts.get(2).setText(user.getName());
-        editTexts.get(3).setText(user.getFamily());
-        editTexts.get(4).setText(user.getNationalID());
+//        editTexts.get(0).setText(user.getUsername());
+//        editTexts.get(1).setText(user.getPassword());
+//        editTexts.get(2).setText(user.getName());
+//        editTexts.get(3).setText(user.getFamily());
+//        editTexts.get(4).setText(user.getNationalID());
     }
 
     @Override

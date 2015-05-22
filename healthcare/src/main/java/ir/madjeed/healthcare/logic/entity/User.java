@@ -1,8 +1,5 @@
 package ir.madjeed.healthcare.logic.entity;
 
-import org.parceler.Parcel;
-
-@Parcel
 public interface User {
     public String getUsername();
     public void setUsername(String username);
