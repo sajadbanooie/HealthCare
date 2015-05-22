@@ -30,6 +30,7 @@
     <string name="invalid_username">این نام کاربری قبلا استفاده شده است</string>
     <string name="user_not_found">نام کاربری مورد نظر یافت نشد.</string>
     <string name="password_wrong">کلمه عبور صحیح نیست.</string>
+    <string name="not_actived_yet">وضعیت ثبت نام شما هنوز توسط مدیر سامانه تایید نشده است.</string>
 
     <string name="find_prescription">پیدا کردن نسخه</string>
     <string name="prescription">نسخه</string>

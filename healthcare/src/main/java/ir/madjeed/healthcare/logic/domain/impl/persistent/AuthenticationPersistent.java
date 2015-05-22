@@ -28,6 +28,8 @@ public class AuthenticationPersistent extends BasePersistent implements Authenti
             return -1; // username not found
         }else if (!u.getPassword().equals(password)){
             return -2; // wrong password
+        }else if (!u.getRegistrationStatus()){
+            return -3; // means user is not active yet
         }
         return 1;
     }

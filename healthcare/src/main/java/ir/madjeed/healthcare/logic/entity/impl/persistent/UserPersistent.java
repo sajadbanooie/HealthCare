@@ -24,6 +24,8 @@ public class UserPersistent implements User {
     @DatabaseField
     String role;
 
+    @DatabaseField
+    Boolean registrationStatus;
 
     public UserPersistent() {
         // needed by ormlite
@@ -36,8 +38,8 @@ public class UserPersistent implements User {
         this.family = family;
         this.nationalID = nationalID;
         this.role = role;
+        this.registrationStatus = false;
     }
-
 
     public String getUsername() {
         return username;
@@ -85,6 +87,14 @@ public class UserPersistent implements User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getRegistrationStatus() {
+        return registrationStatus;
+    }
+
+    public void setRegistrationStatus(Boolean registrationStatus) {
+        this.registrationStatus = registrationStatus;
     }
 
     @Override

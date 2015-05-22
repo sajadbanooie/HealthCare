@@ -13,4 +13,6 @@ public interface User {
     public void setNationalID(String nationalID);
     public String getRole();
     public void setRole(String role);
+    public Boolean getRegistrationStatus();
+    public void setRegistrationStatus(Boolean status);
 }

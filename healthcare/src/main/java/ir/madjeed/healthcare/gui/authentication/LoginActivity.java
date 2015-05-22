@@ -56,6 +56,8 @@ public class LoginActivity extends BaseActivity {
                 showMessage("error", getString(R.string.user_not_found));
             }else if (result == -2){
                 showMessage("error", getString(R.string.password_wrong));
+            }else if (result == -3){
+                showMessage("error", getString(R.string.not_actived_yet));
             }else{
                 String role = facade.getUserRole(username);
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
