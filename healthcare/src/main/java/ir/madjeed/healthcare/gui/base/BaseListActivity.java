@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,16 @@ public abstract class BaseListActivity extends BaseActivity {
 
     protected abstract String getListTitle();
 
-    protected abstract  ArrayList<BaseRowObject> getListItems();
+    private ArrayList<BaseRowObject> getListItems(){
+        ArrayList<BaseRowObject> data= new ArrayList<BaseRowObject>();
+        ArrayList<Pair<String, String>> result = getRowItems();
+        for (int i = 0; i < result.size(); i++) {
+            data.add(new BaseRowObject(result.get(i).first, result.get(i).second));
+        }
+        return data;
+    }
+
+    protected abstract  ArrayList<Pair<String, String>> getRowItems();
 
     @Override
     protected int getLayoutResourceId() {

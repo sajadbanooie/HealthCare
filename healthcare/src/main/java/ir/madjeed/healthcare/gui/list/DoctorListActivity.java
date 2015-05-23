@@ -28,8 +28,7 @@ public class DoctorListActivity extends BaseListActivity {
     }
 
     @Override
-    protected ArrayList<BaseRowObject> getListItems() {
-        ArrayList<BaseRowObject> data= new ArrayList<BaseRowObject>();
+    protected ArrayList<Pair<String, String>> getRowItems() {
         ArrayList<Pair<String, String>> doctors;
         if (listOptions.getCategory().equals("all")){
             doctors = facade.getAllNormalDoctors();
@@ -37,9 +36,6 @@ public class DoctorListActivity extends BaseListActivity {
             doctors = facade.getAllNormalDoctors();
 //            doctors = facade.getMyDoctors();
         }
-        for (int i = 0; i < doctors.size(); i++) {
-            data.add(new BaseRowObject(doctors.get(i).first, doctors.get(i).second));
-        }
-        return data;
+        return doctors;
     }
 }

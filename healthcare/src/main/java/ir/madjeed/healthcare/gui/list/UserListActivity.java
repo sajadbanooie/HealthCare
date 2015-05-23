@@ -28,12 +28,8 @@ public class UserListActivity extends BaseListActivity {
     }
 
     @Override
-    protected ArrayList<BaseRowObject> getListItems() {
-        ArrayList<BaseRowObject> data= new ArrayList<BaseRowObject>();
+    protected ArrayList<Pair<String, String>> getRowItems() {
         ArrayList<Pair<String, String>> allUsers = facade.getAllUsers();
-        for (int i = 0; i < allUsers.size(); i++) {
-            data.add(new BaseRowObject(allUsers.get(i).first, allUsers.get(i).second));
-        }
-        return data;
+        return allUsers;
     }
 }
