@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
 import org.parceler.Parcels;
 
@@ -23,23 +26,44 @@ public abstract class BaseListActivity extends BaseActivity {
 
     private CustomAdapter mAdapter;
     private ArrayList<BaseRowObject> items;
-
+    private ArrayList<BaseRowObject> items_original;
+    protected BaseListOptions listOptions;
 
     @InjectView(R.id.title) TextView title;
     @InjectView(R.id.mainListView) ListView mListView;
-
+    @InjectView(R.id.filter) BootstrapEditText filter_edit_text;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BaseListOptions listOptions = Parcels.unwrap(this.getIntent().getParcelableExtra("listOptions"));
+        listOptions = Parcels.unwrap(this.getIntent().getParcelableExtra("listOptions"));
 
         title.setText(getListTitle());
         items = getListItems();
+        items_original = getListItems();
 
         mAdapter = new CustomAdapter(this, items, listOptions);
         mListView.setAdapter(mAdapter);
+
+
+        filter_edit_text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                items.clear();
+                for (int i = items_original.size()-1; i >= 0; i--) {
+                    if (items_original.get(i).getColumn(0).contains(filter_edit_text.getText().toString()))
+                        items.add(items_original.get(i));
+                }
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     protected abstract String getListTitle();
