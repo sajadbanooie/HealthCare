@@ -12,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 // dont forget to add daos here.
@@ -22,6 +23,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<UserPersistent, String> userDao = null;
+    private Dao<SupervisionRequestPersistent, String> supervisionDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -37,6 +39,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, UserPersistent.class);
+            TableUtils.createTable(connectionSource, SupervisionRequestPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -52,6 +55,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade");
 
             TableUtils.dropTable(connectionSource, UserPersistent.class, true);
+            TableUtils.dropTable(connectionSource, SupervisionRequestPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -65,6 +69,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if (typeC.equals(UserPersistent.class)) {
             if (userDao == null) userDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) userDao;
+        }
+        if (typeC.equals(SupervisionRequestPersistent.class)) {
+            if (supervisionDao == null) supervisionDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) supervisionDao;
         }
         return null;
     }
