@@ -61,7 +61,8 @@
         <activity android:name=".gui.doctor.AddPhysicalStateActivity"/>
         <activity android:name=".gui.doctor.PhysicalStateReportActivity"/>
 
-        <activity android:name=".gui.administration.UserListActivity"/>
+        <activity android:name=".gui.list.UserListActivity"/>
+        <activity android:name=".gui.list.DoctorListActivity"/>
 
 
     </application>

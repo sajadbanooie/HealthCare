@@ -4,14 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
-import ir.madjeed.healthcare.gui.EditInfoActivity;
-import ir.madjeed.healthcare.gui.administration.UserListActivity;
+import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
-import ir.madjeed.healthcare.gui.base.ListOptions;
-import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
-import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
-import ir.madjeed.healthcare.gui.profile.RequestProfileActivity;
 import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
