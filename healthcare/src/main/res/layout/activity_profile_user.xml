@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="@dimen/activity_padding">
+
+
+    <TextView
+            android:id="@+id/title"
+            style="@style/title_style"
+            />
+
+
+    <TextView
+            android:id="@+id/nationalID"
+            style="@style/title_style"
+            />
+
+    <TextView
+            android:id="@+id/role"
+            style="@style/title_style"
+            />
+
+
+    <TextView
+            android:id="@+id/registrationStatus"
+            style="@style/title_style"
+            />
+
+
+    <Spinner
+            android:id="@+id/registration_status_array"
+            android:entries="@array/registration_status_array"
+            style="@style/spinner_style"
+            />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/save_registration_status"
+                style="@style/btn_style"
+                android:text="ذخیره وضعیت"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
+
+</LinearLayout>

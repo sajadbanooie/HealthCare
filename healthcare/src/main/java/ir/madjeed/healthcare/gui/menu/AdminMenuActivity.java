@@ -12,6 +12,7 @@ import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
 import ir.madjeed.healthcare.gui.profile.RequestProfileActivity;
+import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
 public class AdminMenuActivity extends BaseActivity {
@@ -45,7 +46,7 @@ public class AdminMenuActivity extends BaseActivity {
 
     @OnClick(R.id.users_btn)
     public void users_btn() {
-        customStartActivity(UserListActivity.class, new BaseListOptions(PatientProfileActivity.class, null, "view", "mine"));
+        customStartActivity(UserListActivity.class, new BaseListOptions(UserProfileActivity.class, null, "view", "mine"));
     }
 
 }

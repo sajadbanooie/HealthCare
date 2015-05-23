@@ -8,4 +8,6 @@ import java.util.ArrayList;
 
 public interface Administration {
     public ArrayList<User> getAllUsers();
+    public User getUser(String pk);
+    public void updateUser(User u);
 }

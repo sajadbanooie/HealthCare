@@ -26,4 +26,13 @@ public class AdministrationPersistent extends BasePersistent implements Administ
     public ArrayList<User> getAllUsers() {
         return Users.getAll();
     }
+
+    @Override
+    public User getUser(String pk) {
+        return Users.getByID(pk);
+    }
+
+    public void updateUser(User u){
+        Users.update(u);
+    }
 }

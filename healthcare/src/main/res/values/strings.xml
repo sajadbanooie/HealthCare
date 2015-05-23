@@ -49,6 +49,16 @@
         <item>@string/admin</item>
     </string-array>
 
+    <string name="pending">در انتظار</string>
+    <string name="rejected">رد شده</string>
+    <string name="accepted">تایید شده</string>
+
+    <string-array name="registration_status_array">
+        <item>@string/pending</item>
+        <item>@string/rejected</item>
+        <item>@string/accepted</item>
+    </string-array>
+
     <string name="select">انتخاب</string>
     <string name="current_doctor">پزشک فعلی</string>
     <string name="select_doctor">انتخاب/تغییر پزشک</string>

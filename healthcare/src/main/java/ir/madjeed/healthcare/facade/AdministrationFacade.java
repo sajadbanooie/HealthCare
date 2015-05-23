@@ -28,5 +28,27 @@ public class AdministrationFacade {
         }
         return result;
     }
+
+    public ArrayList<String> getUserInfo(String username){
+        User u = administration.getUser(username);
+        ArrayList<String> info = new ArrayList<String>();
+        info.add(u.getName()+" "+u.getFamily());
+        info.add(u.getNationalID());
+        info.add(u.getRole());
+        if (u.getRegistrationStatus().equals("pending")) {
+            info.add("در حال انتظار");
+        }else if (u.getRegistrationStatus().equals("rejected")){
+            info.add("رد شده");
+        }else{
+            info.add("تایید شده");
+        }
+        return info;
+    }
+
+    public void setUserRegistrationStatus(String username, String status){
+        User u = administration.getUser(username);
+        u.setRegistrationStatus(status);
+        administration.updateUser(u);
+    }
 }
 

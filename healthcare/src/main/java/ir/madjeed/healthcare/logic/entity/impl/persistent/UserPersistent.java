@@ -25,7 +25,7 @@ public class UserPersistent implements User {
     String role;
 
     @DatabaseField
-    Boolean registrationStatus;
+    String registrationStatus; //pending, accepted and rejected
 
     public UserPersistent() {
         // needed by ormlite
@@ -39,9 +39,9 @@ public class UserPersistent implements User {
         this.nationalID = nationalID;
         this.role = role;
         if (role.contains("مدیر سامانه"))
-            this.registrationStatus = true;
+            this.registrationStatus = "accepted";
         else
-            this.registrationStatus = false;
+            this.registrationStatus = "pending";
     }
 
     public String getUsername() {
@@ -92,11 +92,11 @@ public class UserPersistent implements User {
         this.role = role;
     }
 
-    public Boolean getRegistrationStatus() {
+    public String getRegistrationStatus() {
         return registrationStatus;
     }
 
-    public void setRegistrationStatus(Boolean registrationStatus) {
+    public void setRegistrationStatus(String registrationStatus) {
         this.registrationStatus = registrationStatus;
     }
 
