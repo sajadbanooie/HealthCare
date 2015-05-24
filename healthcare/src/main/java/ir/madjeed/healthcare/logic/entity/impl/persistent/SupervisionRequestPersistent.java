@@ -38,10 +38,10 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
         // needed by ormlite
     }
 
-    public SupervisionRequestPersistent(UserPersistent patient, UserPersistent doctor, String status, String type, String requestDetail,
+    public SupervisionRequestPersistent(User patient, User doctor, String status, String type, String requestDetail,
                                         String requestAnswer, Date date) {
-        this.patient = patient;
-        this.doctor = doctor;
+        this.patient = (UserPersistent) patient;
+        this.doctor = (UserPersistent) doctor;
         this.status = status;
         this.type = type;
         this.requestDetail = requestDetail;
@@ -50,23 +50,23 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
     }
 
     @Override
-    public UserPersistent getPatient() {
+    public User getPatient() {
         return patient;
     }
 
     @Override
-    public void setPatient(UserPersistent u) {
-        this.patient = u;
+    public void setPatient(User u) {
+        this.patient = (UserPersistent) u;
     }
 
     @Override
-    public UserPersistent getDoctor() {
+    public User getDoctor() {
         return doctor;
     }
 
     @Override
-    public void setDoctor(UserPersistent u) {
-        this.doctor = u;
+    public void setDoctor(User u) {
+        this.doctor = (UserPersistent) u;
     }
 
     @Override

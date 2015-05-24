@@ -2,7 +2,6 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
-import ir.madjeed.healthcare.dao.SupervisionRequestDAO;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.PatientRelated;
@@ -11,11 +10,8 @@ import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class PatientRelatedPersistent extends BasePersistent implements PatientRelated {

@@ -54,7 +54,6 @@ public class SelectDoctorActivity extends BaseActivity {
 
     @OnClick(R.id.select)
     public void select() {
-//        customStartActivity(new ListOptions(DoctorProfileActivity.class, "doctor", "view|select", "all"));
         customStartActivity(DoctorListActivity.class, new BaseListOptions(DoctorProfileActivity.class, null, "select", "all"));
     }
 

@@ -12,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
@@ -23,7 +24,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<UserPersistent, String> userDao = null;
-    private Dao<SupervisionRequestPersistent, String> supervisionDao = null;
+    private Dao<SupervisionRequestPersistent, Integer> supervisionDao = null;
+    private Dao<MessagePersistent, Integer> messageDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -40,6 +42,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, UserPersistent.class);
             TableUtils.createTable(connectionSource, SupervisionRequestPersistent.class);
+            TableUtils.createTable(connectionSource, MessagePersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -56,6 +59,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
             TableUtils.dropTable(connectionSource, UserPersistent.class, true);
             TableUtils.dropTable(connectionSource, SupervisionRequestPersistent.class, true);
+            TableUtils.dropTable(connectionSource, MessagePersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -72,6 +76,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         if (typeC.equals(SupervisionRequestPersistent.class)) {
             if (supervisionDao == null) supervisionDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) supervisionDao;
+        }
+        if (typeC.equals(MessagePersistent.class)) {
+            if (messageDao == null) messageDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) supervisionDao;
         }
         return null;
