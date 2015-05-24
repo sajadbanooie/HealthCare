@@ -53,6 +53,11 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
     }
 
     @Override
+    public int getId(){
+        return this.id;
+    }
+
+    @Override
     public User getPatient() {
         return patient;
     }

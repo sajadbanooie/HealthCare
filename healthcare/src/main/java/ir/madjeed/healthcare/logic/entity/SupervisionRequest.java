@@ -3,6 +3,7 @@ package ir.madjeed.healthcare.logic.entity;
 //import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 public interface SupervisionRequest {
+    public int getId();
     public User getPatient();
     public void setPatient(User u);
     public User getDoctor();
@@ -15,4 +16,6 @@ public interface SupervisionRequest {
     public void setRequestDetail(String detail);
     public String getRequestAnswer();
     public void setRequestAnswer(String answer);
+    public String getTitle();
+    public String getBody();
 }

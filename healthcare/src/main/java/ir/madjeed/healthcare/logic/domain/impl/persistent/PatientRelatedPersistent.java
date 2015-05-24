@@ -57,7 +57,8 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
         UserPersistent doctor = (UserPersistent) Users.getByID(doctor_username);
         SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "pending", "request", detail, "");
         SupervisionRequests.create(sr);
-        Message m = new MessagePersistent(patient, "درخواست نظارت ارسال شد.", "You have a new message");
+        String title =  "درخواست نظارت ارسال شد."+" شماره: "+String.valueOf(sr.getId());
+        Message m = new MessagePersistent(patient, title, detail);
         Messages.create(m);
     }
 }
