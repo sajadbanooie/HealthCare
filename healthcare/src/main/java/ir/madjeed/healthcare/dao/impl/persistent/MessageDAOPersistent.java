@@ -25,7 +25,7 @@ public class MessageDAOPersistent implements MessageDAO {
     public MessageDAOPersistent(DatabaseHelper db)
     {
         try {
-            instanceDao = db.getInstanceDao(UserPersistent.class);
+            instanceDao = db.getInstanceDao(MessagePersistent.class);
         } catch (Exception e) {
             // TODO: Exception Handling
             e.printStackTrace();

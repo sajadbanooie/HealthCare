@@ -80,7 +80,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         if (typeC.equals(MessagePersistent.class)) {
             if (messageDao == null) messageDao = DaoManager.createDao(getConnectionSource(), typeC );
-            return (Dao<C, D>) supervisionDao;
+            return (Dao<C, D>) messageDao;
         }
         return null;
     }

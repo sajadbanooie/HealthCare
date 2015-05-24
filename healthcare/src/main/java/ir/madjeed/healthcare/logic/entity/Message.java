@@ -5,6 +5,12 @@ import java.util.Date;
 
 public interface Message {
 
+    public int getId();
+
+    String getTitle();
+
+    void setTitle(String title);
+
     public String getDetail();
 
     public void setDetail(String detail);

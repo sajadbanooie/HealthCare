@@ -63,6 +63,7 @@
 
         <activity android:name=".gui.list.UserListActivity"/>
         <activity android:name=".gui.list.DoctorListActivity"/>
+        <activity android:name=".gui.list.MessageListActivity"/>
 
 
     </application>

@@ -2,11 +2,14 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
+import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.PatientRelated;
+import ir.madjeed.healthcare.logic.entity.Message;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.User;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
@@ -18,6 +21,7 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
 
     private UserDAOPersistent Users;
     private SupervisionRequestDAOPersistent SupervisionRequests;
+    private MessageDAOPersistent Messages;
 
 
     public PatientRelatedPersistent(Context context) {
@@ -28,6 +32,7 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
     protected void makeNecessaryDAO() {
         Users = new UserDAOPersistent(getDatabaseHelper());
         SupervisionRequests = new SupervisionRequestDAOPersistent(getDatabaseHelper());
+        Messages = new MessageDAOPersistent(getDatabaseHelper());
     }
 
 
@@ -50,8 +55,9 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
     public void makeSupervisionRequest(String patient_username, String doctor_username, String detail){
         UserPersistent patient = (UserPersistent) Users.getByID(patient_username);
         UserPersistent doctor = (UserPersistent) Users.getByID(doctor_username);
-        Calendar cal = Calendar.getInstance();
-        SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "pending", "request", detail, "", cal.getTime());
+        SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "pending", "request", detail, "");
         SupervisionRequests.create(sr);
+        Message m = new MessagePersistent(patient, "درخواست نظارت ارسال شد.", "You have a new message");
+        Messages.create(m);
     }
 }

@@ -10,7 +10,10 @@ import ir.madjeed.healthcare.facade.PatientFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.list.DoctorListActivity;
+import ir.madjeed.healthcare.gui.list.MessageListActivity;
+import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
+import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
 public class SelectDoctorActivity extends BaseActivity {
@@ -44,6 +47,7 @@ public class SelectDoctorActivity extends BaseActivity {
             showMessage("error", "شرح درخواست را بنویسید.");
         }else{
             facade.makeSupervisionRequest(username, selected_doctor_id, detail.getText().toString());
+            customStartActivity(MessageListActivity.class, new BaseListOptions(UserProfileActivity.class, null, "view", "mine"));
         }
     }
 

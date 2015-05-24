@@ -4,6 +4,8 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.User;
+
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -39,14 +41,15 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
     }
 
     public SupervisionRequestPersistent(User patient, User doctor, String status, String type, String requestDetail,
-                                        String requestAnswer, Date date) {
+                                        String requestAnswer) {
         this.patient = (UserPersistent) patient;
         this.doctor = (UserPersistent) doctor;
         this.status = status;
         this.type = type;
         this.requestDetail = requestDetail;
         this.requestAnswer = requestAnswer;
-        this.date = date;
+        Calendar cal = Calendar.getInstance();
+        this.date = cal.getTime();
     }
 
     @Override
