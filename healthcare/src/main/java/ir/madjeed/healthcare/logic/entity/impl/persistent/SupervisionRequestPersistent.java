@@ -9,14 +9,14 @@ import java.util.Date;
 
 public class SupervisionRequestPersistent implements SupervisionRequest {
 
-    @DatabaseField(id = true, generatedId = true, columnName = "pk_column")
+    @DatabaseField(generatedId = true, columnName = "pk_column")
     private int id;
 
     @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
-    private User patient;
+    private UserPersistent patient;
 
     @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
-    private User doctor;
+    private UserPersistent doctor;
 
     @DatabaseField
     private String status;
@@ -30,7 +30,7 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
     @DatabaseField
     private String requestAnswer;
 
-    @DatabaseField(dataType = DataType.LONG)
+    @DatabaseField(dataType = DataType.DATE_LONG)
     private Date date;
 
 
@@ -38,7 +38,7 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
         // needed by ormlite
     }
 
-    public SupervisionRequestPersistent(User patient, User doctor, String status, String type, String requestDetail,
+    public SupervisionRequestPersistent(UserPersistent patient, UserPersistent doctor, String status, String type, String requestDetail,
                                         String requestAnswer, Date date) {
         this.patient = patient;
         this.doctor = doctor;
@@ -50,22 +50,22 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
     }
 
     @Override
-    public User getPatient() {
+    public UserPersistent getPatient() {
         return patient;
     }
 
     @Override
-    public void setPatient(User u) {
+    public void setPatient(UserPersistent u) {
         this.patient = u;
     }
 
     @Override
-    public User getDoctor() {
+    public UserPersistent getDoctor() {
         return doctor;
     }
 
     @Override
-    public void setDoctor(User u) {
+    public void setDoctor(UserPersistent u) {
         this.doctor = u;
     }
 

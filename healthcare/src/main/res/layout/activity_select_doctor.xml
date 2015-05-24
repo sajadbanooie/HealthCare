@@ -20,6 +20,11 @@
             style="@style/title_style"
             />
 
+    <TextView
+            android:id="@+id/selected_doctor"
+            style="@style/title_style"
+            />
+
 
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/select"

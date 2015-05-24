@@ -2,15 +2,27 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
+import ir.madjeed.healthcare.dao.SupervisionRequestDAO;
+import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.PatientRelated;
+import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.User;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class PatientRelatedPersistent extends BasePersistent implements PatientRelated {
 
     private UserDAOPersistent Users;
+    private SupervisionRequestDAOPersistent SupervisionRequests;
+
 
     public PatientRelatedPersistent(Context context) {
         super(context);
@@ -19,6 +31,7 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
     @Override
     protected void makeNecessaryDAO() {
         Users = new UserDAOPersistent(getDatabaseHelper());
+        SupervisionRequests = new SupervisionRequestDAOPersistent(getDatabaseHelper());
     }
 
 
@@ -30,5 +43,19 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
                 res.remove(i);
         }
         return res;
+    }
+
+    @Override
+    public User getDoctor(String username){
+        return Users.getByID(username);
+    }
+
+    @Override
+    public void makeSupervisionRequest(String patient_username, String doctor_username, String detail){
+        UserPersistent patient = (UserPersistent) Users.getByID(patient_username);
+        UserPersistent doctor = (UserPersistent) Users.getByID(doctor_username);
+        Calendar cal = Calendar.getInstance();
+        SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "pending", "request", detail, "", cal.getTime());
+        SupervisionRequests.create(sr);
     }
 }

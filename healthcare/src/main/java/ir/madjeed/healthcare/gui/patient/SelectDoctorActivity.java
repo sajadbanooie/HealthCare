@@ -16,15 +16,19 @@ import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 public class SelectDoctorActivity extends BaseActivity {
 
     @InjectView(R.id.current_doctor) TextView current_doctor;
+    @InjectView(R.id.selected_doctor) TextView selected_doctor;
+    @InjectView(R.id.detail) TextView detail;
 
-    PatientFacade facade;
+    private PatientFacade facade;
+    private String selected_doctor_id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         facade = new PatientFacade(this);
         current_doctor.setText("دکتر فعلی: "+facade.getMyDoctorName(username));
-
+        selected_doctor.setText("پزشک انتخاب شده: --");
+        selected_doctor_id = "";
     }
 
     @Override
@@ -34,6 +38,13 @@ public class SelectDoctorActivity extends BaseActivity {
 
     @OnClick(R.id.approve)
     public void approve() {
+        if (selected_doctor_id.equals("")){
+            showMessage("error", "لطفا یک پزشک انتخاب کنید.");
+        }else if (detail.getText().toString().equals("")){
+            showMessage("error", "شرح درخواست را بنویسید.");
+        }else{
+            facade.makeSupervisionRequest(username, selected_doctor_id, detail.getText().toString());
+        }
     }
 
     @OnClick(R.id.back)
@@ -44,14 +55,15 @@ public class SelectDoctorActivity extends BaseActivity {
     @OnClick(R.id.select)
     public void select() {
 //        customStartActivity(new ListOptions(DoctorProfileActivity.class, "doctor", "view|select", "all"));
-        customStartActivity(DoctorListActivity.class, new BaseListOptions(DoctorProfileActivity.class, null, "view|select", "all"));
+        customStartActivity(DoctorListActivity.class, new BaseListOptions(DoctorProfileActivity.class, null, "select", "all"));
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data!=null && data.hasExtra("ID")){
-            String id = data.getStringExtra("ID");
-            current_doctor.setText(id);
+            selected_doctor_id = data.getStringExtra("ID");
+            String name = facade.getDoctorName(selected_doctor_id);
+            selected_doctor.setText("پزشک انتخاب شده: "+name);
         }
     }
 }

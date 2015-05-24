@@ -31,5 +31,13 @@ public class PatientFacade {
         return patient_username;
     }
 
+    public String getDoctorName(String doctor_username){
+        User u = patientRelated.getDoctor(doctor_username);
+        return u.getName()+" "+u.getFamily();
+    }
+
+    public void makeSupervisionRequest(String patient_username, String doctor_username, String detail){
+        patientRelated.makeSupervisionRequest(patient_username,doctor_username, detail);
+    }
 }
 

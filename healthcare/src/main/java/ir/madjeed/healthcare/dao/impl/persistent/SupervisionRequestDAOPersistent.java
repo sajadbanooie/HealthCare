@@ -5,10 +5,8 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import ir.madjeed.healthcare.dao.SupervisionRequestDAO;
-import ir.madjeed.healthcare.dao.UserDAO;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
-import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 
 import java.sql.SQLException;
@@ -19,7 +17,7 @@ public class SupervisionRequestDAOPersistent implements SupervisionRequestDAO {
 
     private final String LOG_TAG = getClass().getSimpleName();
 
-    Dao<SupervisionRequestPersistent, String> instanceDao;
+    Dao<SupervisionRequestPersistent, Integer> instanceDao;
 
     public SupervisionRequestDAOPersistent(DatabaseHelper db)
     {
@@ -73,7 +71,7 @@ public class SupervisionRequestDAOPersistent implements SupervisionRequestDAO {
     public SupervisionRequest getByID(String id)
     {
         try {
-            QueryBuilder<SupervisionRequestPersistent, String> qb = instanceDao.queryBuilder();
+            QueryBuilder<SupervisionRequestPersistent, Integer> qb = instanceDao.queryBuilder();
             qb.where().eq("pk_column", id);
             PreparedQuery<SupervisionRequestPersistent> pq = qb.prepare();
             return instanceDao.queryForFirst(pq);
