@@ -6,7 +6,10 @@ import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.list.RequestListActivity;
+import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.patient.AddPhysicalActivity;
 import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 import ir.madjeed.healthcare.gui.patient.SelectDoctorActivity;
@@ -14,6 +17,7 @@ import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
 import ir.madjeed.healthcare.gui.profile.RequestProfileActivity;
+import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
 public class DoctorMenuActivity extends BaseActivity {
@@ -52,7 +56,7 @@ public class DoctorMenuActivity extends BaseActivity {
 
     @OnClick(R.id.requests_btn)
     public void requests_btn() {
-        customStartActivity(new ListOptions(RequestProfileActivity.class, "request", "view", "mine"));
+        customStartActivity(RequestListActivity.class, new BaseListOptions(RequestProfileActivity.class, null, "view", "mine"));
     }
 
     @OnClick(R.id.my_patients_btn)
