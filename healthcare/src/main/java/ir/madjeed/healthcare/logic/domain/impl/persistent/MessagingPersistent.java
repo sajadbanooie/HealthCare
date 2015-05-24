@@ -32,4 +32,9 @@ public class MessagingPersistent extends BasePersistent implements Messaging {
         }
         return res;
     }
+
+    @Override
+    public Message getMessage(int mid) {
+        return Messages.getByID(mid);
+    }
 }

@@ -7,7 +7,7 @@ public interface MessageDAO {
     public int create(Message instance);
     public int update(Message instance);
     public int delete(Message instance);
-    public Message getByID(String id);
+    public Message getByID(Integer id);
     public ArrayList<Message> getAll();
 
 }

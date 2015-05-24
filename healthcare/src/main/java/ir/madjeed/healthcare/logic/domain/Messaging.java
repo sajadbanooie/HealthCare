@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface Messaging {
     public ArrayList<Message> getUserMessages(String username);
+    public Message getMessage(int mid);
 }

@@ -30,5 +30,12 @@ public class MessageFacade {
         return result;
     }
 
+    public ArrayList<String> getMessageInfo(Integer mid){
+        ArrayList<String> res = new ArrayList<String>();
+        Message m = messaging.getMessage(mid);
+        res.add(m.getTitle());
+        res.add(m.getDetail());
+        return res;
+    }
 }
 

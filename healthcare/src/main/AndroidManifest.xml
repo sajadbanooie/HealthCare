@@ -51,6 +51,7 @@
         <activity android:name=".gui.profile.RequestProfileActivity"/>
         <activity android:name=".gui.profile.PrescriptionDeliveryProfileActivity"/>
         <activity android:name=".gui.profile.UserProfileActivity"/>
+        <activity android:name=".gui.profile.MessageProfileActivity"/>
 
 
         <activity android:name=".gui.drugstore.DrugDeliveryActivity"/>

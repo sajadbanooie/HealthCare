@@ -71,7 +71,7 @@ public class MessageDAOPersistent implements MessageDAO {
     }
 
     @Override
-    public Message getByID(String id)
+    public Message getByID(Integer id)
     {
         try {
             QueryBuilder<MessagePersistent, Integer> qb = instanceDao.queryBuilder();
