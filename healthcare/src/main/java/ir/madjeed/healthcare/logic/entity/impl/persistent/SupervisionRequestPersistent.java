@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class SupervisionRequestPersistent implements SupervisionRequest {
+public class SupervisionRequestPersistent extends SupervisionRequest {
 
     @DatabaseField(generatedId = true, columnName = "pk_column")
     private int id;
@@ -117,10 +117,12 @@ public class SupervisionRequestPersistent implements SupervisionRequest {
         this.requestAnswer = answer;
     }
 
+    @Override
     public Date getDate() {
         return date;
     }
 
+    @Override
     public void setDate(Date date) {
         this.date = date;
     }

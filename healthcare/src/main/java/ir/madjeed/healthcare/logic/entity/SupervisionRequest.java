@@ -2,20 +2,31 @@ package ir.madjeed.healthcare.logic.entity;
 
 //import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
-public interface SupervisionRequest {
-    public int getId();
-    public User getPatient();
-    public void setPatient(User u);
-    public User getDoctor();
-    public void setDoctor(User u);
-    public String getStatus(); // accepted, rejected or pending
-    public void setStatus(String status);
-    public String getType(); // refer or request
-    public void setType(String type);
-    public String getRequestDetail();
-    public void setRequestDetail(String detail);
-    public String getRequestAnswer();
-    public void setRequestAnswer(String answer);
-    public String getTitle();
-    public String getBody();
+import java.util.Date;
+
+public abstract class SupervisionRequest {
+    public abstract int getId();
+    public abstract User getPatient();
+    public abstract void setPatient(User u);
+    public abstract User getDoctor();
+    public abstract void setDoctor(User u);
+    public abstract String getStatus(); // accepted, rejected or pending
+    public abstract void setStatus(String status);
+    public abstract String getType(); // refer or request
+    public abstract void setType(String type);
+    public abstract String getRequestDetail();
+    public abstract void setRequestDetail(String detail);
+    public abstract String getRequestAnswer();
+    public abstract void setRequestAnswer(String answer);
+    public abstract Date getDate();
+    public abstract void setDate(Date date);
+    public String getHead(){
+        return "درخواست ارجاع به شماره "+String.valueOf(getId());
+    }
+    public String getBody(){
+        return "پزشک مربوطه: "+getDoctor().getName()+" "+getDoctor().getFamily()+"\n"+
+                "بیمار: "+getPatient().getName()+" "+getPatient().getFamily()+"\n"+
+                "متن درخواست: "+"\n"+getRequestDetail();
+    }
+
 }
