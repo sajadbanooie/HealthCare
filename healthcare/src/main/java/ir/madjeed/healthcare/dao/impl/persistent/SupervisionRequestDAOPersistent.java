@@ -68,7 +68,7 @@ public class SupervisionRequestDAOPersistent implements SupervisionRequestDAO {
     }
 
     @Override
-    public SupervisionRequest getByID(String id)
+    public SupervisionRequest getByID(Integer id)
     {
         try {
             QueryBuilder<SupervisionRequestPersistent, Integer> qb = instanceDao.queryBuilder();

@@ -7,7 +7,7 @@ public interface SupervisionRequestDAO {
     public int create(SupervisionRequest instance);
     public int update(SupervisionRequest instance);
     public int delete(SupervisionRequest instance);
-    public SupervisionRequest getByID(String id);
+    public SupervisionRequest getByID(Integer id);
     public ArrayList<SupervisionRequest> getAll();
 
 }
