@@ -29,7 +29,7 @@ public abstract class SupervisionRequest {
                 "متن درخواست: "+"\n"+getRequestDetail();
     }
 
-    public String getFullDetailForDoctor(){
+    public String getFullDetail(){
         String typo, status;
         if (getType().equals("refer"))
             typo = "درخواست ارجاع";

@@ -6,6 +6,7 @@ import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.Messaging;
 import ir.madjeed.healthcare.logic.entity.Message;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class MessagingPersistent extends BasePersistent implements Messaging {
@@ -30,6 +31,7 @@ public class MessagingPersistent extends BasePersistent implements Messaging {
             if (!res.get(i).getOwner().getUsername().equals(username))
                 res.remove(i);
         }
+        Collections.reverse(res);
         return res;
     }
 

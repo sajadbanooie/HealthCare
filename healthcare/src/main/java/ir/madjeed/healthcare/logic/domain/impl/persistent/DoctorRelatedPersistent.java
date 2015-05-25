@@ -6,7 +6,9 @@ import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.DoctorRelated;
+import ir.madjeed.healthcare.logic.entity.Message;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,5 +54,13 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
         sr.setStatus(status);
         sr.setRequestAnswer(answerDetail);
         SupervisionRequests.update(sr);
+        // send message to patient
+        Message m;
+        if (status.equals("rejected")){
+            m = new MessagePersistent(sr.getPatient(), "رد "+sr.getHead(), sr.getFullDetail());
+        }else{
+            m = new MessagePersistent(sr.getPatient(), "تایید "+sr.getHead(), sr.getFullDetail());
+        }
+        Messages.create(m);
     }
 }

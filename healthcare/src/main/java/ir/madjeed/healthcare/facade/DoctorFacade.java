@@ -3,11 +3,8 @@ package ir.madjeed.healthcare.facade;
 import android.content.Context;
 import android.util.Pair;
 import ir.madjeed.healthcare.logic.domain.DoctorRelated;
-import ir.madjeed.healthcare.logic.domain.PatientRelated;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.DoctorRelatedPersistent;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.PatientRelatedPersistent;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
-import ir.madjeed.healthcare.logic.entity.User;
 
 import java.util.ArrayList;
 
@@ -34,7 +31,7 @@ public class DoctorFacade {
         ArrayList<String> res = new ArrayList<String>();
         SupervisionRequest sr = doctorRelated.getSupervisionRequest(srid);
         res.add(sr.getHead());
-        res.add(sr.getFullDetailForDoctor());
+        res.add(sr.getFullDetail());
         res.add(sr.getStatus());
         return res;
     }
