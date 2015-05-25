@@ -8,16 +8,10 @@ import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.list.MessageListActivity;
 import ir.madjeed.healthcare.gui.list.RequestListActivity;
-import ir.madjeed.healthcare.gui.list.UserListActivity;
-import ir.madjeed.healthcare.gui.patient.AddPhysicalActivity;
 import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
-import ir.madjeed.healthcare.gui.patient.SelectDoctorActivity;
-import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
-import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
-import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
-import ir.madjeed.healthcare.gui.profile.RequestProfileActivity;
-import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
+import ir.madjeed.healthcare.gui.profile.*;
 
 
 public class DoctorMenuActivity extends BaseActivity {
@@ -41,7 +35,7 @@ public class DoctorMenuActivity extends BaseActivity {
 
     @OnClick(R.id.messages_btn)
     public void messages_btn() {
-        customStartActivity(new ListOptions("message", "view", "mine"));
+        customStartActivity(MessageListActivity.class, new BaseListOptions(MessageProfileActivity.class, null, "view", "mine"));
     }
 
     @OnClick(R.id.exit_btn)

@@ -43,7 +43,7 @@ public abstract class SupervisionRequest {
             status = "تایید شده";
         return "نوع درخواست: "+typo+"\n\n"+
                 "وضعیت پاسخ: "+status+"\n\n"+
-//                "پزشک مربوطه: "+getDoctor().getName()+" "+getDoctor().getFamily()+"\n"+
+                "پزشک مربوطه: "+getDoctor().getName()+" "+getDoctor().getFamily()+"\n"+
                 "بیمار: "+getPatient().getName()+" "+getPatient().getFamily()+"\n\n"+
                 "متن درخواست: "+"\n"+getRequestDetail()+"\n\n"+
                 "پاسخ: "+"\n"+getRequestAnswer()+"\n\n";

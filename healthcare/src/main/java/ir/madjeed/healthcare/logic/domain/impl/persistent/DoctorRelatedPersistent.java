@@ -3,12 +3,15 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 import android.content.Context;
 import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
+import ir.madjeed.healthcare.dao.impl.persistent.SupervisionDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.DoctorRelated;
 import ir.madjeed.healthcare.logic.entity.Message;
+import ir.madjeed.healthcare.logic.entity.Supervision;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionPersistent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +22,7 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
     private UserDAOPersistent Users;
     private SupervisionRequestDAOPersistent SupervisionRequests;
     private MessageDAOPersistent Messages;
+    private SupervisionDAOPersistent Supervisions;
 
 
     public DoctorRelatedPersistent(Context context) {
@@ -29,6 +33,7 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
     protected void makeNecessaryDAO() {
         Users = new UserDAOPersistent(getDatabaseHelper());
         SupervisionRequests = new SupervisionRequestDAOPersistent(getDatabaseHelper());
+        Supervisions = new SupervisionDAOPersistent(getDatabaseHelper());
         Messages = new MessageDAOPersistent(getDatabaseHelper());
     }
 
@@ -55,12 +60,18 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
         sr.setRequestAnswer(answerDetail);
         SupervisionRequests.update(sr);
         // send message to patient
-        Message m;
+
         if (status.equals("rejected")){
-            m = new MessagePersistent(sr.getPatient(), "رد "+sr.getHead(), sr.getFullDetail());
+            Message m = new MessagePersistent(sr.getPatient(), "رد "+sr.getHead(), sr.getFullDetail());
+            Messages.create(m);
         }else{
-            m = new MessagePersistent(sr.getPatient(), "تایید "+sr.getHead(), sr.getFullDetail());
+            // send message to the patient
+            Message m1 = new MessagePersistent(sr.getPatient(), "تایید "+sr.getHead(), sr.getFullDetail());
+            Messages.create(m1);
+            Message m2 = new MessagePersistent(sr.getDoctor(), "تایید "+sr.getHead(), sr.getFullDetail());
+            Messages.create(m2);
+            Supervision s = new SupervisionPersistent(sr.getPatient(), sr.getDoctor());
+            Supervisions.create(s);
         }
-        Messages.create(m);
     }
 }

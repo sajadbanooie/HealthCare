@@ -21,7 +21,7 @@ public class SupervisionPersistent extends Supervision {
     private UserPersistent doctor;
 
     @DatabaseField
-    private String status;
+    private String status; //active or passive
 
     @DatabaseField(dataType = DataType.DATE_LONG)
     private Date date;
@@ -31,10 +31,10 @@ public class SupervisionPersistent extends Supervision {
         // needed by ormlite
     }
 
-    public SupervisionPersistent(User patient, User doctor, String status) {
+    public SupervisionPersistent(User patient, User doctor) {
         this.patient = (UserPersistent) patient;
         this.doctor = (UserPersistent) doctor;
-        this.status = status;
+        this.status = "active";
         Calendar cal = Calendar.getInstance();
         this.date = cal.getTime();
     }

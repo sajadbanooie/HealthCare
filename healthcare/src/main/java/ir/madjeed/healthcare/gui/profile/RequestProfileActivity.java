@@ -44,7 +44,16 @@ public class RequestProfileActivity extends BaseActivity {
 
     @OnClick(R.id.approve)
     public void approve_btn(){
-        showMessage("error", status);
+        String ansDetail = answer.getText().toString();
+        if (ansDetail.equals("")){
+            showMessage("error", "لطفا پاسخ خود را شرح دهید.");
+        }else{
+            facade.setSupervisionRequestAnswer(Integer.valueOf(srid), ansDetail, "accepted");
+            ArrayList<String> info = facade.getSupervisionRequestDetail(Integer.valueOf(srid));
+            detail.setText(info.get(1));
+            answer.setVisibility(View.GONE);
+            answerLayout.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.disapprove)
