@@ -12,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import ir.madjeed.healthcare.logic.entity.PrescriptionDrug;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.*;
 
 // dont forget to add daos here.
@@ -27,6 +28,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<MessagePersistent, Integer> messageDao = null;
     private Dao<SicknessPersistent, Integer> sicknessDao = null;
     private Dao<PrescriptionPersistent, Integer> prescriptionDao = null;
+    private Dao<DrugPersistent, Integer> drugDao = null;
+    private Dao<PrescriptionDrugPersistent, Integer> prescriptionDrugDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -47,6 +50,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, SupervisionPersistent.class);
             TableUtils.createTable(connectionSource, SicknessPersistent.class);
             TableUtils.createTable(connectionSource, PrescriptionPersistent.class);
+            TableUtils.createTable(connectionSource, DrugPersistent.class);
+            TableUtils.createTable(connectionSource, PrescriptionDrugPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -67,6 +72,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, MessagePersistent.class, true);
             TableUtils.dropTable(connectionSource, SicknessPersistent.class, true);
             TableUtils.dropTable(connectionSource, PrescriptionPersistent.class, true);
+            TableUtils.dropTable(connectionSource, DrugPersistent.class, true);
+            TableUtils.dropTable(connectionSource, PrescriptionDrugPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -100,6 +107,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if (typeC.equals(PrescriptionPersistent.class)) {
             if (prescriptionDao == null) prescriptionDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) prescriptionDao;
+        }
+        if (typeC.equals(DrugPersistent.class)) {
+            if (drugDao == null) drugDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) drugDao;
+        }
+        if (typeC.equals(PrescriptionDrugPersistent.class)) {
+            if (prescriptionDrugDao == null) prescriptionDrugDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) prescriptionDrugDao;
         }
         return null;
     }
