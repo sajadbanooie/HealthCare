@@ -6,15 +6,10 @@ import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.DoctorRelated;
-import ir.madjeed.healthcare.logic.domain.PatientRelated;
-import ir.madjeed.healthcare.logic.entity.Message;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
-import ir.madjeed.healthcare.logic.entity.User;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class DoctorRelatedPersistent extends BasePersistent implements DoctorRelated {
@@ -42,7 +37,20 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
             if (!res.get(i).getDoctor().getUsername().equals(did))
                 res.remove(i);
         }
+        Collections.reverse(res);
         return res;
     }
 
+    @Override
+    public SupervisionRequest getSupervisionRequest(Integer srid) {
+        return SupervisionRequests.getByID(srid);
+    }
+
+    @Override
+    public void setSupervisionRequestAnswer(int srid, String answerDetail, String status){
+        SupervisionRequest sr = SupervisionRequests.getByID(srid);
+        sr.setStatus(status);
+        sr.setRequestAnswer(answerDetail);
+        SupervisionRequests.update(sr);
+    }
 }

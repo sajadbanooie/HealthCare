@@ -28,4 +28,24 @@ public abstract class SupervisionRequest {
                 "بیمار: "+getPatient().getName()+" "+getPatient().getFamily()+"\n"+
                 "متن درخواست: "+"\n"+getRequestDetail();
     }
+
+    public String getFullDetailForDoctor(){
+        String typo, status;
+        if (getType().equals("refer"))
+            typo = "درخواست ارجاع";
+        else
+            typo = "درخواست نظارت";
+        if (getStatus().equals("pending"))
+            status = "در حال انتظار";
+        else if (getStatus().equals("rejected"))
+            status = "رد شده";
+        else
+            status = "تایید شده";
+        return "نوع درخواست: "+typo+"\n\n"+
+                "وضعیت پاسخ: "+status+"\n\n"+
+//                "پزشک مربوطه: "+getDoctor().getName()+" "+getDoctor().getFamily()+"\n"+
+                "بیمار: "+getPatient().getName()+" "+getPatient().getFamily()+"\n\n"+
+                "متن درخواست: "+"\n"+getRequestDetail()+"\n\n"+
+                "پاسخ: "+"\n"+getRequestAnswer()+"\n\n";
+    }
 }

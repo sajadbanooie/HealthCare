@@ -29,5 +29,18 @@ public class DoctorFacade {
         }
         return result;
     }
+
+    public ArrayList<String> getSupervisionRequestDetail(int srid){
+        ArrayList<String> res = new ArrayList<String>();
+        SupervisionRequest sr = doctorRelated.getSupervisionRequest(srid);
+        res.add(sr.getHead());
+        res.add(sr.getFullDetailForDoctor());
+        res.add(sr.getStatus());
+        return res;
+    }
+
+    public void setSupervisionRequestAnswer(int srid, String answerDetail, String status){
+        doctorRelated.setSupervisionRequestAnswer(srid, answerDetail, status);
+    }
 }
 

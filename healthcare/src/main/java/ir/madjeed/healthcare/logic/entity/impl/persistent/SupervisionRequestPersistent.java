@@ -40,14 +40,13 @@ public class SupervisionRequestPersistent extends SupervisionRequest {
         // needed by ormlite
     }
 
-    public SupervisionRequestPersistent(User patient, User doctor, String status, String type, String requestDetail,
-                                        String requestAnswer) {
+    public SupervisionRequestPersistent(User patient, User doctor, String status, String type, String requestDetail) {
         this.patient = (UserPersistent) patient;
         this.doctor = (UserPersistent) doctor;
         this.status = status;
         this.type = type;
         this.requestDetail = requestDetail;
-        this.requestAnswer = requestAnswer;
+        this.requestAnswer = "پاسخ داده نشده است.";
         Calendar cal = Calendar.getInstance();
         this.date = cal.getTime();
     }

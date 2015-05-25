@@ -85,6 +85,7 @@ public class SupervisionRequestDAOPersistent implements SupervisionRequestDAO {
     @Override
     public ArrayList<SupervisionRequest> getAll()
     {
+        QueryBuilder<SupervisionRequestPersistent, Integer> qb = instanceDao.queryBuilder();
         try {
             //(List<User>) (List<? extends User>) should be checked
             return new ArrayList<SupervisionRequest>(instanceDao.queryForAll());
