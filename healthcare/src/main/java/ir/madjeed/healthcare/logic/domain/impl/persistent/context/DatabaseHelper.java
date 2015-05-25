@@ -13,6 +13,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
@@ -24,7 +25,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<UserPersistent, String> userDao = null;
-    private Dao<SupervisionRequestPersistent, Integer> supervisionDao = null;
+    private Dao<SupervisionRequestPersistent, Integer> supervisionRequestDao = null;
+    private Dao<SupervisionPersistent, Integer> supervisionDao = null;
     private Dao<MessagePersistent, Integer> messageDao = null;
 
 
@@ -43,6 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, UserPersistent.class);
             TableUtils.createTable(connectionSource, SupervisionRequestPersistent.class);
             TableUtils.createTable(connectionSource, MessagePersistent.class);
+            TableUtils.createTable(connectionSource, SupervisionPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -59,6 +62,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
             TableUtils.dropTable(connectionSource, UserPersistent.class, true);
             TableUtils.dropTable(connectionSource, SupervisionRequestPersistent.class, true);
+            TableUtils.dropTable(connectionSource, SupervisionPersistent.class, true);
             TableUtils.dropTable(connectionSource, MessagePersistent.class, true);
 
             onCreate(db);
@@ -75,6 +79,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             return (Dao<C, D>) userDao;
         }
         if (typeC.equals(SupervisionRequestPersistent.class)) {
+            if (supervisionRequestDao == null) supervisionRequestDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) supervisionRequestDao;
+        }
+        if (typeC.equals(SupervisionPersistent.class)) {
             if (supervisionDao == null) supervisionDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) supervisionDao;
         }
