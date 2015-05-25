@@ -26,6 +26,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<SupervisionPersistent, Integer> supervisionDao = null;
     private Dao<MessagePersistent, Integer> messageDao = null;
     private Dao<SicknessPersistent, Integer> sicknessDao = null;
+    private Dao<PrescriptionPersistent, Integer> prescriptionDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -45,6 +46,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, MessagePersistent.class);
             TableUtils.createTable(connectionSource, SupervisionPersistent.class);
             TableUtils.createTable(connectionSource, SicknessPersistent.class);
+            TableUtils.createTable(connectionSource, PrescriptionPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -64,6 +66,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, SupervisionPersistent.class, true);
             TableUtils.dropTable(connectionSource, MessagePersistent.class, true);
             TableUtils.dropTable(connectionSource, SicknessPersistent.class, true);
+            TableUtils.dropTable(connectionSource, PrescriptionPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -93,6 +96,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if (typeC.equals(SicknessPersistent.class)) {
             if (sicknessDao == null) sicknessDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) sicknessDao;
+        }
+        if (typeC.equals(PrescriptionPersistent.class)) {
+            if (prescriptionDao == null) prescriptionDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) prescriptionDao;
         }
         return null;
     }

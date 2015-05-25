@@ -7,7 +7,6 @@ import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
-import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.list.MessageListActivity;
 import ir.madjeed.healthcare.gui.list.PatientListActivity;
 import ir.madjeed.healthcare.gui.list.RequestListActivity;
