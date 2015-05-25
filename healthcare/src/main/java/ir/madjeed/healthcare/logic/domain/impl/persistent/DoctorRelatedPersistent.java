@@ -10,6 +10,7 @@ import ir.madjeed.healthcare.logic.domain.DoctorRelated;
 import ir.madjeed.healthcare.logic.entity.Message;
 import ir.madjeed.healthcare.logic.entity.Supervision;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
+import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionPersistent;
 
@@ -74,4 +75,19 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
             Supervisions.create(s);
         }
     }
+
+
+    @Override
+    public ArrayList<User> getDoctorPatients(String did) {
+        User doctor = Users.getByID(did);
+        ArrayList<Supervision> supervisions = Supervisions.getAll();
+        ArrayList<User> supervised_patients = new ArrayList<User>();
+        for (int i = supervisions.size()-1; i >= 0; i--) {
+            if (supervisions.get(i).getDoctor().getUsername().equals(doctor.getUsername())){
+                supervised_patients.add(supervisions.get(i).getPatient());
+            }
+        }
+        return supervised_patients;
+    }
+
 }

@@ -12,10 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionPersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.*;
 
 // dont forget to add daos here.
 
@@ -28,6 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<SupervisionRequestPersistent, Integer> supervisionRequestDao = null;
     private Dao<SupervisionPersistent, Integer> supervisionDao = null;
     private Dao<MessagePersistent, Integer> messageDao = null;
+    private Dao<SicknessPersistent, Integer> sicknessDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -46,6 +44,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, SupervisionRequestPersistent.class);
             TableUtils.createTable(connectionSource, MessagePersistent.class);
             TableUtils.createTable(connectionSource, SupervisionPersistent.class);
+            TableUtils.createTable(connectionSource, SicknessPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -64,6 +63,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, SupervisionRequestPersistent.class, true);
             TableUtils.dropTable(connectionSource, SupervisionPersistent.class, true);
             TableUtils.dropTable(connectionSource, MessagePersistent.class, true);
+            TableUtils.dropTable(connectionSource, SicknessPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -89,6 +89,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if (typeC.equals(MessagePersistent.class)) {
             if (messageDao == null) messageDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) messageDao;
+        }
+        if (typeC.equals(SicknessPersistent.class)) {
+            if (sicknessDao == null) sicknessDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) sicknessDao;
         }
         return null;
     }

@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.gui.list.PatientListActivity;
 import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
+import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
+import ir.madjeed.healthcare.gui.profile.PatientProfileActivity;
 import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
@@ -42,6 +45,11 @@ public class AdminMenuActivity extends BaseActivity {
     @OnClick(R.id.users_btn)
     public void users_btn() {
         customStartActivity(UserListActivity.class, new BaseListOptions(UserProfileActivity.class, null, "view", "mine"));
+    }
+
+    @OnClick(R.id.patients_btn)
+    public void patients_btn() {
+        customStartActivity(PatientListActivity.class, new BaseListOptions(PatientProfileActivity.class, null, "view", "all"));
     }
 
 }

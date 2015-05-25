@@ -9,6 +9,7 @@ import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.list.MessageListActivity;
+import ir.madjeed.healthcare.gui.list.PatientListActivity;
 import ir.madjeed.healthcare.gui.list.RequestListActivity;
 import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 import ir.madjeed.healthcare.gui.profile.*;
@@ -55,7 +56,7 @@ public class DoctorMenuActivity extends BaseActivity {
 
     @OnClick(R.id.my_patients_btn)
     public void my_patients_btn() {
-        customStartActivity(new ListOptions(PatientProfileActivity.class, "patient", "view", "mine"));
+        customStartActivity(PatientListActivity.class, new BaseListOptions(PatientProfileActivity.class, null, "view", "mine"));
     }
 
 }

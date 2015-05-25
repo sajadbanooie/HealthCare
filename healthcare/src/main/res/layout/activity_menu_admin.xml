@@ -49,5 +49,14 @@
                 android:layout_marginTop="22sp"
                 />
 
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/patients_btn"
+                style="@style/btn_style"
+                android:text="@string/patients_list"
+                bootstrap:bb_type="primary"
+                bootstrap:bb_roundedCorners="true"
+                android:layout_marginTop="22sp"
+                />
+
 
 </LinearLayout>
