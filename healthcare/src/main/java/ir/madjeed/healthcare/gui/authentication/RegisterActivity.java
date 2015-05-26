@@ -21,7 +21,7 @@ public class RegisterActivity extends BaseActivity {
     @InjectView(R.id.role)
     Spinner role;
 
-    AuthenticationFacade facade;
+    private AuthenticationFacade facade;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

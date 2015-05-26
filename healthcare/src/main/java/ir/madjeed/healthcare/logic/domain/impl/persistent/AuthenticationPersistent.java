@@ -2,6 +2,7 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
+import ir.madjeed.healthcare.dao.UserDAO;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.Authentication;
 import ir.madjeed.healthcare.logic.entity.User;
@@ -10,7 +11,7 @@ import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 public class AuthenticationPersistent extends BasePersistent implements Authentication {
 
-    private UserDAOPersistent Users;
+    private UserDAO Users;
 
     public AuthenticationPersistent(Context context) {
         super(context);
