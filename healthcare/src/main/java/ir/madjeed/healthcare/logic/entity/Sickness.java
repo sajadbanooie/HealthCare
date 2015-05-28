@@ -14,4 +14,10 @@ public abstract class Sickness {
     public abstract void setDetail(String detail);
     public abstract Date getDate();
     public abstract void setDate(Date date);
+
+    public String getFullDetail(){
+        return "عنوان بیماری: "+getSubject()+"\n\n"+
+                "دکتر مربوطه: "+getDoctor().getFullName()+"\n\n"+
+                "شرح بیماری: "+"\n\n"+getDetail();
+    }
 }

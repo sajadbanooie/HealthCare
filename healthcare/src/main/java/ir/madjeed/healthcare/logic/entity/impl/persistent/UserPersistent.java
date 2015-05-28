@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import ir.madjeed.healthcare.logic.entity.User;
 
 
-public class UserPersistent implements User {
+public class UserPersistent extends User {
 
     @DatabaseField(id = true, columnName = "pk_column")
     String username;

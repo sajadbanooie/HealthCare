@@ -6,5 +6,6 @@ import java.util.ArrayList;
 
 public interface MedicalRelated {
     public ArrayList<Sickness> getPatientAllSickness(String did);
+    public Sickness getSickness(String sid);
     public void addPatientSickness(String did, String pid, String subject, String detail);
 }

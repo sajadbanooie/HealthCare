@@ -37,6 +37,11 @@ public class MedicalRelatedPersistent extends BasePersistent implements MedicalR
     }
 
     @Override
+    public Sickness getSickness(String sid) {
+        return Sicknesses.getByID(Integer.valueOf(sid));
+    }
+
+    @Override
     public void addPatientSickness(String did, String pid, String subject, String detail) {
         User doctor = Users.getByID(did);
         User patient = Users.getByID(pid);

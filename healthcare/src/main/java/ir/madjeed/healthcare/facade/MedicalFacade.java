@@ -30,5 +30,13 @@ public class MedicalFacade {
     public void addPatientSickness(String did, String pid, String subject, String detail){
         medicalRelated.addPatientSickness(did, pid, subject, detail);
     }
+
+    public ArrayList<String> getSicknessInfo(String sid){
+        ArrayList<String> info = new ArrayList<String>();
+        Sickness s = medicalRelated.getSickness(sid);
+        info.add(s.getSubject());
+        info.add(s.getFullDetail());
+        return info;
+    }
 }
 
