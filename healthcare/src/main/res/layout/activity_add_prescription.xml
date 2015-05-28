@@ -9,17 +9,26 @@
 
 
     <TextView
-            android:text="@string/add_prescription"
+            android:id="@+id/title"
             style="@style/title_style"
             />
 
 
     <TextView
             android:id="@+id/drugs"
-            android:text="دارو ها ..."
+            android:text="داروهای انتخاب شده:"
             style="@style/title_style"
             />
 
+
+
+    <LinearLayout android:id="@+id/drugs_layout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_marginTop="22sp">
+
+    </LinearLayout>
 
     <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/select_drug"
@@ -27,6 +36,7 @@
             android:text="@string/select_drug"
             style="@style/btn_style"
             bootstrap:bb_roundedCorners="true"
+            android:layout_marginTop="22sp"
             />
 
 

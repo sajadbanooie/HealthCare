@@ -44,6 +44,6 @@ public class SicknessDetailActivity extends BaseActivity {
 
     @OnClick(R.id.add_prescription)
     public void add_prescription_btn(){
-        customStartActivity(AddPrescriptionActivity.class, title.getText().toString());
+        customStartActivity(AddPrescriptionActivity.class, sickness_id);
     }
 }
