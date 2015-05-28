@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Pair;
 import ir.madjeed.healthcare.logic.domain.MedicalRelated;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.MedicalRelatedPersistent;
+import ir.madjeed.healthcare.logic.entity.Drug;
 import ir.madjeed.healthcare.logic.entity.Sickness;
 
 import java.util.ArrayList;
@@ -38,5 +39,15 @@ public class MedicalFacade {
         info.add(s.getFullDetail());
         return info;
     }
+
+    public ArrayList<Pair<String, String>> getAllDrugs(){  // first = id, second = name
+        ArrayList<Drug> res = medicalRelated.getAllDrugs();
+        ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
+        for (int i = 0; i < res.size(); i++) {
+            result.add(new Pair<String, String>(String.valueOf(res.get(i).getId()), res.get(i).getName()));
+        }
+        return result;
+    }
+
 }
 

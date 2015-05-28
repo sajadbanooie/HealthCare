@@ -2,6 +2,7 @@ package ir.madjeed.healthcare.gui.patient;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.Layout;
 import android.util.Pair;
 import android.view.ViewGroup;
@@ -12,7 +13,10 @@ import com.beardedhen.androidbootstrap.BootstrapEditText;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.facade.MedicalFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
+import ir.madjeed.healthcare.gui.list.DrugListActivity;
+import ir.madjeed.healthcare.gui.list.PatientSicknessListActivity;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 import android.widget.LinearLayout.LayoutParams;
 import java.util.ArrayList;
@@ -53,7 +57,8 @@ public class AddPrescriptionActivity extends BaseActivity {
 
     @OnClick(R.id.select_drug)
     public void select() {
-        customStartActivity(new ListOptions(DoctorProfileActivity.class, "drug", "select", "all"));
+        customStartActivity(DrugListActivity.class, new BaseListOptions(null, null, "select", "mine"));
+//        customStartActivity(new ListOptions(DoctorProfileActivity.class, "drug", "select", "all"));
     }
 
     @Override
@@ -76,10 +81,11 @@ public class AddPrescriptionActivity extends BaseActivity {
                 row.addView(name);
 
                 EditText count = new EditText(this);
+                count.setInputType(InputType.TYPE_CLASS_NUMBER);
                 count.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1.0f));
                 count.setText("1");
                 row.addView(count);
-//                    btnTag.setId(j + 1 + (i * 4));
+                count.setId(i);
                 layout.addView(row);
             }
         }
