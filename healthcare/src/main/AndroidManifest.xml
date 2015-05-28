@@ -67,6 +67,7 @@
         <activity android:name=".gui.list.MessageListActivity"/>
         <activity android:name=".gui.list.RequestListActivity"/>
         <activity android:name=".gui.list.PatientListActivity"/>
+        <activity android:name=".gui.list.PatientSicknessListActivity"/>
 
 
     </application>

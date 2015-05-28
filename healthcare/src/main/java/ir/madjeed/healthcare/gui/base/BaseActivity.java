@@ -63,7 +63,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     }
 
 
-    public void showMessage(String type, String message){
+    protected void showMessage(String type, String message){
         if (type.equals("error")){
             View customView = getLayoutInflater().inflate(R.layout.custom_error_message, null);
             TextView alert_message = (TextView) customView.findViewById(R.id.message_detail);
@@ -73,18 +73,18 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
     }
 
-    public void customStartActivity(Class c){
+    protected void customStartActivity(Class c){
         Intent i = new Intent(this, c).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(i);
     }
 
-    public void customStartActivity(Class c, String id){
+    protected void customStartActivity(Class c, String id){
         Intent i = new Intent(this, c).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         i.putExtra("ID", id);
         startActivity(i);
     }
 
-    public void customStartActivity(ListOptions listOptions){
+    protected void customStartActivity(ListOptions listOptions){
         Intent i = new Intent(this, BasicListActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         Bundle mBundle = new Bundle();
         Parcelable wrapped = Parcels.wrap(listOptions);
@@ -99,7 +99,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 
 
     // this should be used for lists
-    public void customStartActivity(Class listClass, BaseListOptions listOptions){
+    protected void customStartActivity(Class listClass, BaseListOptions listOptions){
         Intent i = new Intent(this, listClass).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         Bundle mBundle = new Bundle();
         Parcelable wrapped = Parcels.wrap(listOptions);

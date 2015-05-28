@@ -9,10 +9,14 @@ import butterknife.OnClick;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.doctor.AddPhysicalStateActivity;
 import ir.madjeed.healthcare.gui.doctor.PhysicalStateReportActivity;
 import ir.madjeed.healthcare.gui.doctor.ReferencePatientActivity;
+import ir.madjeed.healthcare.gui.list.PatientSicknessListActivity;
+import ir.madjeed.healthcare.gui.list.UserListActivity;
+import ir.madjeed.healthcare.gui.patient.AddSicknessActivity;
 import ir.madjeed.healthcare.gui.patient.PhysicalStateActivity;
 import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
 import java.util.List;
@@ -28,12 +32,14 @@ public class PatientProfileActivity extends BaseActivity {
 
     @InjectView(R.id.prescription_list) BootstrapButton prescription_list_btn;
 
+    private String patient_id;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String id = getIntent().getExtras().getString("ID");
-        title.setText(id);
+        patient_id = getIntent().getExtras().getString("ID");
+        title.setText(patient_id);
 
         if (role.equals("داروخانه")){
             for (BootstrapButton btn : btns) {
@@ -51,14 +57,20 @@ public class PatientProfileActivity extends BaseActivity {
     }
 
 
+    @OnClick(R.id.sickness_history)
+    public void sickness_history(){
+        customStartActivity(PatientSicknessListActivity.class, new BaseListOptions(UserProfileActivity.class, patient_id, "view", "mine"));
+    }
+
+    @OnClick(R.id.add_sickness)
+    public void add_sickness(){
+        customStartActivity(AddSicknessActivity.class, patient_id);
+    }
+
+
     @OnClick(R.id.medical_records)
     public void medical_records(){
         customStartActivity(new ListOptions("medical record", "view", "mine")); // it needs id of it
-    }
-
-    @OnClick(R.id.sickness_history)
-    public void sickness_history(){
-        customStartActivity(SicknessHistoryActivity.class, title.getText().toString()); // it needs id of it
     }
 
     @OnClick(R.id.finish_supervision)

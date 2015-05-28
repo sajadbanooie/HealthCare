@@ -29,6 +29,7 @@ public abstract class BaseListActivity extends BaseActivity {
     private ArrayList<BaseRowObject> items;
     private ArrayList<BaseRowObject> items_original;
     protected BaseListOptions listOptions;
+    protected String owner_id;
 
     @InjectView(R.id.title) TextView title;
     @InjectView(R.id.mainListView) ListView mListView;
@@ -39,6 +40,7 @@ public abstract class BaseListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         listOptions = Parcels.unwrap(this.getIntent().getParcelableExtra("listOptions"));
+        owner_id = listOptions.getRelatedID();
 
         title.setText(getListTitle());
         items = getListItems();
