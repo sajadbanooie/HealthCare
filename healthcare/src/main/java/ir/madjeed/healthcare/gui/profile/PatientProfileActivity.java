@@ -18,7 +18,10 @@ import ir.madjeed.healthcare.gui.list.PatientSicknessListActivity;
 import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.patient.AddSicknessActivity;
 import ir.madjeed.healthcare.gui.patient.PhysicalStateActivity;
+import ir.madjeed.healthcare.gui.patient.SicknessDetailActivity;
 import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
+import ir.madjeed.healthcare.logic.entity.Sickness;
+
 import java.util.List;
 
 
@@ -59,7 +62,7 @@ public class PatientProfileActivity extends BaseActivity {
 
     @OnClick(R.id.sickness_history)
     public void sickness_history(){
-        customStartActivity(PatientSicknessListActivity.class, new BaseListOptions(UserProfileActivity.class, patient_id, "view", "mine"));
+        customStartActivity(PatientSicknessListActivity.class, new BaseListOptions(SicknessDetailActivity.class, patient_id, "view", "mine"));
     }
 
     @OnClick(R.id.add_sickness)

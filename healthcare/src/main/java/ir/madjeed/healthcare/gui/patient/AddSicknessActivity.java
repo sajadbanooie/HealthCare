@@ -26,7 +26,6 @@ public class AddSicknessActivity extends BaseActivity {
         facade = new MedicalFacade(this);
         super.onCreate(savedInstanceState);
         patient_id = getIntent().getExtras().getString("ID");
-        subject.setText(getString(R.string.add_sickness_record));
     }
 
     @Override

@@ -23,7 +23,7 @@ public class PatientSicknessListActivity extends BaseListActivity {
 
     @Override
     protected String getListTitle() {
-        return owner_id;
+        return getString(R.string.sickness_history);
     }
 
     @Override
