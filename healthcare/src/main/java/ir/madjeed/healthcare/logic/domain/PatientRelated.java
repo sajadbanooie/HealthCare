@@ -8,4 +8,6 @@ public interface PatientRelated {
     public ArrayList<User> getAllNormalDoctors();
     public User getDoctor(String username);
     public void makeSupervisionRequest(String patient_username, String doctor_username, String detail);
+    public User getPatientCurrentNormalDoctor(String pid);
+    public void finishPatientCurrentNormalSupervision(String pid);
 }

@@ -28,15 +28,23 @@ public class PatientFacade {
     }
 
     public String getMyDoctorName(String patient_username){
-        return patient_username;
+        User u = patientRelated.getPatientCurrentNormalDoctor(patient_username);
+        if (u ==null){
+            return null;
+        }else{
+            return u.getFullName();
+        }
     }
 
     public String getDoctorName(String doctor_username){
         User u = patientRelated.getDoctor(doctor_username);
-        return u.getName()+" "+u.getFamily();
+        return u.getFullName();
     }
 
     public void makeSupervisionRequest(String patient_username, String doctor_username, String detail){
+        if (getMyDoctorName(patient_username)!=null){
+            patientRelated.finishPatientCurrentNormalSupervision(patient_username);
+        }
         patientRelated.makeSupervisionRequest(patient_username,doctor_username, detail);
     }
 }

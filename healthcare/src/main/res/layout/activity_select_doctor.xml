@@ -9,7 +9,13 @@
 
 
     <TextView
-            android:text="@string/select_doctor"
+            android:id="@+id/title"
+            style="@style/title_style"
+            />
+
+
+    <TextView
+            android:id="@+id/note"
             style="@style/title_style"
             />
 

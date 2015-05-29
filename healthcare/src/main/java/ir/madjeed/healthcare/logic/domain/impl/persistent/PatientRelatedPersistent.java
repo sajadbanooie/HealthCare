@@ -3,10 +3,12 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 import android.content.Context;
 import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
+import ir.madjeed.healthcare.dao.impl.persistent.SupervisionDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.UserDAOPersistent;
 import ir.madjeed.healthcare.logic.domain.PatientRelated;
 import ir.madjeed.healthcare.logic.entity.Message;
+import ir.madjeed.healthcare.logic.entity.Supervision;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
@@ -14,13 +16,13 @@ import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPers
 import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 
 public class PatientRelatedPersistent extends BasePersistent implements PatientRelated {
 
     private UserDAOPersistent Users;
     private SupervisionRequestDAOPersistent SupervisionRequests;
+    private SupervisionDAOPersistent Supervisions;
     private MessageDAOPersistent Messages;
 
 
@@ -33,6 +35,7 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
         Users = new UserDAOPersistent(getDatabaseHelper());
         SupervisionRequests = new SupervisionRequestDAOPersistent(getDatabaseHelper());
         Messages = new MessageDAOPersistent(getDatabaseHelper());
+        Supervisions = new SupervisionDAOPersistent(getDatabaseHelper());
     }
 
 
@@ -59,5 +62,41 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
         SupervisionRequests.create(sr);
         Message m = new MessagePersistent(patient, sr.getHead(), sr.getBody());
         Messages.create(m);
+    }
+
+    @Override
+    public User getPatientCurrentNormalDoctor(String pid) {
+        ArrayList<Supervision> s = Supervisions.getAll();
+        for (int i = 0; i < s.size(); i++) {
+            if(s.get(i).getPatient().getUsername().equals(pid) &&
+                    s.get(i).getDoctor().getRole().equals("پزشک عمومی") &&
+                    s.get(i).getStatus().equals("active")){
+                return s.get(i).getDoctor();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void finishPatientCurrentNormalSupervision(String pid) {
+        ArrayList<Supervision> s = Supervisions.getAll();
+        for (int i = 0; i < s.size(); i++) {
+            if(s.get(i).getPatient().getUsername().equals(pid) &&
+                    s.get(i).getDoctor().getRole().equals("پزشک عمومی")){
+                s.get(i).setStatus("passive");
+                Supervisions.update(s.get(i));
+                // send messages to corresponding doctor and patient
+                Message m1 = new MessagePersistent(s.get(i).getDoctor(),
+                        "پایان نظارت شماره "+s.get(i).getId()+"با درخواست بیمار",
+                        "نظارت مربوطه:\n"+ s.get(i).getFullDetail());
+                Messages.create(m1);
+                Message m2 = new MessagePersistent(s.get(i).getPatient(),
+                        "پایان نظارت شماره "+s.get(i).getId()+"با درخواست بیمار",
+                        "نظارت مربوطه:\n"+ s.get(i).getFullDetail());
+                Messages.create(m2);
+                break; // no need
+            }
+        }
+
     }
 }

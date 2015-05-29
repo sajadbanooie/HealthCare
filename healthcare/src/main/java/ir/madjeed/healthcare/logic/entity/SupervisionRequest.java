@@ -21,7 +21,7 @@ public abstract class SupervisionRequest {
     public abstract Date getDate();
     public abstract void setDate(Date date);
     public String getHead(){
-        return "درخواست ارجاع شماره "+String.valueOf(getId());
+        return "درخواست نظارت شماره "+String.valueOf(getId());
     }
     public String getBody(){
         return "پزشک مربوطه: "+getDoctor().getName()+" "+getDoctor().getFamily()+"\n"+
