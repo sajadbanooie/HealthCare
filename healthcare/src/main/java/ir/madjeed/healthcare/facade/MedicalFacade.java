@@ -5,6 +5,8 @@ import android.util.Pair;
 import ir.madjeed.healthcare.logic.domain.MedicalRelated;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.MedicalRelatedPersistent;
 import ir.madjeed.healthcare.logic.entity.Drug;
+import ir.madjeed.healthcare.logic.entity.Prescription;
+import ir.madjeed.healthcare.logic.entity.PrescriptionDrug;
 import ir.madjeed.healthcare.logic.entity.Sickness;
 
 import java.util.ArrayList;
@@ -49,5 +51,56 @@ public class MedicalFacade {
         return result;
     }
 
+
+    public ArrayList<String> getDrugInfo(String did){
+        Drug d = medicalRelated.getDrug(did);
+        ArrayList<String> info = new ArrayList<String>();
+        info.add(String.valueOf(d.getId()));
+        info.add(d.getName());
+        info.add(String.valueOf(d.getPrice()));
+        return info;
+    }
+
+    public void addPrescription(String sickness_id, ArrayList<Pair<String, String>> selected_drugs){
+        // each pair contain drug id and amount
+        ArrayList<Drug> drugs = new ArrayList<Drug>();
+        ArrayList<Integer> amounts = new ArrayList<Integer>();
+        for (int i = 0; i < selected_drugs.size(); i++) {
+            drugs.add(medicalRelated.getDrug(selected_drugs.get(i).first));
+            amounts.add(Integer.valueOf(selected_drugs.get(i).second));
+        }
+        medicalRelated.addPrescription(sickness_id, drugs, amounts);
+    }
+
+
+    public ArrayList<Pair<String, String>> getSicknessPrescriptions(String sid){  // first = id, second = name
+        ArrayList<Prescription> res = medicalRelated.getSicknessPrescriptions(sid);
+        ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
+        for (int i = 0; i < res.size(); i++) {
+            result.add(new Pair<String, String>(String.valueOf(res.get(i).getId()),
+                    "نسخه شماره "+String.valueOf(res.get(i).getId())));
+        }
+        return result;
+    }
+
+
+    public ArrayList<String> getPrescriptionPrescriptionDrugs(String pid){  // list of prescriptionDrugs id
+        ArrayList<PrescriptionDrug> res = medicalRelated.getPrescriptionPrescriptionDrugs(pid);
+        ArrayList<String> result = new ArrayList<String>();
+        for (int i = 0; i < res.size(); i++) {
+            result.add(String.valueOf(res.get(i).getId()));
+        }
+        return result;
+    }
+
+    public ArrayList<String> getPrescriptionDrugInfo(String pd_id){
+        PrescriptionDrug d = medicalRelated.getPrescriptionDrug(pd_id);
+        ArrayList<String> info = new ArrayList<String>();
+        info.add(String.valueOf(d.getId()));
+        info.add(d.getDrug().getName());
+        info.add(String.valueOf(d.getNum()));
+        info.add(String.valueOf(d.getDrug().getPrice()));
+        return info;
+    }
 }
 

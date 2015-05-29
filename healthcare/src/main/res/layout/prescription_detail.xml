@@ -18,21 +18,7 @@
             android:gravity="right"
             />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/add_prescription"
-            style="@style/btn_style"
-            android:text="@string/add_prescription"
-            bootstrap:bb_icon_right="fa-add"
-            bootstrap:bb_type="primary"
-            bootstrap:bb_roundedCorners="true"
-            android:layout_marginTop="22sp"
-            android:layout_marginRight="100sp"
-            android:layout_marginLeft="100sp"
-            />
-
-
-
-    <LinearLayout android:id="@+id/prescriptions_layout"
+    <LinearLayout android:id="@+id/drugs_layout"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"

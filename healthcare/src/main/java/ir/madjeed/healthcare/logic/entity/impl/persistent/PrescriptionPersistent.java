@@ -15,7 +15,8 @@ public class PrescriptionPersistent extends Prescription {
     @DatabaseField(generatedId = true, columnName = "pk_column")
     private int id;
 
-    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
+    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true,
+            foreignAutoCreate = true)
     private SicknessPersistent sickness;
 
     @DatabaseField(dataType = DataType.DATE_LONG)

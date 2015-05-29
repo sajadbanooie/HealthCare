@@ -9,7 +9,8 @@ public class PrescriptionDrugPersistent extends PrescriptionDrug {
     @DatabaseField(generatedId = true, columnName = "pk_column")
     private int id;
 
-    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
+    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true,
+            foreignAutoCreate = true)
     private PrescriptionPersistent prescription;
 
     @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
@@ -22,9 +23,10 @@ public class PrescriptionDrugPersistent extends PrescriptionDrug {
         // needed by ormlite
     }
 
-    public PrescriptionDrugPersistent(Prescription p, Drug d, Integer num) {
+    public PrescriptionDrugPersistent(Prescription p, Drug d, Integer n) {
         prescription = (PrescriptionPersistent) p;
         drug = (DrugPersistent) d;
+        num = n;
     }
 
     @Override
