@@ -42,13 +42,17 @@ public class AddPrescriptionActivity extends BaseActivity {
 
     @OnClick(R.id.approve)
     public void approve() {
-        ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
-        for (int i = 0; i < selected_drugs.size(); i++) {
-            EditText tmp = (EditText) findViewById(i);
-            result.add(new Pair<String, String>(selected_drugs.get(i).getColumn(0), tmp.getText().toString()));
+        if (selected_drugs.size()==0){
+            showMessage("error", "باید حداقل یک دارو انتخاب کنید.");
+        }else {
+            ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
+            for (int i = 0; i < selected_drugs.size(); i++) {
+                EditText tmp = (EditText) findViewById(i);
+                result.add(new Pair<String, String>(selected_drugs.get(i).getColumn(0), tmp.getText().toString()));
+            }
+            facade.addPrescription(sickness_id, result);
+            finish();
         }
-        facade.addPrescription(sickness_id, result);
-        finish();
     }
 
     @OnClick(R.id.back)
@@ -59,7 +63,6 @@ public class AddPrescriptionActivity extends BaseActivity {
     @OnClick(R.id.select_drug)
     public void select() {
         customStartActivity(DrugListActivity.class, new BaseListOptions(null, null, "select", "mine"));
-//        customStartActivity(new ListOptions(DoctorProfileActivity.class, "drug", "select", "all"));
     }
 
     @Override
