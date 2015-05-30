@@ -3,6 +3,7 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 import android.content.Context;
 import android.util.Log;
+import ir.madjeed.healthcare.dao.*;
 import ir.madjeed.healthcare.dao.impl.persistent.*;
 import ir.madjeed.healthcare.logic.domain.MedicalRelated;
 import ir.madjeed.healthcare.logic.entity.*;
@@ -17,11 +18,11 @@ import java.util.Random;
 
 public class MedicalRelatedPersistent extends BasePersistent implements MedicalRelated {
 
-    private SicknessDAOPersistent Sicknesses;
-    private DrugDAOPersistent Drugs;
-    private PrescriptionDrugDAOPersistent PrescriptionDrugs;
-    private PrescriptionDAOPersistent Prescriptions;
-    private UserDAOPersistent Users;
+    private SicknessDAO Sicknesses;
+    private DrugDAO Drugs;
+    private PrescriptionDrugDAO PrescriptionDrugs;
+    private PrescriptionDAO Prescriptions;
+    private UserDAO Users;
 
     public MedicalRelatedPersistent(Context context) {
         super(context);

@@ -2,6 +2,10 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
+import ir.madjeed.healthcare.dao.MessageDAO;
+import ir.madjeed.healthcare.dao.SupervisionDAO;
+import ir.madjeed.healthcare.dao.SupervisionRequestDAO;
+import ir.madjeed.healthcare.dao.UserDAO;
 import ir.madjeed.healthcare.dao.impl.persistent.MessageDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionDAOPersistent;
 import ir.madjeed.healthcare.dao.impl.persistent.SupervisionRequestDAOPersistent;
@@ -20,10 +24,10 @@ import java.util.ArrayList;
 
 public class PatientRelatedPersistent extends BasePersistent implements PatientRelated {
 
-    private UserDAOPersistent Users;
-    private SupervisionRequestDAOPersistent SupervisionRequests;
-    private SupervisionDAOPersistent Supervisions;
-    private MessageDAOPersistent Messages;
+    private UserDAO Users;
+    private SupervisionRequestDAO SupervisionRequests;
+    private SupervisionDAO Supervisions;
+    private MessageDAO Messages;
 
 
     public PatientRelatedPersistent(Context context) {
