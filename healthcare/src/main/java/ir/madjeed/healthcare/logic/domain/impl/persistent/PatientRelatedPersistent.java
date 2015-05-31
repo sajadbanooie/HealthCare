@@ -60,8 +60,8 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
 
     @Override
     public void makeSupervisionRequest(String patient_username, String doctor_username, String detail){
-        UserPersistent patient = (UserPersistent) Users.getByID(patient_username);
-        UserPersistent doctor = (UserPersistent) Users.getByID(doctor_username);
+        User patient = Users.getByID(patient_username);
+        User doctor = Users.getByID(doctor_username);
         SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "request", detail);
         SupervisionRequests.create(sr);
         Message m = new MessagePersistent(patient, sr.getHead(), sr.getBody());
