@@ -5,7 +5,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import ir.madjeed.healthcare.dao.PhysicalStateDAO;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.context.DatabaseHelper;
 import ir.madjeed.healthcare.logic.entity.PhysicalState;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.PhysicalStatePersistent;
 

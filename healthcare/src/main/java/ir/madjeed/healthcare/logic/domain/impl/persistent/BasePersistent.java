@@ -2,8 +2,8 @@ package ir.madjeed.healthcare.logic.domain.impl.persistent;
 
 
 import android.content.Context;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseManager;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.context.DatabaseHelper;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.context.DatabaseManager;
 
 
 public abstract class BasePersistent {

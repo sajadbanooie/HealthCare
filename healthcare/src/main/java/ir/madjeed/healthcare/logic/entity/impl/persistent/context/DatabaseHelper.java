@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.logic.domain.impl.persistent.context;
+package ir.madjeed.healthcare.logic.entity.impl.persistent.context;
 
 import java.sql.SQLException;
 
@@ -12,8 +12,6 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import ir.madjeed.healthcare.logic.entity.ConsultantMessage;
-import ir.madjeed.healthcare.logic.entity.PrescriptionDrug;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.*;
 
 // dont forget to add daos here.

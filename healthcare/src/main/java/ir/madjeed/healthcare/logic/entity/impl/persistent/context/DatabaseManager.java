@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.logic.domain.impl.persistent.context;
+package ir.madjeed.healthcare.logic.entity.impl.persistent.context;
 
 
 import android.content.Context;

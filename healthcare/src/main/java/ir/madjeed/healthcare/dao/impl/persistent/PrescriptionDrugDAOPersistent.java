@@ -4,12 +4,9 @@ import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import ir.madjeed.healthcare.dao.DrugDAO;
 import ir.madjeed.healthcare.dao.PrescriptionDrugDAO;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
-import ir.madjeed.healthcare.logic.entity.Drug;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.context.DatabaseHelper;
 import ir.madjeed.healthcare.logic.entity.PrescriptionDrug;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.DrugPersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.PrescriptionDrugPersistent;
 
 import java.sql.SQLException;

@@ -5,12 +5,9 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import ir.madjeed.healthcare.dao.MessageDAO;
-import ir.madjeed.healthcare.dao.UserDAO;
-import ir.madjeed.healthcare.logic.domain.impl.persistent.context.DatabaseHelper;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.context.DatabaseHelper;
 import ir.madjeed.healthcare.logic.entity.Message;
-import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
-import ir.madjeed.healthcare.logic.entity.impl.persistent.UserPersistent;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
