@@ -76,9 +76,10 @@ public class PatientProfileActivity extends BaseActivity {
         customStartActivity(AddPhysicalStateActivity.class, patient_id);
     }
 
-
-
-
+    @OnClick(R.id.physical_state_btn)
+    public void physical_state_btn(){
+        customStartActivity(PhysicalStateActivity.class, patient_id);
+    }
 
 
     @OnClick(R.id.medical_records)
@@ -104,11 +105,6 @@ public class PatientProfileActivity extends BaseActivity {
     @OnClick(R.id.prescription_list)
     public void prescription_list(){
         customStartActivity(new ListOptions(PrescriptionDeliveryProfileActivity.class, "prescription", "view", "mine"));
-    }
-
-    @OnClick(R.id.physical_state_btn)
-    public void physical_state_btn(){
-        customStartActivity(PhysicalStateActivity.class);
     }
 
     @OnClick(R.id.physical_state_report_btn)

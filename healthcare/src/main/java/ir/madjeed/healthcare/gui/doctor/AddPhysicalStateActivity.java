@@ -45,8 +45,8 @@ public class AddPhysicalStateActivity extends BaseActivity {
             showMessage("error", "باید همه موارد را پر کنید.");
         }else{
             facade.addPhysicalState(patient_id,
-                    Integer.valueOf(ghand.getText().toString()), Integer.valueOf(ghand.getText().toString()),
-                    Integer.valueOf(ghand.getText().toString()), Integer.valueOf(ghand.getText().toString()));
+                    Integer.valueOf(ghand.getText().toString()), Integer.valueOf(vazn.getText().toString()),
+                    Integer.valueOf(feshar.getText().toString()), Integer.valueOf(ghandeKhun.getText().toString()));
             finish();
         }
     }

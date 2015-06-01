@@ -3,11 +3,13 @@ package ir.madjeed.healthcare.gui.patient;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.facade.PhysicalFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.madjeed.healthcare.gui.base.CustomRowObject;
 import lecho.lib.hellocharts.listener.ViewportChangeListener;
 import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.model.Axis;
@@ -28,13 +30,38 @@ import android.view.ViewGroup;
 
 public class PhysicalStateActivity extends BaseActivity {
 
+    private PhysicalFacade facade;
+    private String patient_id;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        facade = new PhysicalFacade(this);
         super.onCreate(savedInstanceState);
 
+        patient_id = getIntent().getExtras().getString("ID");
+
+        ArrayList<CustomRowObject> patientAllPhysicalStates = facade.getPatientAllPhysicalStates(patient_id);
+        ArrayList<Integer> ghand = new ArrayList<Integer>();
+        ArrayList<Integer> vazn = new ArrayList<Integer>();
+        ArrayList<Integer> feshar = new ArrayList<Integer>();
+        ArrayList<Integer> ghandeKhun = new ArrayList<Integer>();
+        for (int i = 0; i < patientAllPhysicalStates.size(); i++) {
+            ghand.add(Integer.valueOf(patientAllPhysicalStates.get(i).getColumn(0)));
+            vazn.add(Integer.valueOf(patientAllPhysicalStates.get(i).getColumn(1)));
+            feshar.add(Integer.valueOf(patientAllPhysicalStates.get(i).getColumn(2)));
+            ghandeKhun.add(Integer.valueOf(patientAllPhysicalStates.get(i).getColumn(3)));
+        }
+
         if (savedInstanceState == null) {
-            int commit = getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
+            PlaceholderFragment myFragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putIntegerArrayList("ghand", ghand);
+            args.putIntegerArrayList("vazn", vazn);
+            args.putIntegerArrayList("feshar", feshar);
+            args.putIntegerArrayList("ghandeKhun", ghandeKhun);
+            myFragment.setArguments(args);
+            int commit = getSupportFragmentManager().beginTransaction().add(R.id.container, myFragment).commit();
         }
     }
 
@@ -57,11 +84,25 @@ public class PhysicalStateActivity extends BaseActivity {
          */
         private ColumnChartData previewData;
 
+
+        private ArrayList<Integer> ghand;
+        private ArrayList<Integer> vazn;
+        private ArrayList<Integer> feshar;
+        private ArrayList<Integer> ghandeKhun;
+
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            Bundle bundle = this.getArguments();
+            ghand = bundle.getIntegerArrayList("ghand");
+            vazn = bundle.getIntegerArrayList("vazn");
+            feshar = bundle.getIntegerArrayList("feshar");
+            ghandeKhun = bundle.getIntegerArrayList("ghandeKhun");
+
+
             setHasOptionsMenu(true);
             View rootView = inflater.inflate(R.layout.fragment_preview_column_chart, container, false);
 
@@ -126,8 +167,7 @@ public class PhysicalStateActivity extends BaseActivity {
         }
 
         private void generateDefaultData() {
-            int numSubcolumns = 5;
-            int numColumns = 50;
+            int numSubcolumns = 4;
             List<Column> columns = new ArrayList<Column>();
             List<SubcolumnValue> values;
 
@@ -145,13 +185,14 @@ public class PhysicalStateActivity extends BaseActivity {
                     i++;
                 }
             }
-            for (int k = 0; k < numColumns; ++k) {
+
+            for (int k = 0; k < ghand.size(); ++k) {
 
                 values = new ArrayList<SubcolumnValue>();
-                for (int j = 0; j < numSubcolumns; ++j) {
-                    values.add(new SubcolumnValue((float) Math.random() * 50f + 5, colors[j]));
-                }
-
+                values.add(new SubcolumnValue(ghand.get(k), colors[0]));
+                values.add(new SubcolumnValue(vazn.get(k), colors[1]));
+                values.add(new SubcolumnValue(feshar.get(k), colors[2]));
+                values.add(new SubcolumnValue(ghandeKhun.get(k), colors[3]));
                 columns.add(new Column(values));
             }
 

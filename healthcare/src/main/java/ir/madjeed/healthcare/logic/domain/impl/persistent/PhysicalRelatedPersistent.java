@@ -9,6 +9,8 @@ import ir.madjeed.healthcare.logic.entity.PhysicalState;
 import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.PhysicalStatePersistent;
 
+import java.util.ArrayList;
+
 
 public class PhysicalRelatedPersistent extends BasePersistent implements PhysicalRelated {
 
@@ -30,5 +32,16 @@ public class PhysicalRelatedPersistent extends BasePersistent implements Physica
         User patient = Users.getByID(pid);
         PhysicalState p = new PhysicalStatePersistent(patient, ghand, vazn, feshar, ghandeKhun);
         PhysicalStates.create(p);
+    }
+
+    @Override
+    public ArrayList<PhysicalState> getPatientAllPhysicalStates(String pid) {
+        ArrayList <PhysicalState> result = PhysicalStates.getAll();
+        for (int i = result.size()-1; i >= 0 ; i--) {
+            if (!result.get(i).getPatient().getUsername().equals(pid)){
+                result.remove(i);
+            }
+        }
+        return result;
     }
 }
