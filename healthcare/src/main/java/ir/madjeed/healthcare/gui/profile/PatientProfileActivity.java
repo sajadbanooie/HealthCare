@@ -42,7 +42,7 @@ public class PatientProfileActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         patient_id = getIntent().getExtras().getString("ID");
-        title.setText(patient_id);
+        title.setText("منوی "+patient_id);
 
         if (role.equals("داروخانه")){
             for (BootstrapButton btn : btns) {
@@ -69,6 +69,16 @@ public class PatientProfileActivity extends BaseActivity {
     public void add_sickness(){
         customStartActivity(AddSicknessActivity.class, patient_id);
     }
+
+
+    @OnClick(R.id.add_physical_state_btn)
+    public void add_physical_state_btn(){
+        customStartActivity(AddPhysicalStateActivity.class, patient_id);
+    }
+
+
+
+
 
 
     @OnClick(R.id.medical_records)
@@ -99,11 +109,6 @@ public class PatientProfileActivity extends BaseActivity {
     @OnClick(R.id.physical_state_btn)
     public void physical_state_btn(){
         customStartActivity(PhysicalStateActivity.class);
-    }
-
-    @OnClick(R.id.add_physical_state_btn)
-    public void add_physical_state_btn(){
-        customStartActivity(AddPhysicalStateActivity.class);
     }
 
     @OnClick(R.id.physical_state_report_btn)

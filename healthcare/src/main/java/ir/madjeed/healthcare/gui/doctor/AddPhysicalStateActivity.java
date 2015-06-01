@@ -18,10 +18,14 @@ public class AddPhysicalStateActivity extends BaseActivity {
 
     private PhysicalFacade facade;
 
+    private String patient_id;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         facade = new PhysicalFacade(this);
         super.onCreate(savedInstanceState);
+
+        patient_id = getIntent().getExtras().getString("ID");
     }
 
     @Override
@@ -36,7 +40,15 @@ public class AddPhysicalStateActivity extends BaseActivity {
 
     @OnClick(R.id.approve)
     public void on_approve() {
-        finish();
+        if (ghand.getText().toString().equals("") || vazn.getText().toString().equals("") ||
+                feshar.getText().toString().equals("") || ghandeKhun.getText().toString().equals("")){
+            showMessage("error", "باید همه موارد را پر کنید.");
+        }else{
+            facade.addPhysicalState(patient_id,
+                    Integer.valueOf(ghand.getText().toString()), Integer.valueOf(ghand.getText().toString()),
+                    Integer.valueOf(ghand.getText().toString()), Integer.valueOf(ghand.getText().toString()));
+            finish();
+        }
     }
 
 }

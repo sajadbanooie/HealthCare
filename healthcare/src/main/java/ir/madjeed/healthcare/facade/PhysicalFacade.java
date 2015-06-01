@@ -15,7 +15,7 @@ public class PhysicalFacade {
     }
 
     public void addPhysicalState(String pid, Integer ghand, Integer vazn, Integer feshar, Integer ghandeKhun){
-        addPhysicalState(pid, ghand, vazn, feshar, ghandeKhun);
+        physicalRelated.addPhysicalState(pid, ghand, vazn, feshar, ghandeKhun);
     }
 
 }
