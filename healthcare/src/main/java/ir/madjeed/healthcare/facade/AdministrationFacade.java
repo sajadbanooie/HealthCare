@@ -33,7 +33,7 @@ public class AdministrationFacade {
         ArrayList<User> allUsers = administration.getAllUsers();
         ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
         for (int i = 0; i < allUsers.size(); i++) {
-            if(allUsers.get(i).getRole().equals("پزشک عمومی"))
+            if(allUsers.get(i).getRole().equals("بیمار"))
                 result.add(new Pair<String, String>(allUsers.get(i).getUsername(), allUsers.get(i).getName()+" "+allUsers.get(i).getFamily()));
         }
         return result;
