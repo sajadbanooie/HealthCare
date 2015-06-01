@@ -7,6 +7,7 @@ import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.consultant.ConsultantActivity;
 import ir.madjeed.healthcare.gui.list.MessageListActivity;
+import ir.madjeed.healthcare.gui.list.PatientSicknessListActivity;
 import ir.madjeed.healthcare.gui.patient.*;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
@@ -38,6 +39,21 @@ public class PatientMenuActivity extends BaseActivity {
         customStartActivity(MessageListActivity.class, new BaseListOptions(MessageProfileActivity.class, null, "view", "mine"));
     }
 
+    @OnClick(R.id.sickness_records_btn)
+    public void sickness_records_btn() {
+        customStartActivity(PatientSicknessListActivity.class, new BaseListOptions(SicknessDetailActivity.class, username, "view", "mine"));
+    }
+
+    @OnClick(R.id.physical_state_btn)
+    public void physical_state_btn() {
+        customStartActivity(PhysicalStateActivity.class, username);
+    }
+
+    @OnClick(R.id.select_doctor_btn)
+    public void select_doctor_btn() {
+        customStartActivity(SelectDoctorActivity.class);
+    }
+
     @OnClick(R.id.exit_btn)
     public void exit_btn() {
         startActivity(new Intent(this, StarterActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -47,6 +63,7 @@ public class PatientMenuActivity extends BaseActivity {
     public void consultant_btn() {
         customStartActivity(ConsultantActivity.class);
     }
+
 
     @OnClick(R.id.my_doctors_btn)
     public void my_doctors_btn() {
@@ -58,25 +75,11 @@ public class PatientMenuActivity extends BaseActivity {
         customStartActivity(AddPhysicalActivity.class);
     }
 
-    @OnClick(R.id.select_doctor_btn)
-    public void select_doctor_btn() {
-        customStartActivity(SelectDoctorActivity.class);
-    }
-
     @OnClick(R.id.medical_records_btn)
     public void medical_records_btn() {
         customStartActivity(new ListOptions("medical record", "view", "mine"));
     }
 
-    @OnClick(R.id.sickness_records_btn)
-    public void sickness_records_btn() {
-        customStartActivity(SicknessHistoryActivity.class);
-    }
-
-    @OnClick(R.id.physical_state_btn)
-    public void physical_state_btn() {
-        customStartActivity(PhysicalStateActivity.class);
-    }
 
 
 }
