@@ -30,6 +30,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<PrescriptionPersistent, Integer> prescriptionDao = null;
     private Dao<DrugPersistent, Integer> drugDao = null;
     private Dao<PrescriptionDrugPersistent, Integer> prescriptionDrugDao = null;
+    private Dao<ConsultantCasePersistent, Integer> consultantCaseDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -52,6 +53,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, PrescriptionPersistent.class);
             TableUtils.createTable(connectionSource, DrugPersistent.class);
             TableUtils.createTable(connectionSource, PrescriptionDrugPersistent.class);
+            TableUtils.createTable(connectionSource, ConsultantCasePersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -74,6 +76,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, PrescriptionPersistent.class, true);
             TableUtils.dropTable(connectionSource, DrugPersistent.class, true);
             TableUtils.dropTable(connectionSource, PrescriptionDrugPersistent.class, true);
+            TableUtils.dropTable(connectionSource, ConsultantCasePersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -87,34 +90,30 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if (typeC.equals(UserPersistent.class)) {
             if (userDao == null) userDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) userDao;
-        }
-        if (typeC.equals(SupervisionRequestPersistent.class)) {
+        }else if (typeC.equals(SupervisionRequestPersistent.class)) {
             if (supervisionRequestDao == null) supervisionRequestDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) supervisionRequestDao;
-        }
-        if (typeC.equals(SupervisionPersistent.class)) {
+        }else if (typeC.equals(SupervisionPersistent.class)) {
             if (supervisionDao == null) supervisionDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) supervisionDao;
-        }
-        if (typeC.equals(MessagePersistent.class)) {
+        }else if (typeC.equals(MessagePersistent.class)) {
             if (messageDao == null) messageDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) messageDao;
-        }
-        if (typeC.equals(SicknessPersistent.class)) {
+        }else if (typeC.equals(SicknessPersistent.class)) {
             if (sicknessDao == null) sicknessDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) sicknessDao;
-        }
-        if (typeC.equals(PrescriptionPersistent.class)) {
+        }else if (typeC.equals(PrescriptionPersistent.class)) {
             if (prescriptionDao == null) prescriptionDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) prescriptionDao;
-        }
-        if (typeC.equals(DrugPersistent.class)) {
+        }else if (typeC.equals(DrugPersistent.class)) {
             if (drugDao == null) drugDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) drugDao;
-        }
-        if (typeC.equals(PrescriptionDrugPersistent.class)) {
+        }else if (typeC.equals(PrescriptionDrugPersistent.class)) {
             if (prescriptionDrugDao == null) prescriptionDrugDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) prescriptionDrugDao;
+        }else if (typeC.equals(ConsultantCasePersistent.class)) {
+            if (consultantCaseDao == null) consultantCaseDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) consultantCaseDao;
         }
         return null;
     }
