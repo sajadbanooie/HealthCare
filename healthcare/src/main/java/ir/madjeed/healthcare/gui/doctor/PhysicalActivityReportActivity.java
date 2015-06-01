@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.*;
 import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.facade.PhysicalFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
+import ir.madjeed.healthcare.gui.base.CustomRowObject;
 import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.listener.ViewportChangeListener;
 import lecho.lib.hellocharts.model.*;
@@ -16,15 +18,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PhysicalStateReportActivity extends BaseActivity {
+public class PhysicalActivityReportActivity extends BaseActivity {
+
+    private PhysicalFacade facade;
+    private String patient_id;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        facade = new PhysicalFacade(this);
         super.onCreate(savedInstanceState);
 
+        patient_id = getIntent().getExtras().getString("ID");
+
+        ArrayList<Integer> patientAllPhysicalActivities = facade.getPatientAllPhysicalActivities(patient_id);
+
         if (savedInstanceState == null) {
-            int commit = getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
+            PlaceholderFragment myFragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putIntegerArrayList("walk", patientAllPhysicalActivities);
+            myFragment.setArguments(args);
+            int commit = getSupportFragmentManager().beginTransaction().add(R.id.container, myFragment).commit();
         }
     }
 
@@ -47,11 +61,18 @@ public class PhysicalStateReportActivity extends BaseActivity {
          */
         private ColumnChartData previewData;
 
+
+        private ArrayList<Integer> walk;
+
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            Bundle bundle = this.getArguments();
+            walk = bundle.getIntegerArrayList("walk");
+
             setHasOptionsMenu(true);
             View rootView = inflater.inflate(R.layout.fragment_preview_column_chart, container, false);
 
@@ -116,8 +137,7 @@ public class PhysicalStateReportActivity extends BaseActivity {
         }
 
         private void generateDefaultData() {
-            int numSubcolumns = 5;
-            int numColumns = 50;
+            int numSubcolumns = 1;
             List<Column> columns = new ArrayList<Column>();
             List<SubcolumnValue> values;
 
@@ -135,13 +155,11 @@ public class PhysicalStateReportActivity extends BaseActivity {
                     i++;
                 }
             }
-            for (int k = 0; k < numColumns; ++k) {
+
+            for (int k = 0; k < walk.size(); ++k) {
 
                 values = new ArrayList<SubcolumnValue>();
-                for (int j = 0; j < numSubcolumns; ++j) {
-                    values.add(new SubcolumnValue((float) Math.random() * 50f + 5, colors[j]));
-                }
-
+                values.add(new SubcolumnValue(walk.get(k), colors[0]));
                 columns.add(new Column(values));
             }
 

@@ -60,7 +60,7 @@
 
         <activity android:name=".gui.patient.PhysicalStateActivity"/>
         <activity android:name=".gui.doctor.AddPhysicalStateActivity"/>
-        <activity android:name=".gui.doctor.PhysicalStateReportActivity"/>
+        <activity android:name=".gui.doctor.PhysicalActivityReportActivity"/>
 
         <activity android:name=".gui.list.UserListActivity"/>
         <activity android:name=".gui.list.DoctorListActivity"/>

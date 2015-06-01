@@ -12,15 +12,13 @@ import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.doctor.AddPhysicalStateActivity;
-import ir.madjeed.healthcare.gui.doctor.PhysicalStateReportActivity;
+import ir.madjeed.healthcare.gui.doctor.PhysicalActivityReportActivity;
 import ir.madjeed.healthcare.gui.doctor.ReferencePatientActivity;
 import ir.madjeed.healthcare.gui.list.PatientSicknessListActivity;
-import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.patient.AddSicknessActivity;
 import ir.madjeed.healthcare.gui.patient.PhysicalStateActivity;
 import ir.madjeed.healthcare.gui.patient.SicknessDetailActivity;
-import ir.madjeed.healthcare.gui.patient.SicknessHistoryActivity;
-import ir.madjeed.healthcare.logic.entity.Sickness;
+
 
 import java.util.List;
 
@@ -81,6 +79,10 @@ public class PatientProfileActivity extends BaseActivity {
         customStartActivity(PhysicalStateActivity.class, patient_id);
     }
 
+    @OnClick(R.id.physical_state_report_btn)
+    public void physical_state_report_btn(){
+        customStartActivity(PhysicalActivityReportActivity.class, patient_id);
+    }
 
     @OnClick(R.id.medical_records)
     public void medical_records(){
@@ -105,11 +107,6 @@ public class PatientProfileActivity extends BaseActivity {
     @OnClick(R.id.prescription_list)
     public void prescription_list(){
         customStartActivity(new ListOptions(PrescriptionDeliveryProfileActivity.class, "prescription", "view", "mine"));
-    }
-
-    @OnClick(R.id.physical_state_report_btn)
-    public void physical_state_report_btn(){
-        customStartActivity(PhysicalStateReportActivity.class);
     }
 
 }

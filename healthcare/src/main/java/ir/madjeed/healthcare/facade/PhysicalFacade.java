@@ -4,6 +4,7 @@ import android.content.Context;
 import ir.madjeed.healthcare.gui.base.CustomRowObject;
 import ir.madjeed.healthcare.logic.domain.PhysicalRelated;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.PhysicalRelatedPersistent;
+import ir.madjeed.healthcare.logic.entity.PhysicalActivity;
 import ir.madjeed.healthcare.logic.entity.PhysicalState;
 
 import java.util.ArrayList;
@@ -28,6 +29,15 @@ public class PhysicalFacade {
         for (int i = 0; i < res.size(); i++) {
             result.add(new CustomRowObject(String.valueOf(res.get(i).getGhand()), String.valueOf(res.get(i).getVazn()),
                     String.valueOf(res.get(i).getFeshar()), String.valueOf(res.get(i).getGhandeKhun())));
+        }
+        return result;
+    }
+
+    public ArrayList<Integer> getPatientAllPhysicalActivities(String pid){
+        ArrayList<PhysicalActivity> res = physicalRelated.getPatientAllPhysicalActivities(pid);
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (int i = 0; i < res.size(); i++) {
+            result.add(res.get(i).getWalk());
         }
         return result;
     }
