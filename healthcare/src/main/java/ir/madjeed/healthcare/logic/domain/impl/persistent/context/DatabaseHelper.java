@@ -33,6 +33,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<PrescriptionDrugPersistent, Integer> prescriptionDrugDao = null;
     private Dao<ConsultantCasePersistent, Integer> consultantCaseDao = null;
     private Dao<ConsultantMessagePersistent, Integer> consultantMessageDao = null;
+    private Dao<PhysicalStatePersistent, Integer> physicalStateDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -57,6 +58,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, PrescriptionDrugPersistent.class);
             TableUtils.createTable(connectionSource, ConsultantCasePersistent.class);
             TableUtils.createTable(connectionSource, ConsultantMessagePersistent.class);
+            TableUtils.createTable(connectionSource, PhysicalStatePersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -81,6 +83,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, PrescriptionDrugPersistent.class, true);
             TableUtils.dropTable(connectionSource, ConsultantCasePersistent.class, true);
             TableUtils.dropTable(connectionSource, ConsultantMessagePersistent.class, true);
+            TableUtils.dropTable(connectionSource, PhysicalStatePersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -121,6 +124,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }else if (typeC.equals(ConsultantMessagePersistent.class)) {
             if (consultantMessageDao == null) consultantMessageDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) consultantMessageDao;
+        }else if (typeC.equals(PhysicalStatePersistent.class)) {
+            if (physicalStateDao == null) physicalStateDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) physicalStateDao;
         }
         return null;
     }
