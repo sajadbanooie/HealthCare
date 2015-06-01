@@ -14,7 +14,7 @@
             />
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/username"
+            android:id="@+id/ghand"
             android:hint="قد"
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
@@ -24,7 +24,7 @@
 
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/password"
+            android:id="@+id/vazn"
             android:hint="وزن"
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
@@ -34,7 +34,7 @@
 
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/name"
+            android:id="@+id/ghandeKhun"
             android:hint="قند خون"
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
@@ -44,18 +44,8 @@
 
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/family"
+            android:id="@+id/feshar"
             android:hint="فشار"
-            bootstrap:be_roundedCorners="true"
-            bootstrap:be_state="primary"
-            style="@style/edit_text_style"
-            android:inputType="number"
-            />
-
-
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/nationalID"
-            android:hint="نمک"
             bootstrap:be_roundedCorners="true"
             bootstrap:be_state="primary"
             style="@style/edit_text_style"
