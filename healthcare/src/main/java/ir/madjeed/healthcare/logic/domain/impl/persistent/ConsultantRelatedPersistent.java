@@ -17,7 +17,6 @@ public class ConsultantRelatedPersistent extends BasePersistent implements Consu
     private UserDAO Users;
     private ConsultantCaseDAO ConsultantCases;
     private ConsultantMessageDAO ConsultantMessages;
-    private SupervisionDAO Supervisions;
 
 
     public ConsultantRelatedPersistent(Context context) {
@@ -28,7 +27,6 @@ public class ConsultantRelatedPersistent extends BasePersistent implements Consu
     protected void makeNecessaryDAO() {
         Users = new UserDAOPersistent(getDatabaseHelper());
         ConsultantCases = new ConsultantCaseDAOPersistent(getDatabaseHelper());
-        Supervisions = new SupervisionDAOPersistent(getDatabaseHelper());
         ConsultantMessages = new ConsultantMessageDAOPersistent(getDatabaseHelper());
     }
 
