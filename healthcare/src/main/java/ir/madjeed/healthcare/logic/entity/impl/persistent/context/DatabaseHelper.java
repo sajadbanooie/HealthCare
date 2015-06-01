@@ -32,6 +32,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<ConsultantCasePersistent, Integer> consultantCaseDao = null;
     private Dao<ConsultantMessagePersistent, Integer> consultantMessageDao = null;
     private Dao<PhysicalStatePersistent, Integer> physicalStateDao = null;
+    private Dao<PhysicalActivityPersistent, Integer> physicalActivityDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -57,6 +58,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, ConsultantCasePersistent.class);
             TableUtils.createTable(connectionSource, ConsultantMessagePersistent.class);
             TableUtils.createTable(connectionSource, PhysicalStatePersistent.class);
+            TableUtils.createTable(connectionSource, PhysicalActivityPersistent.class);
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -82,6 +84,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, ConsultantCasePersistent.class, true);
             TableUtils.dropTable(connectionSource, ConsultantMessagePersistent.class, true);
             TableUtils.dropTable(connectionSource, PhysicalStatePersistent.class, true);
+            TableUtils.dropTable(connectionSource, PhysicalActivityPersistent.class, true);
 
             onCreate(db);
         } catch (SQLException e) {
@@ -125,6 +128,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }else if (typeC.equals(PhysicalStatePersistent.class)) {
             if (physicalStateDao == null) physicalStateDao = DaoManager.createDao(getConnectionSource(), typeC );
             return (Dao<C, D>) physicalStateDao;
+        }else if (typeC.equals(PhysicalActivityPersistent.class)) {
+            if (physicalActivityDao == null) physicalActivityDao = DaoManager.createDao(getConnectionSource(), typeC );
+            return (Dao<C, D>) physicalActivityDao;
         }
         return null;
     }
