@@ -49,5 +49,26 @@ public class DoctorFacade {
         }
         return result;
     }
+
+    public String getDoctorName(String did){
+        return doctorRelated.getDoctorName(did);
+    }
+
+    public ArrayList<Pair<String, String>> getAllExpertDoctors(){
+        ArrayList<User> allUsers = doctorRelated.getAllExpertDoctors();
+        ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
+        for (int i = 0; i < allUsers.size(); i++) {
+            result.add(new Pair<String, String>(allUsers.get(i).getUsername(), allUsers.get(i).getFullName()));
+        }
+        return result;
+    }
+
+    public void makeReferRequest(String patient_username, String doctor_username, String detail){
+        doctorRelated.makeReferRequest(patient_username, doctor_username, detail);
+    }
+
+    public boolean hasActiveSupervision(String pid, String did){
+        return doctorRelated.hasActiveSupervision(pid, did);
+    }
 }
 

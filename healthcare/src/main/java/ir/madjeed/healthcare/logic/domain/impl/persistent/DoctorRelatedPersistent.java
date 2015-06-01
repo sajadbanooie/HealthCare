@@ -17,6 +17,7 @@ import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
 import ir.madjeed.healthcare.logic.entity.User;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.MessagePersistent;
 import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionPersistent;
+import ir.madjeed.healthcare.logic.entity.impl.persistent.SupervisionRequestPersistent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,6 +81,32 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
         }
     }
 
+    @Override
+    public String getDoctorName(String did) {
+        return Users.getByID(did).getFullName();
+    }
+
+    @Override
+    public ArrayList<User> getAllExpertDoctors() {
+        ArrayList<User> res = Users.getAll();
+        for (int i = res.size()-1; i >= 0; i--) {
+            if (!res.get(i).getRole().equals("پزشک متخصص")
+                    || !res.get(i).getRegistrationStatus().equals("accepted"))
+                res.remove(i);
+        }
+        return res;
+    }
+
+    @Override
+    public void makeReferRequest(String pid, String did, String detail) {
+        User patient = Users.getByID(pid);
+        User doctor = Users.getByID(did);
+        SupervisionRequest sr = new SupervisionRequestPersistent(patient, doctor, "refer", detail);
+        SupervisionRequests.create(sr);
+        Message m = new MessagePersistent(patient, sr.getHead(), sr.getBody());
+        Messages.create(m);
+
+    }
 
     @Override
     public ArrayList<User> getDoctorPatients(String did) {
@@ -92,6 +119,18 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
             }
         }
         return supervised_patients;
+    }
+
+    @Override
+    public boolean hasActiveSupervision(String pid, String did) {
+        boolean flag = false;
+        ArrayList<Supervision> s = Supervisions.getAll();
+        for (int i = 0; i < s.size(); i++) {
+            if (s.get(i).getStatus().equals("active") && s.get(i).getPatient().getUsername().equals(pid)
+                    && s.get(i).getDoctor().getUsername().equals(did))
+                flag = true;
+        }
+        return flag;
     }
 
 }

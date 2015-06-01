@@ -73,7 +73,7 @@ public class SelectDoctorActivity extends BaseActivity {
 
     @OnClick(R.id.select)
     public void select() {
-        customStartActivity(DoctorListActivity.class, new BaseListOptions(DoctorProfileActivity.class, null, "select", "all"));
+        customStartActivity(DoctorListActivity.class, new BaseListOptions(DoctorProfileActivity.class, null, "select", "normal"));
     }
 
     @Override

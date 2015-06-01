@@ -10,5 +10,9 @@ public interface DoctorRelated {
     public ArrayList<SupervisionRequest> getDoctorSupervisionRequests(String did);
     public ArrayList<User> getDoctorPatients(String did);
     public SupervisionRequest getSupervisionRequest(Integer srid);
-    void setSupervisionRequestAnswer(int srid, String answerDetail, String status);
+    public void setSupervisionRequestAnswer(int srid, String answerDetail, String status);
+    public String getDoctorName(String did);
+    public ArrayList<User> getAllExpertDoctors();
+    public void makeReferRequest(String pid, String did, String detail);
+    public boolean hasActiveSupervision(String pid, String did);
 }

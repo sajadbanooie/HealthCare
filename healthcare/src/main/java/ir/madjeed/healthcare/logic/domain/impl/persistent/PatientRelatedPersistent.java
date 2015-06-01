@@ -47,7 +47,8 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
     public ArrayList<User> getAllNormalDoctors() {
         ArrayList<User> res = Users.getAll();
         for (int i = res.size()-1; i >= 0; i--) {
-            if (!res.get(i).getRole().equals("پزشک عمومی"))  // it is not valid
+            if (!res.get(i).getRole().equals("پزشک عمومی")
+                    || !res.get(i).getRegistrationStatus().equals("accepted"))
                 res.remove(i);
         }
         return res;

@@ -68,7 +68,6 @@ public class PatientProfileActivity extends BaseActivity {
         customStartActivity(AddSicknessActivity.class, patient_id);
     }
 
-
     @OnClick(R.id.add_physical_state_btn)
     public void add_physical_state_btn(){
         customStartActivity(AddPhysicalStateActivity.class, patient_id);
@@ -84,6 +83,12 @@ public class PatientProfileActivity extends BaseActivity {
         customStartActivity(PhysicalActivityReportActivity.class, patient_id);
     }
 
+    @OnClick(R.id.reference)
+    public void reference(){
+        customStartActivity(ReferencePatientActivity.class, patient_id);
+    }
+
+
     @OnClick(R.id.medical_records)
     public void medical_records(){
         customStartActivity(new ListOptions("medical record", "view", "mine")); // it needs id of it
@@ -92,11 +97,6 @@ public class PatientProfileActivity extends BaseActivity {
     @OnClick(R.id.finish_supervision)
     public void finish_supervision(){
         // nothing to do
-    }
-
-    @OnClick(R.id.reference)
-    public void reference(){
-        customStartActivity(ReferencePatientActivity.class, title.getText().toString());
     }
 
     @OnClick(R.id.patient_doctors)
