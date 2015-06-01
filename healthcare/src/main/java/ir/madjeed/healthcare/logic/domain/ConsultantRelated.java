@@ -11,4 +11,5 @@ public interface ConsultantRelated {
     public ArrayList<ConsultantCase> getDoctorConsultantCases(String did);
     public ArrayList<ConsultantMessage> getConsultantCaseMessages(String cid);
     public void addConsultantCase(String did, String pid, String subject, String initial_message, String sender);
+    public void addConsultantMessage(String cid, String detail, String sender_id);
 }

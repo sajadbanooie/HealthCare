@@ -95,7 +95,7 @@ public class ConsultantActivity extends BaseActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    customStartActivity(ConsultantDetailActivity.class, holder.subject.getText().toString());
+                    customStartActivity(ConsultantDetailActivity.class, holder.state.getText().toString());
                 }
             });
             return view;

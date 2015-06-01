@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.facade.ConsultantFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.CustomRowObject;
 
@@ -20,22 +21,30 @@ import java.util.ArrayList;
 
 public class ConsultantDetailActivity extends BaseActivity {
 
-    private CustomAdapter mAdapter;
     @InjectView(R.id.title) TextView title;
     @InjectView(R.id.mainListView) ListView mListView;
+    @InjectView(R.id.your_message) TextView your_message;
+
+    private CustomAdapter mAdapter;
+    private ArrayList<CustomRowObject> items;
+    private String consultant_id;
+
+    private ConsultantFacade facade;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        facade = new ConsultantFacade(this);
         super.onCreate(savedInstanceState);
 
-        ArrayList<CustomRowObject> items = new ArrayList<CustomRowObject>();
+        items = new ArrayList<CustomRowObject>();
 
-        String id = getIntent().getExtras().getString("ID");
-        title.setText(id);
+        consultant_id = getIntent().getExtras().getString("ID");
+        title.setText(consultant_id);
 
-        items.add(new CustomRowObject( "بیمار 1", "درد دل دارم چه کار کنم"));
-        items.add(new CustomRowObject( "دکتر 21", "برو دکتر ..."));
-        items.add(new CustomRowObject( "بیمار 1", "عجب نصیحتی ...\nباشه حتما\n"));
+        ArrayList<CustomRowObject> consultantCaseMessages = facade.getConsultantCaseMessages(consultant_id);
+        items.addAll(consultantCaseMessages);
         mAdapter = new CustomAdapter(this, items);
         mListView.setAdapter(mAdapter);
     }
@@ -44,6 +53,18 @@ public class ConsultantDetailActivity extends BaseActivity {
     protected int getLayoutResourceId() {
         return R.layout.activity_consultant_detail;
     }
+
+
+    @OnClick(R.id.send_message)
+    public void addMessage() {
+        facade.addConsultantMessage(consultant_id, your_message.getText().toString(), username);
+        items.clear();
+        ArrayList<CustomRowObject> consultantCaseMessages = facade.getConsultantCaseMessages(consultant_id);
+        items.addAll(consultantCaseMessages);
+        mAdapter.notifyDataSetChanged();
+        your_message.setText("");
+    }
+
 
     private class CustomAdapter extends ArrayAdapter<CustomRowObject> {
 

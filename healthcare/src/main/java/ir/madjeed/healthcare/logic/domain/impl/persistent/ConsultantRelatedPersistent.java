@@ -54,11 +54,6 @@ public class ConsultantRelatedPersistent extends BasePersistent implements Consu
     }
 
     @Override
-    public ArrayList<ConsultantMessage> getConsultantCaseMessages(String cid) {
-        return null;
-    }
-
-    @Override
     public void addConsultantCase(String did, String pid, String subject, String initial_message, String sender) {
         User doctor = Users.getByID(did);
         User patient = Users.getByID(pid);
@@ -71,5 +66,23 @@ public class ConsultantRelatedPersistent extends BasePersistent implements Consu
             m = new ConsultantMessagePersistent(c, doctor.getFullName(), initial_message);
         }
         ConsultantMessages.create(m);
+    }
+
+    @Override
+    public void addConsultantMessage(String cid, String detail, String sender_id) {
+        String sender = Users.getByID(sender_id).getFullName();
+        ConsultantCase c = ConsultantCases.getByID(Integer.valueOf(cid));
+        ConsultantMessage m = new ConsultantMessagePersistent(c, sender, detail);
+        ConsultantMessages.create(m);
+    }
+
+    @Override
+    public ArrayList<ConsultantMessage> getConsultantCaseMessages(String cid) {
+        ArrayList<ConsultantMessage> messages = ConsultantMessages.getAll();
+        for (int i = messages.size()-1; i >= 0 ; i--) {
+            if (messages.get(i).getConsultantCase().getId()!=Integer.valueOf(cid))
+                messages.remove(i);
+        }
+        return messages;
     }
 }
