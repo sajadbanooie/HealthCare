@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.gui.patient;
+package ir.madjeed.healthcare.gui.consultant;
 
 import android.content.Context;
 import android.os.Bundle;

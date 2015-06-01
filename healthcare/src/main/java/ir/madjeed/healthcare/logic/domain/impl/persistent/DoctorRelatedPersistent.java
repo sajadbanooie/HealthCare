@@ -83,11 +83,10 @@ public class DoctorRelatedPersistent extends BasePersistent implements DoctorRel
 
     @Override
     public ArrayList<User> getDoctorPatients(String did) {
-        User doctor = Users.getByID(did);
         ArrayList<Supervision> supervisions = Supervisions.getAll();
         ArrayList<User> supervised_patients = new ArrayList<User>();
         for (int i = supervisions.size()-1; i >= 0; i--) {
-            if (supervisions.get(i).getDoctor().getUsername().equals(doctor.getUsername())
+            if (supervisions.get(i).getDoctor().getUsername().equals(did)
                     && supervisions.get(i).getStatus().equals("active")){
                 supervised_patients.add(supervisions.get(i).getPatient());
             }

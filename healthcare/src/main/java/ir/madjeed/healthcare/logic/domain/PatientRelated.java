@@ -10,4 +10,5 @@ public interface PatientRelated {
     public void makeSupervisionRequest(String patient_username, String doctor_username, String detail);
     public User getPatientCurrentNormalDoctor(String pid);
     public void finishPatientCurrentNormalSupervision(String pid);
+    public ArrayList<User> getPatientAllDoctors(String pid);
 }

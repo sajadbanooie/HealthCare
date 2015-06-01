@@ -8,7 +8,6 @@ import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.drugstore.DrugDeliveryActivity;
-import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
 
 
 public class DrugStoreMenuActivity extends BaseActivity {

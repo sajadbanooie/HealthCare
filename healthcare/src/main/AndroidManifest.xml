@@ -19,9 +19,9 @@
 
         <activity android:name=".gui.EditInfoActivity"/>
 
-        <activity android:name=".gui.patient.ConsultantActivity"/>
-        <activity android:name=".gui.patient.ConsultantDetailActivity"/>
-        <activity android:name=".gui.patient.AddConsultantActivity"/>
+        <activity android:name=".gui.consultant.ConsultantActivity"/>
+        <activity android:name=".gui.consultant.ConsultantDetailActivity"/>
+        <activity android:name=".gui.consultant.AddConsultantActivity"/>
         <activity android:name=".gui.patient.AddPhysicalActivity"/>
         <activity android:name=".gui.patient.SelectDoctorActivity"/>
         <activity android:name=".gui.patient.SicknessHistoryActivity"/>

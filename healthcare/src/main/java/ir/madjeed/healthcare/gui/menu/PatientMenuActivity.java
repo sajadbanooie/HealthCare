@@ -5,16 +5,14 @@ import android.os.Bundle;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.gui.base.BaseListOptions;
+import ir.madjeed.healthcare.gui.consultant.ConsultantActivity;
 import ir.madjeed.healthcare.gui.list.MessageListActivity;
-import ir.madjeed.healthcare.gui.list.PatientListActivity;
-import ir.madjeed.healthcare.gui.list.UserListActivity;
 import ir.madjeed.healthcare.gui.patient.*;
 import ir.madjeed.healthcare.gui.EditInfoActivity;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.ListOptions;
 import ir.madjeed.healthcare.gui.profile.DoctorProfileActivity;
 import ir.madjeed.healthcare.gui.profile.MessageProfileActivity;
-import ir.madjeed.healthcare.gui.profile.UserProfileActivity;
 
 
 public class PatientMenuActivity extends BaseActivity {

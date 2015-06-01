@@ -1,4 +1,4 @@
-package ir.madjeed.healthcare.gui.patient;
+package ir.madjeed.healthcare.gui.consultant;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import ir.madjeed.healthcare.R;
+import ir.madjeed.healthcare.facade.ConsultantFacade;
+import ir.madjeed.healthcare.facade.DoctorFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
 import ir.madjeed.healthcare.gui.base.CustomRowObject;
 
@@ -26,9 +28,11 @@ public class ConsultantActivity extends BaseActivity {
     @InjectView(R.id.title) TextView title;
     @InjectView(R.id.mainListView) ListView mListView;
 
+    private ConsultantFacade consultantFacade;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        consultantFacade = new ConsultantFacade(this);
         super.onCreate(savedInstanceState);
 
         items = new ArrayList<CustomRowObject>();
@@ -54,18 +58,12 @@ public class ConsultantActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        //TODO get data from db
-//        items.clear();
-
-        if (role.equals("بیمار")){
-            items.add(new CustomRowObject("باز", "دکتر 1", "موضوع 1", "2 روز پیش"));
-            items.add(new CustomRowObject("بسته", "دکتر 1", "موضوع 2", "1 ماه پیش"));
-        }else{
-            items.add(new CustomRowObject("باز", "بیمار 1", "موضوع 1", "2 روز پیش"));
-            items.add(new CustomRowObject("بسته", "بیمار 33", "موضوع 2", "1 ماه پیش"));
-        }
-
+        items.clear();
+        String owner = "doctor";
+        if (role.equals("بیمار"))
+            owner = "patient";
+        ArrayList<CustomRowObject> consultantCases = consultantFacade.getConsultantCases(username, owner);
+        items.addAll(consultantCases);
         mAdapter.notifyDataSetChanged();
     }
 

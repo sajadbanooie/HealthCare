@@ -10,7 +10,7 @@ import ir.madjeed.healthcare.gui.base.BaseListOptions;
 import ir.madjeed.healthcare.gui.list.MessageListActivity;
 import ir.madjeed.healthcare.gui.list.PatientListActivity;
 import ir.madjeed.healthcare.gui.list.RequestListActivity;
-import ir.madjeed.healthcare.gui.patient.ConsultantActivity;
+import ir.madjeed.healthcare.gui.consultant.ConsultantActivity;
 import ir.madjeed.healthcare.gui.profile.*;
 
 

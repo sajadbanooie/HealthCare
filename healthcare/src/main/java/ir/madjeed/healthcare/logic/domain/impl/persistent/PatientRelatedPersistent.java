@@ -103,4 +103,17 @@ public class PatientRelatedPersistent extends BasePersistent implements PatientR
         }
 
     }
+
+    @Override
+    public ArrayList<User> getPatientAllDoctors(String pid) {
+        ArrayList<Supervision> s = Supervisions.getAll();
+        ArrayList<User> supervised_doctors = new ArrayList<User>();
+        for (int i = 0; i < s.size(); i++) {
+            if(s.get(i).getPatient().getUsername().equals(pid) &&
+                    s.get(i).getStatus().equals("active")){
+                supervised_doctors.add(s.get(i).getDoctor());
+            }
+        }
+        return supervised_doctors;
+    }
 }

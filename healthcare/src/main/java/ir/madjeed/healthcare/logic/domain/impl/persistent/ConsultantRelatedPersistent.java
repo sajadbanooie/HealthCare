@@ -35,12 +35,22 @@ public class ConsultantRelatedPersistent extends BasePersistent implements Consu
 
     @Override
     public ArrayList<ConsultantCase> getPatientConsultantCases(String pid) {
-        return null;
+        ArrayList<ConsultantCase> res = ConsultantCases.getAll();
+        for (int i = res.size()-1; i >= 0 ; i--) {
+            if (!res.get(i).getPatient().getUsername().equals(pid))
+                res.remove(i);
+        }
+        return res;
     }
 
     @Override
     public ArrayList<ConsultantCase> getDoctorConsultantCases(String did) {
-        return null;
+        ArrayList<ConsultantCase> res = ConsultantCases.getAll();
+        for (int i = res.size()-1; i >= 0 ; i--) {
+            if (!res.get(i).getDoctor().getUsername().equals(did))
+                res.remove(i);
+        }
+        return res;
     }
 
     @Override

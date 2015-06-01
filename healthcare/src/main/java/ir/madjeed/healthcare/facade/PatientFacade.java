@@ -22,7 +22,7 @@ public class PatientFacade {
         ArrayList<User> allUsers = patientRelated.getAllNormalDoctors();
         ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
         for (int i = 0; i < allUsers.size(); i++) {
-            result.add(new Pair<String, String>(allUsers.get(i).getUsername(), allUsers.get(i).getName()+" "+allUsers.get(i).getFamily()));
+            result.add(new Pair<String, String>(allUsers.get(i).getUsername(), allUsers.get(i).getFullName()));
         }
         return result;
     }
@@ -46,6 +46,15 @@ public class PatientFacade {
             patientRelated.finishPatientCurrentNormalSupervision(patient_username);
         }
         patientRelated.makeSupervisionRequest(patient_username,doctor_username, detail);
+    }
+
+    public ArrayList<Pair<String, String>> getPatientAllDoctors(String pid){ // including normal and expert
+        ArrayList<User> allUsers = patientRelated.getPatientAllDoctors(pid);
+        ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
+        for (int i = 0; i < allUsers.size(); i++) {
+            result.add(new Pair<String, String>(allUsers.get(i).getUsername(), allUsers.get(i).getFullName()));
+        }
+        return result;
     }
 }
 

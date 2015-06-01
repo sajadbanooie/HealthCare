@@ -1,10 +1,11 @@
-package ir.madjeed.healthcare.gui.patient;
+package ir.madjeed.healthcare.gui.consultant;
 
 import android.util.Pair;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import butterknife.InjectView;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
+import ir.madjeed.healthcare.facade.ConsultantFacade;
 import ir.madjeed.healthcare.facade.DoctorFacade;
 import ir.madjeed.healthcare.facade.PatientFacade;
 import ir.madjeed.healthcare.gui.base.BaseActivity;
@@ -25,6 +26,7 @@ public class AddConsultantActivity extends BaseActivity {
 
     private DoctorFacade doctorFacade;
     private PatientFacade patientFacade;
+    private ConsultantFacade consultantFacade;
 
     private ArrayList<Pair<String, String>> audiences;
 
@@ -32,12 +34,12 @@ public class AddConsultantActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         doctorFacade = new DoctorFacade(this);
         patientFacade = new PatientFacade(this);
+        consultantFacade = new ConsultantFacade(this);
         super.onCreate(savedInstanceState);
 
-        //TODO loading from db
         ArrayList<String> spinnerArray = new ArrayList<String>();
         if (role.equals("بیمار")){
-//            audiences = doctorFacade.getDoctorPatients(username);
+            audiences = patientFacade.getPatientAllDoctors(username);
         }else{
             audiences = doctorFacade.getDoctorPatients(username);
         }
@@ -69,8 +71,13 @@ public class AddConsultantActivity extends BaseActivity {
             showMessage("error", "پیام نمی تواند خالی باشد.");
         }else{
             String audience_id = audiences.get(audience_spinner.getSelectedItemPosition()).first;
-            doctorFacade.addConsultant(username, audience_id,
+            if (sender=="doctor"){
+                consultantFacade.addConsultant(username, audience_id,
                     subject.getText().toString(), your_message.getText().toString(), sender);
+            }else{
+                consultantFacade.addConsultant(audience_id, username,
+                        subject.getText().toString(), your_message.getText().toString(), sender);
+            }
             finish();
         }
     }
