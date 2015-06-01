@@ -16,10 +16,11 @@ public class ConsultantMessagePersistent extends ConsultantMessage {
     @DatabaseField(generatedId = true, columnName = "pk_column")
     private int id;
 
-    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
+    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true,
+            foreignAutoCreate = true)
     private ConsultantCasePersistent consultantCase;
 
-    @DatabaseField(foreign = true, canBeNull = false, foreignAutoRefresh = true)
+    @DatabaseField
     private String detail;
 
     @DatabaseField

@@ -2,7 +2,9 @@ package ir.madjeed.healthcare.facade;
 
 import android.content.Context;
 import android.util.Pair;
+import ir.madjeed.healthcare.logic.domain.ConsultantRelated;
 import ir.madjeed.healthcare.logic.domain.DoctorRelated;
+import ir.madjeed.healthcare.logic.domain.impl.persistent.ConsultantRelatedPersistent;
 import ir.madjeed.healthcare.logic.domain.impl.persistent.DoctorRelatedPersistent;
 import ir.madjeed.healthcare.logic.entity.Supervision;
 import ir.madjeed.healthcare.logic.entity.SupervisionRequest;
@@ -15,9 +17,11 @@ import java.util.ArrayList;
  */
 public class DoctorFacade {
     private DoctorRelated doctorRelated;
+    private ConsultantRelated consultantRelated;
 
     public DoctorFacade(Context context) {
         this.doctorRelated = new DoctorRelatedPersistent(context);
+        this.consultantRelated = new ConsultantRelatedPersistent(context);
     }
 
     public ArrayList<Pair<String, String>> getDoctorSupervisionRequests(String did){  // first = id, second = name
@@ -47,9 +51,13 @@ public class DoctorFacade {
         ArrayList<User> res = doctorRelated.getDoctorPatients(did);
         ArrayList<Pair<String, String>> result = new ArrayList<Pair<String, String>>();
         for (int i = 0; i < res.size(); i++) {
-            result.add(new Pair<String, String>(String.valueOf(res.get(i).getUsername()), res.get(i).getName()+""+res.get(i).getFamily()));
+            result.add(new Pair<String, String>(String.valueOf(res.get(i).getUsername()), res.get(i).getFullName()));
         }
         return result;
+    }
+
+    public void addConsultant(String did, String pid, String subject, String initialMessage, String sender){
+        consultantRelated.addConsultantCase(did, pid, subject, initialMessage, sender);
     }
 }
 
