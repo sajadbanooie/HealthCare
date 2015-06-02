@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.Pair;
 import ir.madjeed.healthcare.R;
 import ir.madjeed.healthcare.facade.DoctorFacade;
-import ir.madjeed.healthcare.facade.MessageFacade;
 import ir.madjeed.healthcare.gui.base.BaseListActivity;
 
 import java.util.ArrayList;

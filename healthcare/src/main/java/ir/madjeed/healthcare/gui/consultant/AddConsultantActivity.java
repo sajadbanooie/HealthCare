@@ -12,8 +12,6 @@ import ir.madjeed.healthcare.gui.base.BaseActivity;
 import android.os.Bundle;
 import ir.madjeed.healthcare.R;
 import butterknife.OnClick;
-import ir.madjeed.healthcare.logic.domain.DoctorRelated;
-import ir.madjeed.healthcare.logic.domain.PatientRelated;
 
 import java.util.ArrayList;
 
